@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+$color-bases: (
+  "purple": #845ec2,
+  "green": #4d8076,
+  "red": #b15969,
+);
+
+@each $base-name, $base-color in $color-bases {
+  $color-variations: (
+    "darken-4": darken($base-color, 40%),
+    "darken-3": darken($base-color, 30%),
+    "darken-2": darken($base-color, 20%),
+    "darken-1": darken($base-color, 10%),
+    "base-color": $base-color,
+    "lighten-1": lighten($base-color, 10%),
+    "lighten-2": lighten($base-color, 20%),
+    "lighten-3": lighten($base-color, 30%),
+    "lighten-4": lighten($base-color, 40%),
+  );
+
+  .container-#{$base-name} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+
+    @each $name, $color in $color-variations {
+      .#{$name} {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  color: #00c9a7;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.box.base-color {
+  width: 150px;
+  color: white;
+}
