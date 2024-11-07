@@ -1,3 +1,5 @@
+@use "sass:color" as *;
+
 body {
   margin: 0;
   padding: 0;
@@ -12,15 +14,15 @@ $color-bases: (
 
 @each $base-name, $base-color in $color-bases {
   $color-variations: (
-    "darken-4": darken($base-color, 40%),
-    "darken-3": darken($base-color, 30%),
-    "darken-2": darken($base-color, 20%),
-    "darken-1": darken($base-color, 10%),
+    "darken-4": scale($base-color, $lightness: -60%),
+    "darken-3": scale($base-color, $lightness: -45%),
+    "darken-2": scale($base-color, $lightness: -30%),
+    "darken-1": scale($base-color, $lightness: -15%),
     "base-color": $base-color,
-    "lighten-1": lighten($base-color, 10%),
-    "lighten-2": lighten($base-color, 20%),
-    "lighten-3": lighten($base-color, 30%),
-    "lighten-4": lighten($base-color, 40%),
+    "lighten-1": scale($base-color, $lightness: 15%),
+    "lighten-2": scale($base-color, $lightness: 30%),
+    "lighten-3": scale($base-color, $lightness: 45%),
+    "lighten-4": scale($base-color, $lightness: 60%),
   );
 
   .container-#{$base-name} {
