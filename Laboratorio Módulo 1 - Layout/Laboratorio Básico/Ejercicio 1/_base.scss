@@ -1,0 +1,19 @@
+@use "sass:color" as *;
+
+$color-bases: (
+  "purple": #845ec2,
+  "green": #4d8076,
+  "red": #b15969,
+);
+
+@mixin generate-variatons($base-color, $type, $multiplier) {
+  @for $i from 1 through 4 {
+    .#{$type}-#{$i} {
+      @if $type == "darken" {
+        background-color: scale($base-color, $lightness: -($i * $multiplier));
+      } @else if $type == "lighten" {
+        background-color: scale($base-color, $lightness: $i * $multiplier);
+      }
+    }
+  }
+}

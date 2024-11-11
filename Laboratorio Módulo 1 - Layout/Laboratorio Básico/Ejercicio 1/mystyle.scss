@@ -1,4 +1,4 @@
-@use "sass:color" as *;
+@use "base" as *;
 
 body {
   background-color: #121212;
@@ -6,12 +6,6 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-$color-bases: (
-  "purple": #845ec2,
-  "green": #4d8076,
-  "red": #b15969,
-);
 
 @each $base-name, $base-color in $color-bases {
   .container-#{$base-name} {
@@ -21,21 +15,11 @@ $color-bases: (
     gap: 10px;
     margin: 10px;
 
-    @for $i from 1 through 4 {
-      .darken-#{$i} {
-        background-color: scale($base-color, $lightness: -($i * 15%));
-      }
-    }
-
+    @include generate-variatons($base-color, "darken", 15%);
     .base-color {
       background-color: $base-color;
     }
-
-    @for $i from 1 through 4 {
-      .lighten-#{$i} {
-        background-color: scale($base-color, $lightness: $i * 15%);
-      }
-    }
+    @include generate-variatons($base-color, "lighten", 15%);
   }
 }
 
