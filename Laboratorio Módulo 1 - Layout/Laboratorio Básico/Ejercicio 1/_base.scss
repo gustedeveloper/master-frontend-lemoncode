@@ -6,14 +6,23 @@ $color-bases: (
   "red": #b15969,
 );
 
+@function set-color($base-color, $type, $multiplier) {
+  @if $type == "darken" {
+    @return scale($base-color, $lightness: -$multiplier);
+  } @else if $type == "lighten" {
+    @return scale($base-color, $lightness: $multiplier);
+  }
+  @return $base-color;
+}
+
 @mixin generate-variatons($base-color, $type, $multiplier) {
   @for $i from 1 through 4 {
     .#{$type}-#{$i} {
-      @if $type == "darken" {
-        background-color: scale($base-color, $lightness: -($i * $multiplier));
-      } @else if $type == "lighten" {
-        background-color: scale($base-color, $lightness: $i * $multiplier);
-      }
+      $new-color: set-color($base-color, $type, $i * $multiplier);
+      $complementary-color: complement($new-color);
+
+      background-color: $new-color;
+      color: $complementary-color;
     }
   }
 }

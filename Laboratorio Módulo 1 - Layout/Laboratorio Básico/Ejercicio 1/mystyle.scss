@@ -1,4 +1,5 @@
 @use "base" as *;
+@use "sass:color" as *;
 
 body {
   background-color: #121212;
@@ -29,7 +30,6 @@ body {
   align-items: center;
   width: 100px;
   height: 100px;
-  color: #00c9a7;
   padding: 5px;
   border-radius: 5px;
 }
