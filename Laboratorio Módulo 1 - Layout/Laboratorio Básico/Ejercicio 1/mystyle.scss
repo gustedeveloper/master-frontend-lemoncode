@@ -14,18 +14,6 @@ $color-bases: (
 );
 
 @each $base-name, $base-color in $color-bases {
-  $color-variations: (
-    "darken-4": scale($base-color, $lightness: -60%),
-    "darken-3": scale($base-color, $lightness: -45%),
-    "darken-2": scale($base-color, $lightness: -30%),
-    "darken-1": scale($base-color, $lightness: -15%),
-    "base-color": $base-color,
-    "lighten-1": scale($base-color, $lightness: 15%),
-    "lighten-2": scale($base-color, $lightness: 30%),
-    "lighten-3": scale($base-color, $lightness: 45%),
-    "lighten-4": scale($base-color, $lightness: 60%),
-  );
-
   .container-#{$base-name} {
     display: flex;
     justify-content: center;
@@ -33,9 +21,19 @@ $color-bases: (
     gap: 10px;
     margin: 10px;
 
-    @each $name, $color in $color-variations {
-      .#{$name} {
-        background-color: $color;
+    @for $i from 1 through 4 {
+      .darken-#{$i} {
+        background-color: scale($base-color, $lightness: -($i * 15%));
+      }
+    }
+
+    .base-color {
+      background-color: $base-color;
+    }
+
+    @for $i from 1 through 4 {
+      .lighten-#{$i} {
+        background-color: scale($base-color, $lightness: $i * 15%);
       }
     }
   }
