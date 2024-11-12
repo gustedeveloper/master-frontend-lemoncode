@@ -1,4 +1,4 @@
-## Laboratorio Módulo 1 Layout - Laboratorio Básico
+## Master Front End XVII - Módulo 1 Layout - Laboratorio Básico
 
 Este laboratorio tiene como objetivo practicar la creación de componentes y temas dinámicos utilizando CSS y SASS. Se abordarán diferentes técnicas de diseño y maquetación, enfocándose en la creación de paletas de colores, temas dinámicos, barras de navegación responsive y el uso de CSS Grid y Flexbox.
 
