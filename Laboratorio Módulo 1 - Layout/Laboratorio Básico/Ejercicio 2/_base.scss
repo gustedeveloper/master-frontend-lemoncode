@@ -1,8 +1,11 @@
+@use "sass:color" as *;
+
 $base-color-1: #845ec2;
 $base-color-2: #4d8076;
 
 @mixin flexbox {
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -16,4 +19,18 @@ $base-color-2: #4d8076;
   padding: 20px;
   width: 150px;
   height: 100px;
+}
+
+@function set-color($base-color, $type, $multiplier) {
+  @if $type == "important" {
+    @return scale($base-color, $lightness: -$multiplier);
+  } @else if $type == "warning" {
+    @return scale($base-color, $lightness: $multiplier);
+  }
+  @return $base-color;
+}
+
+@mixin generate-variations($base-color, $type, $multiplier) {
+  $new-color: set-color($base-color, $type, $multiplier);
+  background-color: $new-color;
 }

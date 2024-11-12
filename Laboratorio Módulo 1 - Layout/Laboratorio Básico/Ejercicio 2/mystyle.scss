@@ -9,3 +9,16 @@ body {
   background-color: $base-color-1;
   border-radius: 5px;
 }
+
+.important {
+  @include generate-variations($base-color-1, "important", 50%);
+}
+
+.warning {
+  @include generate-variations($base-color-1, "warning", 50%);
+}
+
+.shadow {
+  box-shadow: -15px 10px 20px;
+  background-color: white;
+}
