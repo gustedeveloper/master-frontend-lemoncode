@@ -1,6 +1,6 @@
 ## Laboratorio Básico Layout - Ejercicio 4
 
-Este proyecto consiste en crear un sistema de tarjetas utilizando CSS Grid. La estructura de las tarjetas y la disposición de los elementos dentro de ellas se gestionan mediante CSS Grid para ofrecer una distribución responsiva y eficiente. Además, se aplican `media queries` para ajustar el diseño según el tamaño de la pantalla.
+Este ejercicio consiste en crear un sistema de tarjetas utilizando CSS Grid. La estructura de las tarjetas y la disposición de los elementos dentro de ellas se gestionan mediante CSS Grid para ofrecer una distribución responsiva y eficiente. Además, se aplican `media queries` para ajustar el diseño según el tamaño de la pantalla.
 
 ### Uso de Grid
 
