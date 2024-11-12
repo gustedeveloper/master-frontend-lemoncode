@@ -1,4 +1,4 @@
-## Ejercicio de SASS - Ejercicio 2: Temas
+## Laboratorio Básico Layout - Ejercicio 2: Temas
 
 Este proyecto incluye dos temas distintos (verde y púrpura) que modifican las propiedades de color, fuente, `border-radius` y `box-shadow` de los elementos de la página. Puedes cambiar el tema actualizando el enlace al archivo de estilos correspondiente en el HTML.
 
