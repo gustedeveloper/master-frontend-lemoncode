@@ -7,7 +7,7 @@ body {
 .box {
   @extend .box;
   background-color: $base-color-2;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .important {
@@ -16,6 +16,14 @@ body {
 
 .warning {
   @include generate-variations($base-color-2, "warning", 50%);
+}
+
+.principal {
+  font-family: $font-principal-2;
+}
+
+.secondary {
+  font-family: $font-secondary-2;
 }
 
 .shadow {

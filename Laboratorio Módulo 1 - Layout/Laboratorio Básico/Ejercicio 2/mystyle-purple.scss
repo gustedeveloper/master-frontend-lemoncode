@@ -18,7 +18,15 @@ body {
   @include generate-variations($base-color-1, "warning", 50%);
 }
 
+.principal {
+  font-family: $font-principal-1;
+}
+
+.secondary {
+  font-family: $font-secondary-1;
+}
+
 .shadow {
-  box-shadow: -15px 10px 20px;
   background-color: white;
+  box-shadow: -15px 10px 20px;
 }
