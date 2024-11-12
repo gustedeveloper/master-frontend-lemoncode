@@ -1,0 +1,11 @@
+@use "base" as *;
+
+body {
+  @include flexbox;
+}
+
+.box {
+  @extend .box;
+  background-color: $base-color-2;
+  border-radius: 10px;
+}
