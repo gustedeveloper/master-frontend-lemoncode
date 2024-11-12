@@ -1,11 +1,11 @@
 :root {
   --bg-color: #edede9;
   --container-bg-color: #eae0d5;
-  --font-color-dark: #22223b;
-  --font-color-light: #9a8c98;
+  --primary-color: #22223b;
+  --secondary-color: #9a8c98;
   --text-color: #50484f;
   --button-color: #4a4e69;
-  --border-color: #c9ada7;
+  --card-border-color: #c9ada7;
 }
 
 body {
@@ -18,9 +18,8 @@ body {
 
 h1 {
   font-size: 56px;
-  display: flex;
-  justify-content: center;
-  color: var(--font-color-dark);
+  text-align: center;
+  color: var(--primary-color);
 }
 
 .grid-container {
@@ -34,7 +33,7 @@ h1 {
 }
 
 .container {
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--card-border-color);
   box-sizing: border-box;
   display: grid;
   grid-template-rows: 2fr 1fr 3fr repeat(2, 1fr);
@@ -57,7 +56,7 @@ img {
 }
 
 .title {
-  color: var(--font-color-dark);
+  color: var(--primary-color);
   font-weight: lighter;
   align-self: center;
 }
@@ -72,13 +71,13 @@ p {
   color: var(--text-color);
 }
 .date {
-  color: var(--font-color-dark);
+  color: var(--primary-color);
   justify-self: end;
   align-self: center;
 }
 
 .white {
-  color: var(--font-color-light);
+  color: var(--secondary-color);
 }
 
 button {
@@ -93,7 +92,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--font-color-dark);
+  background-color: var(--primary-color);
 }
 
 @media (max-width: 1076px) {
