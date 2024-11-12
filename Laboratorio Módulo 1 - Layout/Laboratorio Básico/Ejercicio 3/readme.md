@@ -1,6 +1,6 @@
 ## Laboratorio Básico Layout - Ejercicio 3
 
-Este proyecto tiene como objetivo crear una barra de navegación responsive utilizando HTML y CSS con Flexbox.
+Este ejercicio tiene como objetivo crear una barra de navegación responsive utilizando HTML y CSS con Flexbox.
 
 ### Media Queries
 
