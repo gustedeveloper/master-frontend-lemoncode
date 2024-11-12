@@ -1,8 +1,8 @@
-##Ejercicio de SASS - Ejercicio 2: Temas
+## Ejercicio de SASS - Ejercicio 2: Temas
 
 Este proyecto incluye dos temas distintos (verde y púrpura) que modifican las propiedades de color, fuente, `border-radius` y `box-shadow` de los elementos de la página. Puedes cambiar el tema simplemente actualizando el enlace al archivo de estilos correspondiente en el HTML.
 
-###Instrucciones para cambiar de tema
+### Instrucciones para cambiar de tema
 
 Para cambiar entre los temas verde y púrpura, sigue estos pasos:
 
