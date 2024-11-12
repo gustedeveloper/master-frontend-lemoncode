@@ -1,0 +1,19 @@
+$base-color-1: #845ec2;
+$base-color-2: #4d8076;
+
+@mixin flexbox {
+  color: black;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  border: 1px solid black;
+  padding: 20px;
+  width: 150px;
+  height: 100px;
+}
