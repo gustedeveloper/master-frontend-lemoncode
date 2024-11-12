@@ -1,28 +1,26 @@
+:root {
+  --bg-color: #edede9;
+  --container-bg-color: #eae0d5;
+  --font-color-dark: #22223b;
+  --font-color-light: #9a8c98;
+  --text-color: #50484f;
+  --button-color: #4a4e69;
+  --border-color: #c9ada7;
+}
+
 body {
-  background: #f7ede2;
+  background: var(--bg-color);
   padding: 0px;
   margin: 0px;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-nav {
-  display: flex;
-  padding: 20px;
-  justify-content: space-around;
-  background-color: #4a4e69;
-  color: #f2e9e4;
-}
-
-nav span:hover {
-  background-color: #22223b;
-}
-
 h1 {
   font-size: 56px;
   display: flex;
   justify-content: center;
-  color: #22223b;
+  color: var(--font-color-dark);
 }
 
 .grid-container {
@@ -36,12 +34,11 @@ h1 {
 }
 
 .container {
-  color: black;
-  border: 2px solid #c9ada7;
+  border: 2px solid var(--border-color);
   box-sizing: border-box;
   display: grid;
   grid-template-rows: 2fr 1fr 3fr repeat(2, 1fr);
-  background-color: #f2e9e4;
+  background-color: var(--container-bg-color);
   width: 270px;
   height: 550px;
 }
@@ -60,6 +57,7 @@ img {
 }
 
 .title {
+  color: var(--font-color-dark);
   font-weight: lighter;
   align-self: center;
 }
@@ -71,38 +69,40 @@ p {
 .text {
   line-height: 1.4;
   align-self: center;
-  color: #50484f;
+  color: var(--text-color);
 }
 .date {
+  color: var(--font-color-dark);
   justify-self: end;
   align-self: center;
 }
 
 .white {
-  color: #9a8c98;
+  color: var(--font-color-light);
 }
 
 button {
   width: 150px;
   justify-self: center;
   cursor: pointer;
-  color: #f2e9e4;
-  background-color: #4a4e69;
+  color: var(--container-bg-color);
+  background-color: var(--button-color);
   margin-bottom: 15px;
   border: none;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #22223b;
+  background-color: var(--font-color-dark);
 }
 
-@media (max-width: 976px) {
+@media (max-width: 1076px) {
   .grid-container {
     grid-template-columns: repeat(2, 300px);
   }
 }
 
-@media (max-width: 676px) {
+@media (max-width: 796px) {
   .grid-container {
     grid-template-columns: 300px;
   }
