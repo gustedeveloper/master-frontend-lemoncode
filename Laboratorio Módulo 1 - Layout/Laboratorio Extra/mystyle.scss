@@ -1,5 +1,6 @@
 $accent-color: #d9d900;
 $primary-color: #10242b;
+$secondary-color: #ffff;
 $bg-color: #f7f7f5;
 $text-color: black;
 
@@ -40,4 +41,34 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
+}
+
+.list {
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  & .card {
+    width: 200px;
+    height: 150px;
+    padding: 10px;
+    background-color: $secondary-color;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      border-radius: 50%;
+    }
+
+    & .member-name {
+      padding-top: 10px;
+      text-align: center;
+    }
+  }
 }
