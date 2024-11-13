@@ -36,7 +36,7 @@ h1 {
   border: 2px solid var(--card-border-color);
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: 2fr 1fr 3fr repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   background-color: var(--container-bg-color);
   width: 270px;
   height: 550px;
