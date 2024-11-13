@@ -1,3 +1,43 @@
+$accent-color: #d9d900;
+$primary-color: #10242b;
+$bg-color: #f7f7f5;
+$text-color: black;
+
 body {
-  background-color: aquamarine;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $bg-color;
+}
+
+.toolbar {
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
+  align-items: center;
+
+  & input {
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    transition: border 0.3s ease;
+
+    &:hover {
+      border: 1px solid $primary-color;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
+.page-title {
+  background-color: $accent-color;
+  color: $primary-color;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
 }
