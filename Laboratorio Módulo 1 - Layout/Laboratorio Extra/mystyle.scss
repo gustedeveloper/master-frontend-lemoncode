@@ -43,6 +43,29 @@ body {
   padding: 20px;
 }
 
+.page-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "nav main main main main"
+    "nav main main main main"
+    "nav main main main main"
+    "footer footer footer footer footer";
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
 .list {
   padding: 25px;
   display: flex;
