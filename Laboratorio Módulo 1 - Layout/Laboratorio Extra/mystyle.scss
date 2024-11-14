@@ -7,9 +7,37 @@ $text-color: black;
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   background-color: $bg-color;
+}
+
+.page-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 125px 1fr 50px;
+  grid-template-areas:
+    "header header"
+    "nav main"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
 }
 
 .toolbar {
@@ -41,29 +69,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
-}
-
-.page-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-    "nav main main main main"
-    "nav main main main main"
-    "nav main main main main"
-    "footer footer footer footer footer";
-}
-
-nav {
-  grid-area: nav;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
 }
 
 .list {
