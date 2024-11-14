@@ -31,6 +31,9 @@ body {
 
   & nav {
     grid-area: nav;
+    position: sticky;
+    top: 0;
+    align-self: start;
   }
 
   & main {
