@@ -1,6 +1,9 @@
+@use "sass:color" as *;
+
 $accent-color: #d9d900;
 $primary-color: #10242b;
 $secondary-color: #ffff;
+$tertiary-color: #fdf0d5;
 $bg-color: #f7f7f5;
 $text-color: black;
 
@@ -78,20 +81,25 @@ body {
 
   & .menu-title {
     font-size: 18px;
-    padding: 10px;
-    color: $secondary-color;
-    text-align: center;
+    padding: 15px;
+    color: $tertiary-color;
   }
 
   & ul {
     margin: 0;
     padding: 0;
-    background-color: $accent-color;
 
     & li {
+      background-color: $tertiary-color;
       padding: 15px;
       list-style: none;
       border-bottom: 1px solid gray;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: scale($tertiary-color, $lightness: -10%);
+      }
     }
   }
 }
@@ -124,4 +132,9 @@ body {
       text-align: center;
     }
   }
+}
+
+footer {
+  background-color: $tertiary-color;
+  padding: 15px;
 }
