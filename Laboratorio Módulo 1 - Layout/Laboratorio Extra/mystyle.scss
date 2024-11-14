@@ -16,28 +16,27 @@ body {
 .page-container {
   display: grid;
   height: 100%;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 125px 1fr 50px;
   grid-template-areas:
     "header header"
     "nav main"
     "footer footer";
-}
+  & header {
+    grid-area: header;
+  }
 
-header {
-  grid-area: header;
-}
+  & nav {
+    grid-area: nav;
+  }
 
-nav {
-  grid-area: nav;
-}
+  & main {
+    grid-area: main;
+  }
 
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
+  & footer {
+    grid-area: footer;
+  }
 }
 
 .toolbar {
@@ -69,6 +68,32 @@ footer {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
+}
+
+.menu-container {
+  height: 100%;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+
+  & .menu-title {
+    font-size: 18px;
+    padding: 10px;
+    color: $secondary-color;
+    text-align: center;
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+    background-color: $accent-color;
+
+    & li {
+      padding: 15px;
+      list-style: none;
+      border-bottom: 1px solid gray;
+    }
+  }
 }
 
 .list {
