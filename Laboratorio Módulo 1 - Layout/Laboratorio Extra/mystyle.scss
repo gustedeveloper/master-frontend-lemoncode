@@ -146,7 +146,7 @@ footer {
   .page-container {
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 68px 80px 1fr 50px;
+    grid-template-rows: 68px 78px 1fr 50px;
     grid-template-areas:
       "header"
       "nav"
@@ -167,11 +167,11 @@ footer {
       justify-content: space-around;
       align-items: center;
       padding: 15px;
-      border: 0px;
 
       & li {
         width: 80px;
         text-align: center;
+        border: none;
       }
     }
   }
