@@ -105,7 +105,7 @@ body {
 
 .list {
   gap: 20px;
-  padding: 25px 40px 25px 40px;
+  padding: 30px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -136,4 +136,55 @@ body {
 footer {
   background-color: $tertiary-color;
   padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .toolbar,
+  .menu-title {
+    display: none;
+  }
+  .page-container {
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 68px 80px 1fr 50px;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+
+    & nav {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  .menu-container {
+    background-color: $primary-color;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px;
+      border: 0px;
+
+      & li {
+        width: 80px;
+        text-align: center;
+      }
+    }
+  }
+
+  .list {
+    gap: 5px;
+    & .card {
+      padding: 0px 30px;
+      gap: 20px;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      border: none;
+    }
+  }
 }
