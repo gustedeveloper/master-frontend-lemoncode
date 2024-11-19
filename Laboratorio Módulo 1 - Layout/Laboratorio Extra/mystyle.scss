@@ -10,7 +10,7 @@ $text-color: black;
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   background-color: $bg-color;
@@ -18,7 +18,7 @@ body {
 
 .page-container {
   display: grid;
-  height: 100%;
+  height: 100vh;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 125px 1fr 50px;
   grid-template-areas:
@@ -30,10 +30,8 @@ body {
   }
 
   & nav {
+    background-color: $primary-color;
     grid-area: nav;
-    position: sticky;
-    top: 0;
-    align-self: start;
   }
 
   & main {
@@ -77,10 +75,8 @@ body {
 }
 
 .menu-container {
-  height: 100%;
-  background-color: $primary-color;
-  display: flex;
-  flex-direction: column;
+  position: sticky;
+  top: 0;
 
   & .menu-title {
     font-size: 18px;
@@ -108,16 +104,16 @@ body {
 }
 
 .list {
-  padding: 25px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
   gap: 20px;
+  padding: 25px 40px 25px 40px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 
   & .card {
-    width: 200px;
+    width: 250px;
     height: 150px;
-    padding: 10px;
+    padding: 15px;
     background-color: $secondary-color;
     border: 1px solid $primary-color;
     border-radius: 5px;
