@@ -31,8 +31,7 @@ tail(countries);
 console.log("**INIT*");
 
 const init = (array) => {
-  const arrayCopy = [...array];
-  const allButNotLast = arrayCopy.splice(0, array.length - 1);
+  const allButNotLast = array.slice(0, -1);
   console.log(allButNotLast);
 };
 
@@ -43,8 +42,7 @@ init(countries);
 console.log("**LAST*");
 
 const last = (array) => {
-  const arrayCopy = [...array];
-  const lastElement = arrayCopy.splice(array.length - 1);
+  const lastElement = array[array.length - 1];
   console.log(lastElement);
 };
 
