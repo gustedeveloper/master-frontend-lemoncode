@@ -1,6 +1,6 @@
 console.log("************** DELIVERABLE 01 *********************");
 
-const numbers = [20, 33, 45, 56, 64];
+const numbers = [20, 33, 45, 56, 64, 71];
 const names = ["Pedro", "María", "Lucía", "Mario"];
 const countries = ["France", "Spain", "Portugal", "Greece", "Italy"];
 
