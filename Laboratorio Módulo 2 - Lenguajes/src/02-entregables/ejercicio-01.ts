@@ -9,8 +9,7 @@ const countries = ["France", "Spain", "Portugal", "Greece", "Italy"];
 console.log("**HEAD**");
 
 const head = (array) => {
-  const arrayCopy = [...array];
-  const [firstElement] = arrayCopy;
+  const [firstElement] = array;
   console.log(firstElement);
 };
 
@@ -21,8 +20,7 @@ head(countries);
 console.log("**TAIL**");
 
 const tail = (array) => {
-  const excludeFirstElement = ([_firstElement, ...rest]) => rest;
-  const rest = excludeFirstElement(array);
+  const [, ...rest] = array;
   console.log(rest);
 };
 
