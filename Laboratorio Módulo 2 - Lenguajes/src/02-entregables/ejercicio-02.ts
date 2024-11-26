@@ -14,8 +14,12 @@ const concat = (a, b) => {
 
 concat(arrayA, arrayB);
 
-/*const concatMoreThanTwo = (...arrays) => {
-  console.log(arrays);
+// Concat more than two
+
+const concatMoreThanTwo = (...arrays) => {
+  const totalArray = [];
+  arrays.map((array) => totalArray.push(...array));
+  console.log(totalArray);
 };
 
-concatMoreThanTwo(arrayA, arrayB, arrayC, arrayD);*/
+concatMoreThanTwo(arrayA, arrayB, arrayC, arrayD);
