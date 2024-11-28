@@ -4,19 +4,19 @@ console.log("************** DELIVERABLE 03 *********************");
 
 console.log("**Clone**");
 
-const person1 = {
+const person1: object = {
   name: "Chloe",
   surname: "Smith",
   country: "UK",
 };
 
-const person2 = {
+const person2: object = {
   name: "Sarah",
   age: 27,
   occupation: "Web Developer",
 };
 
-const clone = (source) => {
+const clone = (source: object): object => {
   const clone = { ...source };
   return clone;
 };
@@ -25,7 +25,7 @@ console.log(clone(person1));
 
 console.log("**Merge**");
 
-const merge = (source, target) => {
+const merge = (source: object, target: object): void => {
   const a = clone(source);
   const b = clone(target);
 

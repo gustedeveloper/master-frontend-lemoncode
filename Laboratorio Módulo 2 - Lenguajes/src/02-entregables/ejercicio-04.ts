@@ -13,7 +13,7 @@ const books: Books[] = [
   { title: "Devastación", isRead: true },
 ];
 
-const isBookRead = (books: Books[], titleToSearch: string) => {
+const isBookRead = (books: Books[], titleToSearch: string): boolean => {
   const foundBook = books.find((book) => book.title === titleToSearch);
   if (!foundBook) {
     return false;
