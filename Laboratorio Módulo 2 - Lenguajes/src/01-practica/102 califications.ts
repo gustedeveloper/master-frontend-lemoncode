@@ -34,21 +34,13 @@ const getAverage = (marks) => {
 };
 
 const compareAverageAndGetMessage = (average) => {
-  if (average === 10) {
-    return "Matricula de honor";
-  } else if (average > 9 && average < 10) {
-    return "Sobresaliente";
-  } else if (average > 7 && average < 9) {
-    return "Notable";
-  } else if (average > 6 && average < 7) {
-    return "Bien";
-  } else if (average > 5 && average < 6) {
-    return "Suficiente";
-  } else if (average > 4 && average < 5) {
-    return "Insuficiente";
-  } else {
-    return "Muy deficiente";
-  }
+  if (average === 10) return "Matricula de honor";
+  if (average >= 9) return "Sobresaliente";
+  if (average >= 7) return "Notable";
+  if (average >= 6) return "Bien";
+  if (average >= 5) return "Suficiente";
+  if (average >= 4) return "Insuficiente";
+  return "Muy deficiente";
 };
 
 const printAverage = (classResults) => {
