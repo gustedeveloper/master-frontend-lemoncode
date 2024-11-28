@@ -1,4 +1,5 @@
-import "./01-practica/ejercicio.js";
+import "./01-practica/101 biggest-word.js";
+import "./01-practica/114 values.js";
 import "./02-entregables/ejercicio-01.js";
 import "./02-entregables/ejercicio-02.js";
 import "./02-entregables/ejercicio-03.js";
