@@ -13,9 +13,9 @@ const head = <T>(array: T[]): void => {
   console.log(firstElement);
 };
 
-head(numbers);
-head(names);
-head(countries);
+head<number>(numbers);
+head<string>(names);
+head<string>(countries);
 
 console.log("**TAIL**");
 
@@ -24,28 +24,28 @@ const tail = <T>(array: T[]): void => {
   console.log(rest);
 };
 
-tail(numbers);
-tail(names);
-tail(countries);
+tail<number>(numbers);
+tail<string>(names);
+tail<string>(countries);
 
 console.log("**INIT*");
 
-const init = <T>(array: T[]) => {
+const init = <T>(array: T[]): void => {
   const allButNotLast = array.slice(0, -1);
   console.log(allButNotLast);
 };
 
-init(numbers);
-init(names);
-init(countries);
+init<number>(numbers);
+init<string>(names);
+init<string>(countries);
 
 console.log("**LAST*");
 
-const last = <T>(array: T[]) => {
+const last = <T>(array: T[]): void => {
   const lastElement = array[array.length - 1];
   console.log(lastElement);
 };
 
-last(numbers);
-last(names);
-last(countries);
+last<number>(numbers);
+last<string>(names);
+last<string>(countries);
