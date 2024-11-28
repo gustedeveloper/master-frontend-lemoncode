@@ -2,13 +2,18 @@ console.log("************** DELIVERABLE 04 *********************");
 
 // 4. Read books
 
-const books = [
+interface Books {
+  title: string;
+  isRead: boolean;
+}
+
+const books: Books[] = [
   { title: "Harry Potter y la piedra filosofal", isRead: true },
   { title: "Canción de hielo y fuego", isRead: false },
   { title: "Devastación", isRead: true },
 ];
 
-const isBookRead = (books, titleToSearch) => {
+const isBookRead = (books: Books[], titleToSearch: string) => {
   const foundBook = books.find((book) => book.title === titleToSearch);
   if (!foundBook) {
     return false;
