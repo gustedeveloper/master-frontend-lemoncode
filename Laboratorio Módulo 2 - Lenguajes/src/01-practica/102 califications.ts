@@ -1,6 +1,16 @@
 console.log("#Califications");
 
-const eso2o = {
+type Students = {
+  David: number;
+  Maria: number;
+  Jose: number;
+  Juan: number;
+  Blanca: number;
+  Carmen: number;
+  [key: string]: number;
+};
+
+const eso2o: Students = {
   David: 8.25,
   Maria: 9.5,
   Jose: 6.75,
@@ -9,8 +19,8 @@ const eso2o = {
   Carmen: 8,
 };
 
-const getMarks = (obj) => {
-  const listOfMarks = [];
+const getMarks = (obj: Students): Array<Students[keyof Students]> => {
+  const listOfMarks: Array<Students[keyof Students]> = [];
 
   for (const key in obj) {
     const value = obj[key];
@@ -20,11 +30,11 @@ const getMarks = (obj) => {
   return listOfMarks;
 };
 
-const sumMarks = (marks) => {
+const sumMarks = (marks: Array<Students[keyof Students]>) => {
   return marks.reduce((total, mark) => total + mark, 0);
 };
 
-const getAverage = (marks) => {
+const getAverage = (marks: Students): number => {
   const listOfMarks = getMarks(marks);
   const sum = sumMarks(listOfMarks);
   const numOfMarks = listOfMarks.length;
@@ -33,7 +43,7 @@ const getAverage = (marks) => {
   return average;
 };
 
-const compareAverageAndGetMessage = (average) => {
+const compareAverageAndGetMessage = (average: number): string => {
   if (average === 10) return "Matricula de honor";
   if (average >= 9) return "Sobresaliente";
   if (average >= 7) return "Notable";
@@ -43,7 +53,7 @@ const compareAverageAndGetMessage = (average) => {
   return "Muy deficiente";
 };
 
-const printAverage = (classResults) => {
+const printAverage = (classResults: Students) => {
   const average = getAverage(classResults);
   const message = compareAverageAndGetMessage(average);
   return `La nota media de la clase recibe una calificación final de ${message}`;
