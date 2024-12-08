@@ -1,40 +1,24 @@
-const composeGivenNumsArray = (from, to) => {
-  let numArray = [];
-  for (let i = from; i < to + 1; i++) {
-    numArray.push(i);
-  }
-  return numArray;
-};
+// isPrime function not optimized
 
 const isPrime = (num) => {
-  if (num === 0 || num === 1) {
-    return `${num} is not PRIME!`;
-  } else if (num === 2) {
-    return `${num} is PRIME!`;
-  }
-
-  let result;
-  let results = [];
+  if (num < 2) return false;
+  if (num === 2) return true;
 
   for (let i = 2; i < num; i++) {
-    result = num % i;
-    results.push(result);
-    i + 1;
+    if (num % i === 0) {
+      return false;
+    }
   }
-
-  return results.includes(0) ? `${num} is not PRIME!` : `${num} is PRIME!`;
+  return true;
 };
-
-// Final function not optimized
 
 /*const primes = (from, to) => {
-  let numArray = composeGivenNumsArray(from, to);
-  numArray.map((num) => {
-    console.log(isPrime(num));
-  });
+  for (let i = from; i <= to; i++) {
+    console.log(`${i} is ${isPrime(i) ? "PRIME!" : "not PRIME!"}`);
+  }
 };
 
-primes(0, 100); */
+primes(0, 100);*/
 
 // Challenge
 
