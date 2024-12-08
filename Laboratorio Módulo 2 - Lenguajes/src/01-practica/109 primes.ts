@@ -1,12 +1,3 @@
-const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-const primes = (from, to) => {
-  let numArray = composeGivenNumsArray(from, to);
-  numArray.map((num) => {
-    console.log(isPrime(num));
-  });
-};
-
 const composeGivenNumsArray = (from, to) => {
   let numArray = [];
   for (let i = from; i < to + 1; i++) {
@@ -32,6 +23,42 @@ const isPrime = (num) => {
   }
 
   return results.includes(0) ? `${num} is not PRIME!` : `${num} is PRIME!`;
+};
+
+// Final function not optimized
+
+/*const primes = (from, to) => {
+  let numArray = composeGivenNumsArray(from, to);
+  numArray.map((num) => {
+    console.log(isPrime(num));
+  });
+};
+
+primes(0, 100); */
+
+// Challenge
+
+const isPrimeRoot = (num) => {
+  if (num < 2) return false;
+  if (num === 2) return true;
+
+  const root = Math.floor(Math.sqrt(num));
+
+  for (let i = 2; i <= root; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+// Final function optimized
+
+const primes = (from, to) => {
+  for (let i = from; i <= to; i++) {
+    console.log(`${i} is ${isPrimeRoot(i) ? "PRIME!" : "not PRIME!"}`);
+  }
 };
 
 primes(0, 100);
