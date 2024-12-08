@@ -6,7 +6,8 @@
 //import "./01-practica/106 dices.js";
 //import "./01-practica/108 includes.js";
 //import "./01-practica/109 primes.js";
-import "./01-practica/111 reverse-text.js";
+//import "./01-practica/111 reverse-text.js";
+import "./01-practica/112 subsets.js";
 /*import "./01-practica/114 values.js";
 import "./02-entregables/ejercicio-01.js";
 import "./02-entregables/ejercicio-02.js";
