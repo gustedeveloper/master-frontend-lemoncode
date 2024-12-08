@@ -1,3 +1,5 @@
+console.log("#Primes");
+
 // isPrime function not optimized
 
 const isPrime = (num) => {
