@@ -16,7 +16,7 @@ const composeGivenNumsArray = (from, to) => {
 };
 
 const isPrime = (num) => {
-  if (num === 1) {
+  if (num === 0 || num === 1) {
     return `${num} is not PRIME!`;
   } else if (num === 2) {
     return `${num} is PRIME!`;
@@ -34,6 +34,4 @@ const isPrime = (num) => {
   return results.includes(0) ? `${num} is not PRIME!` : `${num} is PRIME!`;
 };
 
-console.log(isPrime(34));
-
-primes(60, 100);
+primes(0, 100);
