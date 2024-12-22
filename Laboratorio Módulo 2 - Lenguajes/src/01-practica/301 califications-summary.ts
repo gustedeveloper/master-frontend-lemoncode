@@ -31,16 +31,19 @@ const students: Student[] = [
 interface StudentSummary {
   name: string;
   higherMark: number;
-  average: number;
+  average: string;
 }
 
-const summarizeClassRoom = (studentList) => {
-  // Implementation here
+const summarizeClassRoom = (studentList: Student[]): StudentSummary[] => {
+  return studentList.map((student) => ({
+    name: student.name,
+    higherMark: getHighestCalification(student.califications),
+    average: getStudentAverage(student.califications),
+  }));
 };
 
 const getHighestCalification = (studentCalifations: number[]): number => {
-  let max = Math.max(...studentCalifations);
-  return max;
+  return Math.max(...studentCalifations);
 };
 
 const getStudentAverage = (studentCalifications: number[]): string => {
