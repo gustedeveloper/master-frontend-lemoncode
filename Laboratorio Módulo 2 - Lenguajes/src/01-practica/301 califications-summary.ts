@@ -43,6 +43,15 @@ const getHighestCalification = (studentCalifations: number[]): number => {
   return max;
 };
 
+const getStudentAverage = (studentCalifications: number[]): string => {
+  const sum = studentCalifications.reduce(
+    (total, calification) => total + calification,
+    0
+  );
+  const average = sum / studentCalifications.length;
+  return average.toPrecision(3);
+};
+
 console.log(summarizeClassRoom(students));
 // [
 //   { name: 'Juan', highestCalification: 9.71, averageCalifications: '5.37' },
