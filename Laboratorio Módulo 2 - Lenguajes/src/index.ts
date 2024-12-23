@@ -13,7 +13,8 @@
 //import "./01-practica/205 fibonacci.js";
 //import "./01-practica/209 swap.js";
 //import "./01-practica/301 califications-summary.js";
-import "./01-practica/302 curry-setter.js";
+//import "./01-practica/302 curry-setter.js";
+import "./01-practica/206 players-order.js";
 /*import "./01-practica/114 values.js";
 import "./02-entregables/ejercicio-01.js";
 import "./02-entregables/ejercicio-02.js";
