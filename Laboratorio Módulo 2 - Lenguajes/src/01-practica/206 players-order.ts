@@ -9,3 +9,14 @@ const getPlayersOrder = (players, turns) => {
 
 const newOrderIn2Turns = getPlayersOrder(["Ana", "Juan", "Pablo", "Lucia"], 2);
 console.log(newOrderIn2Turns); // ["Pablo", "Lucia", "Ana", "Juan"]
+
+const getPlayersOrderWithReminder = (players, turns) => {
+  const offset = turns % players.length;
+  return [...players.slice(offset), ...players.slice(0, offset)];
+};
+
+const newOrderInXTurns = getPlayersOrderWithReminder(
+  ["Ana", "Juan", "Pablo", "Lucia"],
+  7
+);
+console.log(newOrderInXTurns);
