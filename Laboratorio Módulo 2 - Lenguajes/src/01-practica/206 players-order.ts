@@ -20,3 +20,21 @@ const newOrderInXTurns = getPlayersOrderWithReminder(
   7
 );
 console.log(newOrderInXTurns);
+
+const getPlayersOrderWithDestructuring = (players, turns) => {
+  const offset = turns % players.length;
+
+  const [start, ...rest] = [
+    ...players.slice(offset),
+    ...players.slice(0, offset),
+  ];
+
+  return [start, ...rest];
+};
+
+const newOrderUsingDestructuring = getPlayersOrderWithDestructuring(
+  ["Ana", "Juan", "Pablo", "Lucia"],
+  6
+);
+
+console.log(newOrderUsingDestructuring);
