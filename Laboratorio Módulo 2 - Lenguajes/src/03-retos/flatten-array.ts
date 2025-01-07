@@ -1,11 +1,13 @@
+type NestedArray = number | NestedArray[];
+
 const sample = [1, [2, 3], [[4], [5, 6, [7, 8, [9]]]]];
 
-const result = [];
+function flattenArray(arr: NestedArray[]): number[] {
+  const result: number[] = [];
 
-function flattenArray(arr) {
   for (const item of arr) {
     if (Array.isArray(item)) {
-      flattenArray(item);
+      result.push(...flattenArray(item));
     } else {
       result.push(item);
     }
