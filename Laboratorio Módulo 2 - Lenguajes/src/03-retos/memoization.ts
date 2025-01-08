@@ -41,12 +41,17 @@ const repeatText = (repetitions: number, text: string): string => (
   count++, `${text} `.repeat(repetitions).trim()
 );
 
-const memoizeWithArguments = (f) => {
+type Primitive = number | string | boolean;
+
+const memoizeWithArguments = <T extends Primitive[], R>(
+  f: (...args: T) => R
+): ((...args: T) => R) => {
   const cache = new Map();
-  return function (...args) {
+
+  return function (...args: T): R {
     const key = JSON.stringify(args);
     if (cache.has(key)) {
-      return cache.get(key);
+      return cache.get(key)!;
     }
     const result = f(...args);
     cache.set(key, result);
