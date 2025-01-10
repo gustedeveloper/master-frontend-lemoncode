@@ -1,3 +1,5 @@
+import "./mystyles.scss";
+
 import { sum } from "./new-message.js";
 
 const name = "Guste";
