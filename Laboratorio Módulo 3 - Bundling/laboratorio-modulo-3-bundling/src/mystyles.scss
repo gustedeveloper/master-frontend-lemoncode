@@ -1,5 +1,15 @@
-$back-color: deepskyblue;
+$container-color: #ffafcc;
+$bg-color: #669bbc;
 
-.background {
-  background-color: $back-color;
+body {
+  background-color: $bg-color;
+  color: white;
+}
+
+.container {
+  background-color: $container-color;
+}
+
+img {
+  width: 200px;
 }
