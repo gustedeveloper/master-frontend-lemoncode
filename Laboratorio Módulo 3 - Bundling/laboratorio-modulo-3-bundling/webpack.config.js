@@ -1,9 +1,14 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import url from "url";
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 export default {
+  context: path.resolve(__dirname, "./src"),
   entry: {
-    app: "./src/index.js",
+    app: "./index.js",
   },
   output: {
     filename: "[name].[chunkhash].js",
@@ -32,7 +37,7 @@ export default {
     //Generate index.html in /dist =>  https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: "index.html", //Name of file in ./dist
-      template: "./src/index.html", //Name of template in ./src
+      template: "./index.html", //Name of template in ./src
       scriptLoading: "blocking", //Just use the blocking approach (no modern defer or module)
     }),
     new MiniCssExtractPlugin({
