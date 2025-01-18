@@ -15,7 +15,10 @@ const myObject = {
   },
 };
 
-const deepGet = (obj, ...keys) => {
+const deepGet = <O extends object>(
+  obj: O,
+  ...keys: Array<string | number>
+): any => {
   let current = obj;
   for (const key of keys) {
     if (current === null || !(key in current)) return undefined;
@@ -36,7 +39,11 @@ console.log("Section B - set");
 const myObject2 = {};
 const myObject3 = {};
 
-const deepSet = (value, obj, ...keys) => {
+const deepSet = (
+  value: any,
+  obj: Record<string | number | symbol, any>,
+  ...keys: Array<string | number>
+): void => {
   let current = obj;
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
