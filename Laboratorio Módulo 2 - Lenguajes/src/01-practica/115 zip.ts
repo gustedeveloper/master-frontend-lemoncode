@@ -1,11 +1,12 @@
 console.log("#Zip");
 
-const zipObject = (keys, values) => {
-  const obj = {};
-  values.map((value, index) => {
-    Object.defineProperty(obj, keys[index], {
-      value: value,
-    });
+const zipObject = (
+  keys: string[],
+  values: string[]
+): Record<string, string> => {
+  const obj: Record<string, string> = {};
+  values.forEach((value, index) => {
+    obj[keys[index]] = value;
   });
   return obj;
 };
