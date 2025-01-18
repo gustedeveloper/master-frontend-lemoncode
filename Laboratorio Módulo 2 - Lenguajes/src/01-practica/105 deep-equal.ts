@@ -2,10 +2,10 @@ console.log("#Deep equal");
 
 // Apartado A
 
-const user = { name: 'María', age: 30 };
-const clonedUser = { name: 'María', age: 30 };
+const user = { name: "María", age: 30 };
+const clonedUser = { name: "María", age: 30 };
 
- function isEqual(a, b) {
+function isEqual<T extends object>(a: T, b: T): boolean {
   const obj1 = Object.entries(a);
   const obj2 = Object.entries(b);
 

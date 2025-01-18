@@ -1,8 +1,7 @@
 console.log("#Check arguments");
 
-function f(input) {
-    return input === null ? "" : input || "Unknown";
-  }
-  
-  console.log(f(undefined));
-  
+function f(input: string | null | undefined): string {
+  return input === null ? "" : input || "Unknown";
+}
+
+console.log(f(undefined));
