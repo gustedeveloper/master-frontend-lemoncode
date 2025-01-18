@@ -2,7 +2,7 @@ console.log("#Primes");
 
 // isPrime function not optimized
 
-const isPrime = (num) => {
+const isPrime = (num: number): boolean => {
   if (num < 2) return false;
   if (num === 2) return true;
 
@@ -14,17 +14,17 @@ const isPrime = (num) => {
   return true;
 };
 
-/*const primes = (from, to) => {
+const primes = (from: number, to: number): void => {
   for (let i = from; i <= to; i++) {
     console.log(`${i} is ${isPrime(i) ? "PRIME!" : "not PRIME!"}`);
   }
 };
 
-primes(0, 100);*/
+primes(0, 100);
 
 // Challenge
 
-const isPrimeRoot = (num) => {
+const isPrimeRoot = (num: number): boolean => {
   if (num < 2) return false;
   if (num === 2) return true;
 
@@ -41,10 +41,10 @@ const isPrimeRoot = (num) => {
 
 // Final function optimized
 
-const primes = (from, to) => {
+const primesFinal = (from: number, to: number): void => {
   for (let i = from; i <= to; i++) {
     console.log(`${i} is ${isPrimeRoot(i) ? "PRIME!" : "not PRIME!"}`);
   }
 };
 
-primes(0, 100);
+primesFinal(0, 100);

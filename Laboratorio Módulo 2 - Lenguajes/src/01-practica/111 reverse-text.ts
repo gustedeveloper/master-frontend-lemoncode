@@ -1,7 +1,8 @@
 console.log("#Reverse text");
 
-const line = "One two three";
+const line: string = "One two three";
 
-const reverseText = (text) => text.split(" ").reverse().join(" ");
+const reverseText = (text: string): string =>
+  text.split(" ").reverse().join(" ");
 
 console.log(reverseText(line));
