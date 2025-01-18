@@ -1,14 +1,14 @@
 console.log("#ZZCrypt");
 
 // Descifra el siguiente secreto:
-let secret =
+let secret: string =
   "': rg!qg yq,urae: ghsrf wuran shrerg jq,u'qf ra r' ,qaq' er g'q,o rg,fuwurae: m!hfua( t'usqfuq ,:apu(:m xv";
 
 // Sabiendo que el alfabeto original ha sufrido la siguiente transformación:
-let plain = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
-let cipher = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
+let plain: string = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
+let cipher: string = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
-function decrypt(secret) {
+function decrypt(secret: string): string {
   return secret
     .split("")
     .map((char) => {
