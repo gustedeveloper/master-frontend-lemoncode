@@ -1,15 +1,12 @@
 console.log("#Includes");
 
-function includes(array, value) {
-  let exists;
-  array.map((element) => {
-    if (element === value) {
-      exists = true;
-    } else {
-      exists = false;
+function includes(array: number[], value: number): boolean {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      return true;
     }
-  });
-  return exists;
+  }
+  return false;
 }
 
 console.log(includes([1, 2, 3], 3)); // true
@@ -17,7 +14,7 @@ console.log(includes([1, 2, 3], 0)); // false
 
 // Challenge
 
-const getIndex = (array, value) => {
+const getIndex = (array: number[], value: number) => {
   return array.indexOf(value);
 };
 
