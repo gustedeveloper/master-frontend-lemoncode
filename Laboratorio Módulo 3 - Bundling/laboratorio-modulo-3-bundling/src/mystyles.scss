@@ -1,7 +1,10 @@
+@use "sass:color" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 $bg-color: #3e5c76;
 $button-color: #748cab;
+$primary-color: #d9d900;
 
 body {
   font-family: "Inter", serif;
@@ -28,7 +31,7 @@ h1 {
 }
 
 .yellow {
-  color: #d9d900;
+  color: $primary-color;
 }
 
 .user-input-label {
@@ -58,7 +61,7 @@ button {
 }
 
 button:hover {
-  background-color: #1d2d44;
+  background-color: scale($button-color, $lightness: -50%);
 }
 
 img {
