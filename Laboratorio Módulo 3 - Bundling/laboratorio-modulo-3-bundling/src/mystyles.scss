@@ -1,13 +1,64 @@
-$container-color: #ffafcc;
-$bg-color: #669bbc;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+$bg-color: #3e5c76;
+$button-color: #748cab;
 
 body {
+  font-family: "Inter", serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   background-color: $bg-color;
   color: white;
 }
 
-.container {
-  background-color: $container-color;
+#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.yellow {
+  color: #d9d900;
+}
+
+.user-input-label {
+  font-size: 1.5rem;
+}
+
+.user-input {
+  font-size: 1rem;
+  text-align: center;
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  height: 46px;
+  border: none;
+  background-color: $button-color;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0px 21px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d2d44;
 }
 
 img {

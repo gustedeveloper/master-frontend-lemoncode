@@ -1,4 +1,6 @@
 import React from "react";
+import logoImg from "./content/logo_1.png";
+import "./mystyles.scss";
 
 export const MainComponent = () => {
   const [user, setUser] = React.useState("User");
@@ -17,17 +19,24 @@ export const MainComponent = () => {
   };
 
   return (
-    <div>
-      <h1>{user}, welcome to this world made by React!</h1>
+    <>
+      <h1>
+        <span className="yellow">{user}</span>, welcome to this world made by{" "}
+        <span className="yellow">React</span>!
+      </h1>
 
-      <label htmlFor="userInput">Please, enter your name</label>
+      <label className="user-input-label" htmlFor="userInput">
+        Please, enter your <span className="yellow">name</span>
+      </label>
 
       <input
+        className="user-input"
         id="userInput"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
       <button onClick={handleClick}>Send</button>
-    </div>
+      <img src={logoImg} />
+    </>
   );
 };
