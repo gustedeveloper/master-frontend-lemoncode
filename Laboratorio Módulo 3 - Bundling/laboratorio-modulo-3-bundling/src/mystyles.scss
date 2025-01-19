@@ -4,7 +4,8 @@
 
 $bg-color: #3e5c76;
 $button-color: #748cab;
-$primary-color: #d9d900;
+$accent-color: #d9d900;
+$primary-color: white;
 
 body {
   font-family: "Inter", serif;
@@ -13,7 +14,7 @@ body {
   padding: 0;
   height: 100vh;
   background-color: $bg-color;
-  color: white;
+  color: $primary-color;
 }
 
 #root {
@@ -31,7 +32,7 @@ h1 {
 }
 
 .yellow {
-  color: $primary-color;
+  color: $accent-color;
 }
 
 .user-input-label {
@@ -51,7 +52,7 @@ button {
   height: 46px;
   border: none;
   background-color: $button-color;
-  color: white;
+  color: $primary-color;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;

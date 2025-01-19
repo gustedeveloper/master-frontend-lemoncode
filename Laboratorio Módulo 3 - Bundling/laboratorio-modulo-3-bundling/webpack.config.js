@@ -8,10 +8,10 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 export default {
   context: path.resolve(__dirname, "./src"),
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   entry: {
-    app: "./index.jsx",
+    app: "./index.tsx",
   },
   output: {
     filename: "[name].[chunkhash].js",
@@ -20,7 +20,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -56,8 +56,12 @@ export default {
       chunkFilename: "[id].css",
     }),
   ],
+  devtool: "eval-source-map",
   devServer: {
     port: 8080,
+    devMiddleware: {
+      stats: "errors-only",
+    },
     open: true,
     hot: true,
     static: {

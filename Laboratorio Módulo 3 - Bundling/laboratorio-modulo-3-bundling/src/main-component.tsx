@@ -2,16 +2,16 @@ import React from "react";
 import logoImg from "./content/logo_1.png";
 import "./mystyles.scss";
 
-export const MainComponent = () => {
+export const MainComponent: React.FC = () => {
   const [user, setUser] = React.useState("User");
   const [inputValue, setInputValue] = React.useState("");
 
-  const formatValue = (value) => {
+  const formatValue = (value: string) => {
     const [firstLetter, ...rest] = value.trim();
     return firstLetter.toUpperCase() + rest.join("").toLowerCase();
   };
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     if (inputValue.trim() !== "") {
       setUser(formatValue(inputValue));
       setInputValue("");
