@@ -10,7 +10,7 @@
 //import "./01-practica/112 subsets.js";
 //import "./01-practica/115 zip.js";
 //import "./01-practica/116 zzcrypt.js";
-//import "./01-practica/205 fibonacci.js";
+import "./01-practica/205 fibonacci.js";
 //import "./01-practica/209 swap.js";
 //import "./01-practica/301 califications-summary.js";
 //import "./01-practica/302 curry-setter.js";
@@ -26,6 +26,6 @@ import "./02-entregables/ejercicio-05.js";*/
 //import "./03-retos/flatten-array.js";
 //import "./03-retos/memoization.js";
 //import "./03-retos/tree.js";
-import "./03-retos/understanding-js.js";
+//import "./03-retos/understanding-js.js";
 
 console.log("Welcome to Exercises Playground.");
