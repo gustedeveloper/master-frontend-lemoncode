@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
+    "build": "rimraf dist && webpack --mode development",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "start:dev": "webpack serve --mode development",
-    "build": "webpack --mode development"
+    "start:dev": "webpack serve --mode development"
+    
   },
   "keywords": [],
   "author": "Guste Gaubaite",
