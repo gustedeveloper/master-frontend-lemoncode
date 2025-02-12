@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { MemberEntity } from "./model";
 
 export const ListPage: React.FC = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
-  const [value, setValue] = React.useState("lemoncode");
-  const [organization, setOrganization] = React.useState("lemoncode");
+
+  const { organization: urlOrganization } = useParams();
+  const navigate = useNavigate();
+
+  const organization = urlOrganization || "lemoncode";
+  const [value, setValue] = React.useState(organization);
 
   React.useEffect(() => {
     fetch(`https://api.github.com/orgs/${organization}/members`)
@@ -14,7 +18,7 @@ export const ListPage: React.FC = () => {
   }, [organization]);
 
   const handleSearchButton = () => {
-    setOrganization(value);
+    navigate(`/list/${value}`);
   };
 
   return (
@@ -29,12 +33,12 @@ export const ListPage: React.FC = () => {
         <span className="list-header">Avatar</span>
         <span className="list-header">Id</span>
         <span className="list-header">Name</span>
-        {members.map((member) => (
-          <>
+        {members?.map((member) => (
+          <React.Fragment key={member.id}>
             <img src={member.avatar_url} />
             <span>{member.id}</span>
             <Link to={`/detail/${member.login}`}>{member.login}</Link>
-          </>
+          </React.Fragment>
         ))}
       </div>
       <Link to="/detail">Navigate to detail page</Link>
