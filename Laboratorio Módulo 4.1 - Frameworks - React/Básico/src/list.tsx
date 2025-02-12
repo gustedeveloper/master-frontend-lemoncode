@@ -1,11 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-interface MemberEntity {
-  id: string;
-  login: string;
-  avatar_url: string;
-}
+import { MemberEntity } from "./model";
 
 export const ListPage: React.FC = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
