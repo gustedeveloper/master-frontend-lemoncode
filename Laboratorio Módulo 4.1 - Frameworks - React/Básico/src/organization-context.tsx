@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  PropsWithChildren,
-} from "react";
+import React, { useState, PropsWithChildren } from "react";
 import { MemberEntity } from "./model";
 
 interface ContextModel {
@@ -18,7 +13,7 @@ export const OrganizationContext = React.createContext<ContextModel>(undefined);
 export const OrganizationProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
-  const [organization, setOrganization] = useState("lemoncode");
+  const [organization, setOrganization] = useState("Lemoncode");
   const [members, setMembers] = useState<MemberEntity[]>([]);
 
   return (
