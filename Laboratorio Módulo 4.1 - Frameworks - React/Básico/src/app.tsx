@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { OrganizationProvider } from "./core";
 
 import { LoginPage } from "./login";
-import { DetailPage } from "./detail";
 import { ListPage } from "./scenes/list";
+import { DetailPage } from "./scenes/detail";
 
 export const App = () => {
   return (
