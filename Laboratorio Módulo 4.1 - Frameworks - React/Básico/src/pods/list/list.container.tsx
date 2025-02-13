@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import { OrganizationContext } from "../../organization-context";
+import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
 
 export const ListContainer: React.FC = () => {

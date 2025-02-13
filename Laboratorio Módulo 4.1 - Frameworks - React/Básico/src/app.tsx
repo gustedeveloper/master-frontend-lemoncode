@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { OrganizationProvider } from "./organization-context";
+import { OrganizationProvider } from "./core";
 
 import { LoginPage } from "./login";
 import { DetailPage } from "./detail";

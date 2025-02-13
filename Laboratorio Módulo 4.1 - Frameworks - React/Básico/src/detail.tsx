@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { OrganizationContext } from "./organization-context";
+import { OrganizationContext } from "./core";
 
 export const DetailPage: React.FC = () => {
   const { id } = useParams();

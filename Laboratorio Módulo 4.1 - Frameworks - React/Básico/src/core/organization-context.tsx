@@ -1,5 +1,5 @@
 import React, { useState, PropsWithChildren } from "react";
-import { MemberEntity } from "./model";
+import { MemberEntity } from "../pods/list/list.vm";
 
 interface ContextModel {
   organization: string;
