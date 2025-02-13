@@ -16,12 +16,16 @@ export const ListPage: React.FC = () => {
   }, [organization, setMembers]);
 
   const handleSearchButton = () => {
-    setOrganization(value);
+    setOrganization(format(value));
+  };
+
+  const format = (org: string) => {
+    return org.slice(0, 1).toUpperCase() + org.slice(1).toLowerCase();
   };
 
   return (
     <>
-      <h2>Hello from List page</h2>
+      <h2>{organization} members</h2>
       <div>
         <label>Enter organization name: </label>
         <input value={value} onChange={(e) => setValue(e.target.value)}></input>

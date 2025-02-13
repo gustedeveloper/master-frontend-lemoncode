@@ -8,17 +8,12 @@ export const DetailPage: React.FC = () => {
 
   const selectedMember = members.find((member) => member.login === id);
 
-  const handleClick = () => {
-    console.log(selectedMember);
-  };
-
   return (
     <>
       <h2>Hello from Detail page</h2>
       <img src={selectedMember.avatar_url} />
       <h2>Organization: {organization}</h2>
-      <h3>User Id: {id}</h3>
-      <button onClick={handleClick}>Press me</button>
+      <h3>Username: {id}</h3>
       <Link to="/list">Back to list page</Link>
     </>
   );
