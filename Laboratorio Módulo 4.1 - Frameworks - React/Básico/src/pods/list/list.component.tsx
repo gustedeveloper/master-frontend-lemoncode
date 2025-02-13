@@ -1,28 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { OrganizationContext } from "./organization-context";
+import { MemberEntity } from "./list.vm";
 
-export const ListPage: React.FC = () => {
-  const { organization, setOrganization, members, setMembers } =
-    useContext(OrganizationContext);
+interface Props {
+  members: MemberEntity[];
+  organization: string;
+  handleSearchButton: () => void;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  const [value, setValue] = React.useState(organization);
-
-  React.useEffect(() => {
-    fetch(`https://api.github.com/orgs/${organization}/members`)
-      .then((response) => response.json())
-      .then((json) => setMembers(json));
-  }, [organization, setMembers]);
-
-  const handleSearchButton = () => {
-    setOrganization(format(value));
-  };
-
-  const format = (org: string) => {
-    return org.slice(0, 1).toUpperCase() + org.slice(1).toLowerCase();
-  };
-
+export const ListComponent: React.FC<Props> = (props) => {
+  const { members, organization, handleSearchButton, value, setValue } = props;
   return (
     <>
       <h2>{organization} members</h2>
