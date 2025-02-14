@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MemberEntity } from "./list.vm";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 
 interface Props {
   members: MemberEntity[];
@@ -15,10 +17,17 @@ export const ListComponent: React.FC<Props> = (props) => {
   return (
     <>
       <h2>{organization} members</h2>
-      <div>
-        <label>Enter organization name: </label>
-        <input value={value} onChange={(e) => setValue(e.target.value)}></input>
-        <button onClick={handleSearchButton}>Search</button>
+      <div className="search-container">
+        <TextField
+          id="filled-basic"
+          label="Enter organization name"
+          variant="filled"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <Button variant="contained" onClick={handleSearchButton}>
+          Search
+        </Button>
       </div>
       <div className="list-user-list-container">
         <span className="list-header">Avatar</span>
