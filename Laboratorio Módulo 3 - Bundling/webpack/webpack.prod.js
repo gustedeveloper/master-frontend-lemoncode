@@ -9,6 +9,26 @@ export default merge(common, {
     filename: "[name].[chunkhash].js",
     clean: true,
   },
+  optimization: {
+    runtimeChunk: "single",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: "all",
+          name: (module) => {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )?.[1];
+            return packageName
+              ? `vendor/${packageName.replace("@", "")}`
+              : null;
+          },
+          test: /[\\/]node_modules[\\/]/,
+          enforce: true,
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
