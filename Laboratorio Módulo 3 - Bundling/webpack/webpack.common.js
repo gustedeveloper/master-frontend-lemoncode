@@ -1,5 +1,4 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
 import url from "url";
 
@@ -25,16 +24,6 @@ export default {
         loader: "babel-loader",
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
         test: /\.(png|jpg)$/,
         type: "asset/resource",
       },
@@ -51,21 +40,5 @@ export default {
       template: "./index.html", //Name of template in ./src
       scriptLoading: "blocking", //Just use the blocking approach (no modern defer or module)
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
-    }),
   ],
-  devtool: "eval-source-map",
-  devServer: {
-    port: 8080,
-    devMiddleware: {
-      stats: "errors-only",
-    },
-    open: true,
-    hot: true,
-    static: {
-      directory: path.join(__dirname, "src"),
-    },
-  },
 };

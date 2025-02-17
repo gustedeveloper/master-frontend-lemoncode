@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
-    "build": "rimraf dist && webpack --mode development",
+    "build": "run-p -l type-check build:dev",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "start:dev": "webpack serve --mode development"
-    
+    "start:dev": "webpack serve --config webpack.dev.js",
+    "start:prod": "webpack serve --config webpack.prod.js",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "Guste Gaubaite",
@@ -36,7 +38,8 @@
     "typescript": "^5.7.3",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
   },
   "dependencies": {
     "react": "^19.0.0",
