@@ -6,6 +6,8 @@ export const MainComponent: React.FC = () => {
   const [user, setUser] = React.useState("User");
   const [inputValue, setInputValue] = React.useState("");
 
+  console.log(`Api base: ${process.env.API_BASE}`);
+
   const formatValue = (value: string) => {
     const [firstLetter, ...rest] = value.trim();
     return firstLetter.toUpperCase() + rest.join("").toLowerCase();
