@@ -73,7 +73,9 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 
   2. Iniciamos el servidor de desarrollo en `http://localhost:8080`
 
+     ```bash
      npm run start:dev
+     ```
 
 - **Producción**: Generamos los archivos optimizados en la carpeta `dist/`.
 
@@ -92,3 +94,7 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 - **Producción**: Las variables se cargan desde `prod.env`.
 
         API_BASE=http://myapp.com/api
+
+```
+
+```
