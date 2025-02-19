@@ -12,10 +12,9 @@ export const App: FC = () => {
     <div className="container">
       <h1 className="title">Welcome to Vite Playground! 🚀</h1>
       <p className="description">
-        Explore, experiment, and have fun with TypeScript, React and Sass.
+        Explore, experiment and have fun with TypeScript, React and Sass.
       </p>
       <p className="devtools">
-        {" "}
         Press F12 to open DevTools and check the console 🛠️
       </p>
     </div>
