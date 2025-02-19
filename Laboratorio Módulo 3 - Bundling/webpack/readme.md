@@ -14,8 +14,6 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 - **Dotenv**: Manejo de variables de entorno.
 - **Webpack Bundle Analyzer**: Análisis del tamaño del bundle.
 
----
-
 ## Configuración
 
 ### Archivos clave
@@ -49,8 +47,6 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 6. **`.babelrc`**: Configuración de Babel.
    - Incluye presets para React, TypeScript y ES6.
 
----
-
 ## Instalación
 
 1. Clona el repositorio:
@@ -67,42 +63,42 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 
 ## Comandos
 
-- **Desarrollo**:
+    - **Desarrollo**:
 
-1. Generamos la build de desarrollo.
+        1. Generamos la build de desarrollo.
 
-```bash
-  npm run build:dev
-```
+        ```bash
+        npm run build:dev
+        ```
 
-2. Iniciamos el servidor de desarrollo en `http://localhost:8080`
+        2. Iniciamos el servidor de desarrollo en `http://localhost:8080`
 
-```bash
-  npm run start:dev
-```
+        ```bash
+        npm run start:dev
+        ```
 
-- **Producción**: Generamos los archivos optimizados en la carpeta `dist/`
+    - **Producción**: Generamos los archivos optimizados en la carpeta `dist/`.
 
-```bash
-  npm run build:prod
-```
+        ```bash
+        npm run build:prod
+        ```
 
-- **Análisis de bundles**:
+    - **Análisis de bundles**:
 
-```bash
-  npm run build:perf
-```
+        ```bash
+        npm run build:perf
+        ```
 
 ## Variables de entorno
 
-- **Desarrollo**: Las variables se cargan desde `dev.env`.
+    - **Desarrollo**: Las variables se cargan desde `dev.env`.
 
-```env
-  API_BASE=http://localhost:3000/api
-```
+        ```
+        API_BASE=http://localhost:3000/api
+        ```
 
-- **Producción**: Las variables se cargan desde `prod.env`.
+    - **Producción**: Las variables se cargan desde `prod.env`.
 
-```env
-  API_BASE=http://myapp.com/api
-```
+        ```
+        API_BASE=http://myapp.com/api
+        ```
