@@ -63,27 +63,27 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 
 ## Comandos
 
-    - **Desarrollo**:
+- **Desarrollo**:
 
-        1. Generamos la build de desarrollo.
+  1. Generamos la build de desarrollo.
 
-        ```bash
-        npm run build:dev
-        ```
+     ```bash
+     npm run build:dev
+     ```
 
-        2. Iniciamos el servidor de desarrollo en `http://localhost:8080`
+  2. Iniciamos el servidor de desarrollo en `http://localhost:8080`
 
-        ```bash
-        npm run start:dev
-        ```
+     ```bash
+     npm run start:dev
+     ```
 
-    - **Producción**: Generamos los archivos optimizados en la carpeta `dist/`.
+- **Producción**: Generamos los archivos optimizados en la carpeta `dist/`.
 
         ```bash
         npm run build:prod
         ```
 
-    - **Análisis de bundles**:
+- **Análisis de bundles**:
 
         ```bash
         npm run build:perf
@@ -91,13 +91,13 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 
 ## Variables de entorno
 
-    - **Desarrollo**: Las variables se cargan desde `dev.env`.
+- **Desarrollo**: Las variables se cargan desde `dev.env`.
 
         ```
         API_BASE=http://localhost:3000/api
         ```
 
-    - **Producción**: Las variables se cargan desde `prod.env`.
+- **Producción**: Las variables se cargan desde `prod.env`.
 
         ```
         API_BASE=http://myapp.com/api
