@@ -13,21 +13,21 @@ Este proyecto es un entorno de desarrollo semilla basado en **Vite** con soporte
 ## Scripts
 
 ```bash
-npm start               # Inicia el servidor de desarrollo con Vite
+npm start                    # Inicia el servidor de desarrollo con Vite
 ```
 
 ```bash
-npm run type-check      # Verifica los tipos con TypeScript
+npm run type-check           # Verifica los tipos con TypeScript
 ```
 
 ```bash
-npm run type-check:watch # Verifica los tipos en modo observación
+npm run type-check:watch     # Verifica los tipos en modo observación
 ```
 
 ```bash
-npm run build           # Genera la build optimizada para producción
+npm run build                # Genera la build optimizada para producción
 ```
 
 ```bash
-npm run preview         # Visualiza la build en un servidor local
+npm run preview              # Visualiza la build en un servidor local
 ```
