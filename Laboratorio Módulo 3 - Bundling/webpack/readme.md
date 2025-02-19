@@ -1,6 +1,6 @@
-# Laboratorio de Bundling con Webpack
+# Máster Front End XVII - Laboratorio de Bundling con Webpack
 
-Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling, **TypeScript** para el tipado estático, **SASS** para los estilos y **React** para la interfaz de usuario. Además, se han configurado diferentes entornos (desarrollo y producción) y se ha integrado un analizador de bundles para optimizar el rendimiento.
+Este proyecto es una aplicación simple que permite al usuario ingresar su nombre y se le da la bienvenida con un mensaje personalizado con su nombre. Utiliza **Webpack** para el bundling, **TypeScript** para el tipado estático, **SASS** para los estilos y **React** para la interfaz de usuario. Además, se han configurado diferentes entornos (desarrollo y producción) y se ha integrado un analizador de bundles para optimizar el rendimiento.
 
 ---
 
@@ -94,7 +94,3 @@ Este proyecto es una aplicación simple que utiliza **Webpack** para el bundling
 - **Producción**: Las variables se cargan desde `prod.env`.
 
         API_BASE=http://myapp.com/api
-
-```
-
-```
