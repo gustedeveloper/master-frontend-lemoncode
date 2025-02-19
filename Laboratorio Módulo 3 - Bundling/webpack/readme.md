@@ -47,20 +47,6 @@ Este proyecto es una aplicación simple que permite al usuario ingresar su nombr
 6. **`.babelrc`**: Configuración de Babel.
    - Incluye presets para React, TypeScript y ES6.
 
-## Instalación
-
-1. Clona el repositorio:
-
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   ```
-
-2. Instala las dependencias:
-
-   ```bash
-   npm install
-   ```
-
 ## Comandos
 
 - **Desarrollo**:
