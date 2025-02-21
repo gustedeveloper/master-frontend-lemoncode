@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MemberEntity } from "./list.vm";
 import Button from "@mui/material/Button";
-import { Grid2, TextField } from "@mui/material";
+import {
+  Link as MuiLink,
+  Grid2,
+  TextField,
+  Divider,
+  Typography,
+} from "@mui/material";
 
 interface Props {
   members: MemberEntity[];
@@ -19,16 +25,16 @@ export const ListComponent: React.FC<Props> = (props) => {
       <Grid2
         container
         sx={{
-          margin: "auto",
+          margin: "50px 100px",
           maxWidth: "1100px",
+          minWidth: "400px",
           height: "100%",
           justifyContent: "center",
           flexDirection: "column",
           alignItems: "center",
-          marginTop: "50px",
         }}
       >
-        <Grid2 size={12} sx={{}}>
+        <Grid2 size={12}>
           <Grid2 container spacing={2}>
             <Grid2 size={2}>
               <TextField
@@ -47,14 +53,14 @@ export const ListComponent: React.FC<Props> = (props) => {
             </Grid2>
           </Grid2>
 
-          <Grid2 size={12} sx={{ marginBottom: "50px" }}>
-            <h2>{organization} members</h2>
+          <Grid2 size={12} sx={{ margin: "30px 0px" }}>
+            <Typography variant="h4">{organization} members</Typography>
           </Grid2>
 
           <Grid2 size={12}>
-            <Grid2 container spacing={5}>
+            <Grid2 container spacing={2}>
               <Grid2 size={12}>
-                <Grid2 container sx={{ alignItems: "center" }}>
+                <Grid2 container sx={{ padding: "20px" }}>
                   <Grid2 size={2}>Avatar</Grid2>
                   <Grid2 size={2}>ID</Grid2>
                   <Grid2 size={8}>Name</Grid2>
@@ -62,9 +68,10 @@ export const ListComponent: React.FC<Props> = (props) => {
               </Grid2>
 
               <Grid2 size={12}>
-                <Grid2 container rowSpacing={5}>
+                <Grid2 container rowSpacing={2}>
                   {members?.map((member) => (
                     <Grid2 size={12} key={member.id}>
+                      <Divider sx={{ marginBottom: "20px" }} />
                       <Grid2 container>
                         <Grid2 size={2}>
                           <img
@@ -82,11 +89,19 @@ export const ListComponent: React.FC<Props> = (props) => {
 
                         <Grid2
                           size={8}
-                          sx={{ display: "flex", alignItems: "center" }}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            textDecoration: "none",
+                          }}
                         >
-                          <Link to={`/detail/${member.login}`}>
+                          <MuiLink
+                            component={Link}
+                            to={`/detail/${member.login}`}
+                            sx={{ textDecoration: "none" }}
+                          >
                             {member.login}
-                          </Link>
+                          </MuiLink>
                         </Grid2>
                       </Grid2>
                     </Grid2>
