@@ -11,8 +11,19 @@ export const ListContainer: React.FC = () => {
 
   useEffect(() => {
     fetch(`https://api.github.com/orgs/${organization}/members`)
-      .then((response) => response.json())
-      .then((json) => setMembers(json));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Error ${response.status}: Organización no encontrada`
+          );
+        }
+        return response.json();
+      })
+      .then((json) => setMembers(json))
+      .catch((error) => {
+        console.error("Error al obtener los miembros: ", error);
+        setMembers([]);
+      });
   }, [organization, setMembers]);
 
   const handleSearchButton = () => {
