@@ -19,16 +19,23 @@ interface Props {
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
+const headerElements = ["Avatar", "ID", "Name"];
+
 export const ListComponent: React.FC<Props> = (props) => {
-  const { members, organization, handleSearchButton, value, setValue } = props;
+  const { members, handleSearchButton, value, setValue } = props;
   return (
     <>
       <Grid2
         container
         sx={{
-          margin: "50px 100px",
-          maxWidth: "1100px",
-          minWidth: "400px",
+          margin: {
+            xs: "16px",
+            sm: "32px",
+            md: "48px",
+            lg: "64px",
+            xl: "80px",
+          },
+          minWidth: "300px",
           height: "100%",
           justifyContent: "center",
           flexDirection: "column",
@@ -36,8 +43,12 @@ export const ListComponent: React.FC<Props> = (props) => {
         }}
       >
         <Grid2 size={12}>
-          <Grid2 container spacing={2}>
-            <Grid2 size={2}>
+          <Grid2
+            container
+            spacing={2}
+            sx={{ paddingBottom: { xs: "10px", md: "20px" } }}
+          >
+            <Grid2 size={{ xs: 5, md: 2.5, lg: 2, xl: 1.5 }}>
               <TextField
                 id="filled-basic"
                 label="Enter organization name"
@@ -47,31 +58,32 @@ export const ListComponent: React.FC<Props> = (props) => {
               />
             </Grid2>
 
-            <Grid2 size={10} sx={{ display: "flex" }}>
+            <Grid2
+              size={{ xs: 7, md: 9.5, lg: 10, xl: 10.5 }}
+              sx={{ display: "flex" }}
+            >
               <Button variant="contained" onClick={handleSearchButton}>
                 Search
               </Button>
             </Grid2>
           </Grid2>
 
-          <Grid2 size={12} sx={{ margin: "30px 0px" }}>
-            <Typography variant="h4">{organization} members</Typography>
-          </Grid2>
-
-          <Grid2 size={12}>
+          <List sx={{ bgcolor: "primary.main", padding: "20px" }}>
             <Grid2 container>
-              <Grid2 size={12}>
-                <Grid2 container sx={{ padding: "8px" }}>
-                  <Grid2 size={2}>Avatar</Grid2>
-                  <Grid2 size={2}>ID</Grid2>
-                  <Grid2 size={8}>Name</Grid2>
+              {headerElements.map((e) => (
+                <Grid2
+                  size={{ xs: e === "Avatar" ? 3 : 4.5, md: 4, lg: 2 }}
+                  sx={{ color: "white" }}
+                >
+                  <Typography variant="h4">{e}</Typography>
                 </Grid2>
-                <Divider />
-              </Grid2>
+              ))}
             </Grid2>
-          </Grid2>
+          </List>
 
-          <List sx={{ paddingTop: "0px" }}>
+          <List
+            sx={{ paddingTop: "0px", bgcolor: "white", padding: "0px 20px" }}
+          >
             {members.map((member) => (
               <Grid2
                 container
@@ -81,16 +93,16 @@ export const ListComponent: React.FC<Props> = (props) => {
                   paddingTop: "8px",
                 }}
               >
-                <Grid2 size={2}>
+                <Grid2 size={{ xs: 3, md: 4, lg: 2 }}>
                   <img
                     src={member.avatar_url}
                     style={{ width: "60px", borderRadius: "50%" }}
                   />
                 </Grid2>
-                <Grid2 size={2}>
+                <Grid2 size={{ xs: 4.5, md: 4, lg: 2 }}>
                   <Typography component="span">{member.id}</Typography>
                 </Grid2>
-                <Grid2 size={8}>
+                <Grid2 size={{ xs: 4.5, md: 4, lg: 2 }}>
                   <MuiLink
                     component={Link}
                     to={`/detail/${member.login}`}
