@@ -8,6 +8,7 @@ import {
   TextField,
   Divider,
   Typography,
+  List,
 } from "@mui/material";
 
 interface Props {
@@ -58,58 +59,49 @@ export const ListComponent: React.FC<Props> = (props) => {
           </Grid2>
 
           <Grid2 size={12}>
-            <Grid2 container spacing={2}>
+            <Grid2 container>
               <Grid2 size={12}>
-                <Grid2 container sx={{ padding: "20px" }}>
+                <Grid2 container sx={{ padding: "8px" }}>
                   <Grid2 size={2}>Avatar</Grid2>
                   <Grid2 size={2}>ID</Grid2>
                   <Grid2 size={8}>Name</Grid2>
                 </Grid2>
-              </Grid2>
-
-              <Grid2 size={12}>
-                <Grid2 container rowSpacing={2}>
-                  {members?.map((member) => (
-                    <Grid2 size={12} key={member.id}>
-                      <Divider sx={{ marginBottom: "20px" }} />
-                      <Grid2 container>
-                        <Grid2 size={2}>
-                          <img
-                            style={{ width: "80px", borderRadius: "50%" }}
-                            src={member.avatar_url}
-                          />
-                        </Grid2>
-
-                        <Grid2
-                          size={2}
-                          sx={{ display: "flex", alignItems: "center" }}
-                        >
-                          {member.id}
-                        </Grid2>
-
-                        <Grid2
-                          size={8}
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            textDecoration: "none",
-                          }}
-                        >
-                          <MuiLink
-                            component={Link}
-                            to={`/detail/${member.login}`}
-                            sx={{ textDecoration: "none" }}
-                          >
-                            {member.login}
-                          </MuiLink>
-                        </Grid2>
-                      </Grid2>
-                    </Grid2>
-                  ))}
-                </Grid2>
+                <Divider />
               </Grid2>
             </Grid2>
           </Grid2>
+
+          <List sx={{ paddingTop: "0px" }}>
+            {members.map((member) => (
+              <Grid2
+                container
+                sx={{
+                  borderBottom: "1px solid #e5e5e5",
+                  alignItems: "center",
+                  paddingTop: "8px",
+                }}
+              >
+                <Grid2 size={2}>
+                  <img
+                    src={member.avatar_url}
+                    style={{ width: "60px", borderRadius: "50%" }}
+                  />
+                </Grid2>
+                <Grid2 size={2}>
+                  <Typography component="span">{member.id}</Typography>
+                </Grid2>
+                <Grid2 size={8}>
+                  <MuiLink
+                    component={Link}
+                    to={`/detail/${member.login}`}
+                    sx={{ textDecoration: "none" }}
+                  >
+                    {member.login}
+                  </MuiLink>
+                </Grid2>
+              </Grid2>
+            ))}
+          </List>
         </Grid2>
       </Grid2>
     </>
