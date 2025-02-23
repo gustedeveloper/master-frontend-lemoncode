@@ -6,7 +6,6 @@ import {
   Link as MuiLink,
   Grid2,
   TextField,
-  Divider,
   Typography,
   List,
 } from "@mui/material";
@@ -23,6 +22,7 @@ const headerElements = ["Avatar", "ID", "Name"];
 
 export const ListComponent: React.FC<Props> = (props) => {
   const { members, handleSearchButton, value, setValue } = props;
+
   return (
     <>
       <Grid2

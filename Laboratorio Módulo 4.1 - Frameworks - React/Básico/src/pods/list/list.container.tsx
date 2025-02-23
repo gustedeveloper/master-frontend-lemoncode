@@ -2,10 +2,14 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
+import { Pagination } from "./pagination.component";
 
 export const ListContainer: React.FC = () => {
   const { organization, setOrganization, members, setMembers } =
     useContext(OrganizationContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [membersPerPage] = useState(4);
 
   const [value, setValue] = useState(organization);
 
@@ -34,13 +38,24 @@ export const ListContainer: React.FC = () => {
     return org.slice(0, 1).toUpperCase() + org.slice(1).toLowerCase();
   };
 
+  const lastMemberIndex = currentPage * membersPerPage;
+  const firstMemberIndex = lastMemberIndex - membersPerPage;
+  const currentMembers = members.slice(firstMemberIndex, lastMemberIndex);
+
   return (
-    <ListComponent
-      members={members}
-      organization={organization}
-      handleSearchButton={handleSearchButton}
-      value={value}
-      setValue={setValue}
-    />
+    <>
+      <ListComponent
+        members={currentMembers}
+        organization={organization}
+        handleSearchButton={handleSearchButton}
+        value={value}
+        setValue={setValue}
+      />
+      <Pagination
+        totalMembers={members.length}
+        membersPerPage={membersPerPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </>
   );
 };
