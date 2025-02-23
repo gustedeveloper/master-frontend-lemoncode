@@ -1,8 +1,10 @@
 import React from "react";
+import { Pagination } from "@mui/material";
 
-export const Pagination = ({
+export const PaginationComponent = ({
   totalMembers,
   membersPerPage,
+  currentPage,
   setCurrentPage,
 }) => {
   let pages = [];
@@ -11,15 +13,17 @@ export const Pagination = ({
     pages.push(i);
   }
 
+  const handleChange = (_, value) => {
+    setCurrentPage(value);
+  };
+
   return (
-    <div>
-      {pages.map((page, index) => {
-        return (
-          <button key={index} onClick={() => setCurrentPage(page)}>
-            {page}
-          </button>
-        );
-      })}
-    </div>
+    <Pagination
+      sx={{ display: "flex", justifyContent: "center" }}
+      count={pages.length}
+      page={currentPage}
+      onChange={handleChange}
+      color="primary"
+    />
   );
 };

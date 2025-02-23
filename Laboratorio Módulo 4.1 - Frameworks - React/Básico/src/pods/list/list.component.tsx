@@ -70,8 +70,9 @@ export const ListComponent: React.FC<Props> = (props) => {
 
           <List sx={{ bgcolor: "primary.main", padding: "20px" }}>
             <Grid2 container>
-              {headerElements.map((e) => (
+              {headerElements.map((e, index) => (
                 <Grid2
+                  key={index}
                   size={{ xs: e === "Avatar" ? 3 : 4.5, md: 4, lg: 2 }}
                   sx={{ color: "white" }}
                 >
@@ -86,6 +87,7 @@ export const ListComponent: React.FC<Props> = (props) => {
           >
             {members.map((member) => (
               <Grid2
+                key={member.id}
                 container
                 sx={{
                   borderBottom: "1px solid #e5e5e5",

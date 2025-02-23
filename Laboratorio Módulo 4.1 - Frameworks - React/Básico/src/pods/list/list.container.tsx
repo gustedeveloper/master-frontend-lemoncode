@@ -2,7 +2,7 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
-import { Pagination } from "./pagination.component";
+import { PaginationComponent } from "./pagination.component";
 
 export const ListContainer: React.FC = () => {
   const { organization, setOrganization, members, setMembers } =
@@ -51,10 +51,11 @@ export const ListContainer: React.FC = () => {
         value={value}
         setValue={setValue}
       />
-      <Pagination
+      <PaginationComponent
         totalMembers={members.length}
         membersPerPage={membersPerPage}
         setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
     </>
   );
