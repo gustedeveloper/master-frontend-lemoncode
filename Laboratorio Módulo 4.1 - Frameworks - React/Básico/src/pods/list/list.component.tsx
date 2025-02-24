@@ -10,6 +10,7 @@ import {
   List,
   Avatar,
 } from "@mui/material";
+import { ListSkeleton } from "./skeleton";
 
 interface Props {
   members: MemberEntity[];

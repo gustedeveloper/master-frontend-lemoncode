@@ -10,6 +10,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
+import { ListSkeleton } from "../list/skeleton";
 
 interface Props {
   selectedMember: MemberEntity;
