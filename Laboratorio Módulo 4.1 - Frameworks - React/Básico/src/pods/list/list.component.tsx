@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
   List,
+  Avatar,
 } from "@mui/material";
 
 interface Props {
@@ -29,7 +30,7 @@ export const ListComponent: React.FC<Props> = (props) => {
         container
         sx={{
           margin: {
-            xs: "16px",
+            xs: "64px 16px",
             sm: "32px",
             md: "48px",
             lg: "64px",
@@ -43,11 +44,7 @@ export const ListComponent: React.FC<Props> = (props) => {
         }}
       >
         <Grid2 size={12}>
-          <Grid2
-            container
-            spacing={2}
-            sx={{ paddingBottom: { xs: "10px", md: "20px" } }}
-          >
+          <Grid2 container spacing={2} sx={{ paddingBottom: "20px" }}>
             <Grid2 size={{ xs: 5, md: 2.5, lg: 2, xl: 1.5 }}>
               <TextField
                 id="filled-basic"
@@ -73,7 +70,7 @@ export const ListComponent: React.FC<Props> = (props) => {
               {headerElements.map((e, index) => (
                 <Grid2
                   key={index}
-                  size={{ xs: e === "Avatar" ? 3 : 4.5, md: 4, lg: 2 }}
+                  size={{ xs: e === "Avatar" ? 3.5 : 4.25, md: 4, lg: 2 }}
                   sx={{ color: "white" }}
                 >
                   <Typography variant="h4">{e}</Typography>
@@ -92,19 +89,29 @@ export const ListComponent: React.FC<Props> = (props) => {
                 sx={{
                   borderBottom: "1px solid #e5e5e5",
                   alignItems: "center",
-                  paddingTop: "8px",
+                  padding: "8px 0px",
                 }}
               >
-                <Grid2 size={{ xs: 3, md: 4, lg: 2 }}>
-                  <img
+                <Grid2 size={{ xs: 3.5, md: 4, lg: 2 }}>
+                  <Avatar
+                    alt={"Member avatar"}
                     src={member.avatar_url}
-                    style={{ width: "60px", borderRadius: "50%" }}
-                  />
+                    sx={{
+                      width: {
+                        xs: "50px",
+                        lg: "80px",
+                      },
+                      height: {
+                        xs: "50px",
+                        lg: "80px",
+                      },
+                    }}
+                  ></Avatar>
                 </Grid2>
-                <Grid2 size={{ xs: 4.5, md: 4, lg: 2 }}>
+                <Grid2 size={{ xs: 4.25, md: 4, lg: 2 }}>
                   <Typography component="span">{member.id}</Typography>
                 </Grid2>
-                <Grid2 size={{ xs: 4.5, md: 4, lg: 2 }}>
+                <Grid2 size={{ xs: 4.25, md: 4, lg: 2 }}>
                   <MuiLink
                     component={Link}
                     to={`/detail/${member.login}`}
