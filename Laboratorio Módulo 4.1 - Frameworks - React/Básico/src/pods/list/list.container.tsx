@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
 import { PaginationComponent } from "./pagination.component";
+import { ListSkeleton } from "./skeleton";
 
 export const ListContainer: React.FC = () => {
   const { organization, setOrganization, members, setMembers } =
@@ -11,9 +12,12 @@ export const ListContainer: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [membersPerPage] = useState(4);
 
+  const [loading, setLoading] = useState(false);
+
   const [value, setValue] = useState(organization);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://api.github.com/orgs/${organization}/members`)
       .then((response) => {
         if (!response.ok) {
@@ -27,8 +31,9 @@ export const ListContainer: React.FC = () => {
       .catch((error) => {
         console.error("Error al obtener los miembros: ", error);
         setMembers([]);
-      });
-  }, [organization, setMembers]);
+      })
+      .finally(() => setLoading(false));
+  }, [organization]);
 
   const handleSearchButton = () => {
     setOrganization(format(value));
@@ -44,19 +49,25 @@ export const ListContainer: React.FC = () => {
 
   return (
     <>
-      <ListComponent
-        members={currentMembers}
-        organization={organization}
-        handleSearchButton={handleSearchButton}
-        value={value}
-        setValue={setValue}
-      />
-      <PaginationComponent
-        totalMembers={members.length}
-        membersPerPage={membersPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
+      {loading ? (
+        <ListSkeleton count={membersPerPage} />
+      ) : (
+        <>
+          <ListComponent
+            members={currentMembers}
+            organization={organization}
+            handleSearchButton={handleSearchButton}
+            value={value}
+            setValue={setValue}
+          />
+          <PaginationComponent
+            totalMembers={members.length}
+            membersPerPage={membersPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        </>
+      )}
     </>
   );
 };
