@@ -1,6 +1,6 @@
 import { CharacterApi } from "./characters-ram.api-model";
 
 export const getCharactersCollection = (): Promise<CharacterApi[]> =>
-  fetch(`https://rickandmortyapi.com/api/character`).then((response) =>
-    response.json()
-  );
+  fetch(`https://rickandmortyapi.com/api/character`)
+    .then((response) => response.json())
+    .then((data) => data.results);

@@ -1,9 +1,19 @@
 import React from "react";
+import { CharacterVm } from "./characters-ram.vm";
 
-export const CharactersRAMComponent: React.FC = () => {
+interface Props {
+  characters: CharacterVm[];
+}
+
+export const CharactersRAMComponent: React.FC<Props> = (props) => {
+  const { characters } = props;
   return (
     <>
-      <h1>RICK Y MORTY</h1>
+      <div>
+        {characters.map((character) => (
+          <div>{character.name}</div>
+        ))}
+      </div>
     </>
   );
 };
