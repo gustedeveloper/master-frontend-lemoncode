@@ -27,8 +27,18 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
         {characters.map((character) => (
           <Card
             sx={{
-              width: "600px",
-              height: "200px",
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
+              width: {
+                xs: "300px",
+                md: "600px",
+              },
+              height: {
+                xs: "530px",
+                md: "200px",
+              },
               borderRadius: "5px",
               display: "flex",
               bgcolor: "#8d99ae",
@@ -37,22 +47,38 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
           >
             <CardMedia
               component="img"
-              sx={{ width: 200, borderRadius: "5px 0px 0px 5px" }}
+              sx={{
+                width: {
+                  sx: 300,
+                  md: 200,
+                },
+                borderRadius: {
+                  sx: "0px 5px 5px 0px",
+                  md: "5px 0px 0px 5px",
+                },
+              }}
               image={character.image}
               alt={character.name}
             ></CardMedia>
             <CardContent
               sx={{
                 display: "flex",
-                flex: "1",
+                flex: "1 0 auto",
                 flexDirection: "column",
-                justifyContent: "flex-start",
+                justifyContent: "space-between",
               }}
             >
               <Typography variant="h2" sx={{ color: "white" }}>
                 {character.name}
               </Typography>
-              <Typography sx={{ color: "white", fontWeight: "bold", mb: 1.25 }}>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  mb: 1.25,
+                }}
+              >
                 {character.status} - {character.species}
               </Typography>
 
