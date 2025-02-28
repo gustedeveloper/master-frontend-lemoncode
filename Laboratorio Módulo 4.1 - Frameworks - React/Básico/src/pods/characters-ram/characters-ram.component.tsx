@@ -1,13 +1,24 @@
 import React from "react";
 import { CharacterVm } from "./characters-ram.vm";
-import { Card, CardContent, CardMedia, Grid2, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid2,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 interface Props {
-  characters: CharacterVm[];
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  handleSearchButton: () => void;
+  filteredCharacters: CharacterVm[];
 }
 
 export const CharactersRAMComponent: React.FC<Props> = (props) => {
-  const { characters } = props;
+  const { value, setValue, handleSearchButton, filteredCharacters } = props;
   return (
     <>
       <Grid2
@@ -24,7 +35,30 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
           },
         }}
       >
-        {characters.map((character) => (
+        <Grid2 size={12}>
+          <Grid2 container spacing={2} sx={{ paddingBottom: "20px" }}>
+            <Grid2 size={{ xs: 5, md: 2.5, lg: 2, xl: 1.5 }}>
+              <TextField
+                id="filled-basic"
+                label="Enter character"
+                variant="filled"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+            </Grid2>
+
+            <Grid2
+              size={{ xs: 7, md: 9.5, lg: 10, xl: 10.5 }}
+              sx={{ display: "flex" }}
+            >
+              <Button variant="contained" onClick={handleSearchButton}>
+                Search
+              </Button>
+            </Grid2>
+          </Grid2>
+        </Grid2>
+
+        {filteredCharacters.map((character) => (
           <Card
             sx={{
               flexDirection: {
