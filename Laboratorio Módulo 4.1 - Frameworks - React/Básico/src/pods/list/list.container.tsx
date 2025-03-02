@@ -36,7 +36,7 @@ export const ListContainer: React.FC = () => {
       .finally(() => {
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 500);
       });
   }, [organization]);
 
