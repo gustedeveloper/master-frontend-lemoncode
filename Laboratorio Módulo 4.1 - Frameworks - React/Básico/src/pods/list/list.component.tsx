@@ -79,9 +79,7 @@ export const ListComponent: React.FC<Props> = (props) => {
             </Grid2>
           </List>
 
-          <List
-            sx={{ paddingTop: "0px", bgcolor: "white", padding: "0px 20px" }}
-          >
+          <List sx={{ bgcolor: "white", padding: "0px 20px" }}>
             {members.map((member) => (
               <Grid2
                 key={member.id}

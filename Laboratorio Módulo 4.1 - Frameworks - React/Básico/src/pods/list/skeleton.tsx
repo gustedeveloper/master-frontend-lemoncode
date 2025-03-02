@@ -45,7 +45,7 @@ export const ListSkeleton: React.FC<ListSkeletonProps> = ({ count }) => {
             <Skeleton variant="rectangular" height={65}></Skeleton>
           </Grid2>
 
-          <List sx={{ paddingTop: "0px" }}>
+          <List sx={{ padding: "0px 20px" }}>
             {Array.from({ length: count }).map((_, index) => (
               <Grid2
                 container

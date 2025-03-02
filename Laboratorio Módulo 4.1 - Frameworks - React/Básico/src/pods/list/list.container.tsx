@@ -18,6 +18,7 @@ export const ListContainer: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
+
     fetch(`https://api.github.com/orgs/${organization}/members`)
       .then((response) => {
         if (!response.ok) {
@@ -32,7 +33,11 @@ export const ListContainer: React.FC = () => {
         console.error("Error al obtener los miembros: ", error);
         setMembers([]);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      });
   }, [organization]);
 
   const handleSearchButton = () => {
