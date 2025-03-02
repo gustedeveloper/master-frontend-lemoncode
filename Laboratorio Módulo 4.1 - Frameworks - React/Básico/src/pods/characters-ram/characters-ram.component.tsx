@@ -25,8 +25,6 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
         container
         spacing={5}
         sx={{
-          justifyContent: "center",
-
           margin: {
             xs: "64px 16px",
             sm: "32px",
@@ -36,22 +34,20 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
           },
         }}
       >
-        <Grid2 size={12}>
+        <Grid2 size={12} sx={{ display: "flex", justifyContent: "center" }}>
           <Grid2 container spacing={2}>
-            <Grid2 size={{ xs: 5, md: 3.5, lg: 2, xl: 1.5 }}>
+            <Grid2 size={8.5}>
               <TextField
                 id="filled-basic"
                 label="Enter character"
                 variant="filled"
                 value={value}
+                fullWidth
                 onChange={(e) => setValue(e.target.value)}
               />
             </Grid2>
 
-            <Grid2
-              size={{ xs: 7, md: 8.5, lg: 10, xl: 10.5 }}
-              sx={{ display: "flex" }}
-            >
+            <Grid2 size={3.5} sx={{ display: "flex" }}>
               <Button variant="contained" onClick={handleSearchButton}>
                 Search
               </Button>
@@ -59,7 +55,15 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
           </Grid2>
         </Grid2>
 
-        <Grid2 container spacing={5} justifyContent={"center"}>
+        <Grid2
+          size={12}
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "30px",
+            justifyContent: "space-evenly",
+          }}
+        >
           {filteredCharacters.map((character) => (
             <Grid2 container key={character.id}>
               <Grid2 size={{ xs: 12, sm: 6 }}>
