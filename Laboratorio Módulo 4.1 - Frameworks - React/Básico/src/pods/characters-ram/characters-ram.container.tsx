@@ -3,37 +3,33 @@ import { CharacterVm } from "./characters-ram.vm";
 import { getCharactersCollection } from "./api/characters-ram.api";
 import { mapCharacterCollectionFromApiToVm } from "./characters-ram.mapper";
 import { CharactersRAMComponent } from "./characters-ram.component";
+import { useDebounce } from "use-debounce";
 
 export const CharactersRAMContainer: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterVm[]>([]);
-  const [filteredCharacters, setFilteredCharacters] = useState<CharacterVm[]>(
-    []
-  );
+
   const [value, setValue] = useState("");
 
-  const handleSearchButton = () => {
-    const formattedValue = value.toLowerCase();
-    const formattedFilteredCharacters = characters.filter((character) =>
-      character.name.toLowerCase().includes(formattedValue)
-    );
+  const formattedValue = value.toLowerCase();
 
-    setFilteredCharacters(formattedFilteredCharacters);
-  };
+  const [debouncedValue] = useDebounce(formattedValue, 700);
 
   useEffect(() => {
     getCharactersCollection().then((apiCharacters) => {
       const mappedCharacters = mapCharacterCollectionFromApiToVm(apiCharacters);
       setCharacters(mappedCharacters);
-      setFilteredCharacters(mappedCharacters);
     });
   }, []);
+
+  const debouncedFilteredCharacters = characters.filter((character) =>
+    character.name.toLowerCase().includes(debouncedValue)
+  );
 
   return (
     <CharactersRAMComponent
       value={value}
       setValue={setValue}
-      handleSearchButton={handleSearchButton}
-      filteredCharacters={filteredCharacters}
+      characters={debouncedFilteredCharacters}
     />
   );
 };

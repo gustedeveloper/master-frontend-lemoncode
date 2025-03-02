@@ -1,7 +1,6 @@
 import React from "react";
 import { CharacterVm } from "./characters-ram.vm";
 import {
-  Button,
   Card,
   CardContent,
   CardMedia,
@@ -13,12 +12,11 @@ import {
 interface Props {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  handleSearchButton: () => void;
-  filteredCharacters: CharacterVm[];
+  characters: CharacterVm[];
 }
 
 export const CharactersRAMComponent: React.FC<Props> = (props) => {
-  const { value, setValue, handleSearchButton, filteredCharacters } = props;
+  const { value, setValue, characters } = props;
   return (
     <>
       <Grid2
@@ -35,23 +33,15 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
         }}
       >
         <Grid2 size={12} sx={{ display: "flex", justifyContent: "center" }}>
-          <Grid2 container spacing={2}>
-            <Grid2 size={8.5}>
-              <TextField
-                id="filled-basic"
-                label="Enter character"
-                variant="filled"
-                value={value}
-                fullWidth
-                onChange={(e) => setValue(e.target.value)}
-              />
-            </Grid2>
-
-            <Grid2 size={3.5} sx={{ display: "flex" }}>
-              <Button variant="contained" onClick={handleSearchButton}>
-                Search
-              </Button>
-            </Grid2>
+          <Grid2 container>
+            <TextField
+              id="filled-basic"
+              label="Enter character"
+              variant="filled"
+              value={value}
+              fullWidth
+              onChange={(e) => setValue(e.target.value)}
+            />
           </Grid2>
         </Grid2>
 
@@ -64,7 +54,7 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
             justifyContent: "space-evenly",
           }}
         >
-          {filteredCharacters.map((character) => (
+          {characters.map((character) => (
             <Grid2 container key={character.id}>
               <Grid2 size={{ xs: 12, sm: 6 }}>
                 <Card
