@@ -21,19 +21,15 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
     <>
       <Grid2
         container
-        spacing={5}
         sx={{
           margin: {
-            xs: "64px 16px",
-            sm: "32px",
-            md: "48px",
+            xs: "64px 32px",
             lg: "64px",
-            xl: "80px",
           },
         }}
       >
         <Grid2 size={12} sx={{ display: "flex", justifyContent: "center" }}>
-          <Grid2 container>
+          <Grid2 container sx={{ padding: "40px 0px 20px 0px" }}>
             <TextField
               id="filled-basic"
               label="Enter character"

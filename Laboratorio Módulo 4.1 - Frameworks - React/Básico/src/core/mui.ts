@@ -30,4 +30,16 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          overflowY: "scroll",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      },
+    },
+  },
 });
