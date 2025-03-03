@@ -1,13 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -39,7 +30,11 @@ export const NavbarComponent = () => {
           justifyContent: "center",
         }}
       >
-        <Box sx={{ display: "flex" }}>
+        <Box
+          sx={{
+            display: "flex",
+          }}
+        >
           {pages.map((page) => (
             <Button
               sx={{

@@ -30,11 +30,8 @@ export const ListComponent: React.FC<Props> = (props) => {
         container
         sx={{
           margin: {
-            xs: "64px 16px",
-            sm: "32px",
-            md: "48px",
+            xs: "64px 32px",
             lg: "64px",
-            xl: "80px",
           },
           minWidth: "300px",
           height: "100%",
@@ -44,8 +41,8 @@ export const ListComponent: React.FC<Props> = (props) => {
         }}
       >
         <Grid2 size={12}>
-          <Grid2 container spacing={2} sx={{ paddingBottom: "20px" }}>
-            <Grid2 size={{ xs: 5, md: 2.5, lg: 2, xl: 1.5 }}>
+          <Grid2 container spacing={2} sx={{ padding: "40px 0px 20px 0px" }}>
+            <Grid2 size={{ xs: 6, sm: 3.5, md: 2.5, lg: 2, xl: 1.5 }}>
               <TextField
                 id="filled-basic"
                 label="Enter organization name"
@@ -56,7 +53,7 @@ export const ListComponent: React.FC<Props> = (props) => {
             </Grid2>
 
             <Grid2
-              size={{ xs: 7, md: 9.5, lg: 10, xl: 10.5 }}
+              size={{ xs: 6, sm: 8.5, md: 9.5, lg: 10, xl: 10.5 }}
               sx={{ display: "flex" }}
             >
               <Button variant="contained" onClick={handleSearchButton}>
