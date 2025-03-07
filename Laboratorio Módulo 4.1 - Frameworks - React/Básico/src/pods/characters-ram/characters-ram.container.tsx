@@ -14,12 +14,14 @@ export const CharactersRAMContainer: React.FC = () => {
 
   const [debouncedValue] = useDebounce(formattedValue, 700);
 
+  const [page, setPage] = useState(() => Math.floor(Math.random() * 42) + 1);
+
   useEffect(() => {
-    getCharactersCollection().then((apiCharacters) => {
+    getCharactersCollection(page).then((apiCharacters) => {
       const mappedCharacters = mapCharacterCollectionFromApiToVm(apiCharacters);
-      setCharacters(mappedCharacters);
+      setCharacters((prev) => [...prev, ...mappedCharacters]);
     });
-  }, []);
+  }, [page]);
 
   const debouncedFilteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(debouncedValue)
@@ -30,6 +32,7 @@ export const CharactersRAMContainer: React.FC = () => {
       value={value}
       setValue={setValue}
       characters={debouncedFilteredCharacters}
+      setPage={setPage}
     />
   );
 };

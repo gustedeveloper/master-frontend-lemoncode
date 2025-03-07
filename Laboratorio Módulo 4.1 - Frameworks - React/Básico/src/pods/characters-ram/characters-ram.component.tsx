@@ -13,10 +13,11 @@ interface Props {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   characters: CharacterVm[];
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const CharactersRAMComponent: React.FC<Props> = (props) => {
-  const { value, setValue, characters } = props;
+  const { value, setValue, characters, setPage } = props;
   return (
     <>
       <Grid2
@@ -127,6 +128,7 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
               </Grid2>
             </Grid2>
           ))}
+          <button onClick={() => setPage((prev) => prev + 1)}>Load more</button>
         </Grid2>
       </Grid2>
     </>
