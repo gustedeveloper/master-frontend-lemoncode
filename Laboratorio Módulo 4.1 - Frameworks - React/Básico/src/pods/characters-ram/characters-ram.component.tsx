@@ -1,6 +1,7 @@
 import React from "react";
 import { CharacterVm } from "./characters-ram.vm";
 import {
+  Button,
   Card,
   CardContent,
   CardMedia,
@@ -128,7 +129,18 @@ export const CharactersRAMComponent: React.FC<Props> = (props) => {
               </Grid2>
             </Grid2>
           ))}
-          <button onClick={() => setPage((prev) => prev + 1)}>Load more</button>
+        </Grid2>
+        <Grid2
+          size={12}
+          sx={{ display: "flex", justifyContent: "center", p: "50px" }}
+        >
+          <Button
+            sx={{ p: "20px" }}
+            variant="contained"
+            onClick={() => setPage((prev) => prev + 1)}
+          >
+            Load more
+          </Button>
         </Grid2>
       </Grid2>
     </>
