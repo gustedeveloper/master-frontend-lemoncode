@@ -73,10 +73,10 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                       },
                       width: {
                         xs: "300px",
-                        md: "550px",
+                        md: "400px",
                       },
                       height: {
-                        xs: "530px",
+                        xs: "420px",
                         md: "200px",
                       },
                       borderRadius: "5px",
@@ -102,9 +102,8 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                     <CardContent
                       sx={{
                         display: "flex",
-                        flex: "1 0 auto",
+
                         flexDirection: "column",
-                        justifyContent: "space-between",
                       }}
                     >
                       <MuiLink
@@ -126,20 +125,6 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                         }}
                       >
                         {character.status} - {character.species}
-                      </Typography>
-
-                      <Typography sx={{ color: "#B9CAE7", fontWeight: "bold" }}>
-                        Last known location:
-                      </Typography>
-                      <Typography sx={{ color: "white", mb: 1.25 }}>
-                        {character.currentLocation.name}
-                      </Typography>
-
-                      <Typography sx={{ color: "#B9CAE7", fontWeight: "bold" }}>
-                        First seen in:
-                      </Typography>
-                      <Typography sx={{ color: "white" }}>
-                        {character.origin.name}
                       </Typography>
                     </CardContent>
                   </Card>

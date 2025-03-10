@@ -5,6 +5,8 @@ import {
   createDefaultCharacterVM,
 } from "./character-detail.vm";
 import { useParams } from "react-router-dom";
+import { getCharacterDetail } from "./api/character-detail.api";
+import { mapCharacterFromApiToVm } from "./character-detail.mapper";
 
 export const CharacterDetailContainer: FC = () => {
   const [character, setCharacter] = useState<CharacterDetailVm>(
@@ -14,9 +16,10 @@ export const CharacterDetailContainer: FC = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((response) => response.json())
-      .then((json) => setCharacter(json));
+    getCharacterDetail(id).then((apiCharacter) => {
+      const mappedCharacter = mapCharacterFromApiToVm(apiCharacter);
+      setCharacter(mappedCharacter);
+    });
   }, []);
 
   return <CharacterDetailComponent character={character} id={id} />;
