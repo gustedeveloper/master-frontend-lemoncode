@@ -14,7 +14,7 @@ export const CharactersRAMContainer: FC = () => {
 
   const [debouncedValue] = useDebounce(formattedValue, 700);
 
-  const [page, setPage] = useState(() => Math.floor(Math.random() * 42) + 1);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     getCharactersCollection(page).then((apiCharacters) => {
