@@ -8,7 +8,9 @@ import {
   Grid2,
   TextField,
   Typography,
+  Link as MuiLink,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface Props {
   value: string;
@@ -105,9 +107,16 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                         justifyContent: "space-between",
                       }}
                     >
-                      <Typography variant="h3" sx={{ color: "white" }}>
-                        {character.name}
-                      </Typography>
+                      <MuiLink
+                        component={Link}
+                        to={`/character-detail/${character.id}`}
+                        sx={{ textDecoration: "none" }}
+                      >
+                        <Typography variant="h3" sx={{ color: "white" }}>
+                          {character.name}
+                        </Typography>
+                      </MuiLink>
+
                       <Typography
                         sx={{
                           color: "white",
