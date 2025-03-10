@@ -1,6 +1,6 @@
-import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Tab, Tabs, Toolbar } from "@mui/material";
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface Pages {
   id: number;
@@ -22,6 +22,8 @@ const pages: Pages[] = [
 ];
 
 export const NavbarComponent: FC = () => {
+  const location = useLocation();
+
   return (
     <AppBar position="fixed">
       <Toolbar
@@ -34,23 +36,23 @@ export const NavbarComponent: FC = () => {
           sx={{
             display: "flex",
           }}
+        ></Box>
+        <Tabs
+          value={location.pathname}
+          textColor="inherit"
+          indicatorColor="secondary"
         >
           {pages.map((page) => (
-            <Button
-              sx={{
-                color: "white",
-                padding: "20px",
-                fontSize: "16px",
-                fontWeight: "bold",
-              }}
-              key={page.name}
+            <Tab
+              key={page.id}
+              label={page.name}
+              value={page.path}
               component={Link}
               to={page.path}
-            >
-              {page.name}
-            </Button>
+              sx={{ fontSize: "16px" }}
+            ></Tab>
           ))}
-        </Box>
+        </Tabs>
       </Toolbar>
     </AppBar>
   );
