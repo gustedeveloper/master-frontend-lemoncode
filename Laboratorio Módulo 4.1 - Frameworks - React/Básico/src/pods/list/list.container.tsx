@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import { useContext, useEffect, useState } from "react";
 import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
 import { PaginationComponent } from "./pagination.component";
 import { ListSkeleton } from "./skeleton";
 
-export const ListContainer: React.FC = () => {
+export const ListContainer: FC = () => {
   const { organization, setOrganization, members, setMembers } =
     useContext(OrganizationContext);
 

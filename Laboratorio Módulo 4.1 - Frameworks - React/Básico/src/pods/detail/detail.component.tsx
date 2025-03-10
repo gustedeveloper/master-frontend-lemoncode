@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MemberEntity } from "./detail.vm";
 import {
@@ -10,7 +10,6 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import { ListSkeleton } from "../list/skeleton";
 
 interface Props {
   selectedMember: MemberEntity;
@@ -18,7 +17,7 @@ interface Props {
   id: string;
 }
 
-export const DetailComponent: React.FC<Props> = (props) => {
+export const DetailComponent: FC<Props> = (props) => {
   const { selectedMember, organization, id } = props;
   const navigate = useNavigate();
   return (

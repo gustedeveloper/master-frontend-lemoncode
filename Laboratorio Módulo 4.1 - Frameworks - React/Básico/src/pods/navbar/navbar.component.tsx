@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
 interface Pages {
@@ -21,7 +21,7 @@ const pages: Pages[] = [
   },
 ];
 
-export const NavbarComponent = () => {
+export const NavbarComponent: FC = () => {
   return (
     <AppBar position="fixed">
       <Toolbar

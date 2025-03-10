@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { CharacterVm } from "./characters-ram.vm";
 import { getCharactersCollection } from "./api/characters-ram.api";
 import { mapCharacterCollectionFromApiToVm } from "./characters-ram.mapper";
 import { CharactersRAMComponent } from "./characters-ram.component";
 import { useDebounce } from "use-debounce";
 
-export const CharactersRAMContainer: React.FC = () => {
+export const CharactersRAMContainer: FC = () => {
   const [characters, setCharacters] = useState<CharacterVm[]>([]);
 
   const [value, setValue] = useState("");

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { CharacterDetailContainer } from "../pods/character-ram-detail";
 
-export const CharacterRamDetailPage: React.FC = () => {
+export const CharacterRamDetailPage: FC = () => {
   return (
     <>
       <CharacterDetailContainer />

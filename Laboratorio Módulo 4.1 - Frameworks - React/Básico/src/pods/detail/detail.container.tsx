@@ -1,9 +1,9 @@
 import { DetailComponent } from "./detail.component";
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { OrganizationContext } from "../../core";
 
-export const DetailContainer = () => {
+export const DetailContainer: FC = () => {
   const { id } = useParams();
   const { organization, members } = useContext(OrganizationContext);
 

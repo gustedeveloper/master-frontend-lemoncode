@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { MemberEntity } from "./list.vm";
 import Button from "@mui/material/Button";
@@ -21,7 +21,7 @@ interface Props {
 
 const headerElements = ["Avatar", "ID", "Name"];
 
-export const ListComponent: React.FC<Props> = (props) => {
+export const ListComponent: FC<Props> = (props) => {
   const { members, handleSearchButton, value, setValue } = props;
 
   return (

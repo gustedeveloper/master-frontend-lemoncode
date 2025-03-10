@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { DetailContainer } from "../pods/detail";
 import { NavbarContainer } from "../pods/navbar";
 
-export const DetailPage: React.FC = () => {
+export const DetailPage: FC = () => {
   return (
     <>
       <NavbarContainer />

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import { Pagination } from "@mui/material";
 
-export const PaginationComponent = ({
-  totalMembers,
-  membersPerPage,
-  currentPage,
-  setCurrentPage,
-}) => {
+interface PaginationProps {
+  totalMembers: number;
+  membersPerPage: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const PaginationComponent: FC<PaginationProps> = (props) => {
+  const { totalMembers, membersPerPage, currentPage, setCurrentPage } = props;
+
   let pages = [];
 
   for (let i = 1; i <= Math.ceil(totalMembers / membersPerPage); i++) {

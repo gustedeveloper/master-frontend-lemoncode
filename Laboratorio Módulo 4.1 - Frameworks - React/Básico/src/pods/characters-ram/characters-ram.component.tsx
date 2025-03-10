@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { CharacterVm } from "./characters-ram.vm";
 import {
   Button,
@@ -17,7 +17,7 @@ interface Props {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const CharactersRAMComponent: React.FC<Props> = (props) => {
+export const CharactersRAMComponent: FC<Props> = (props) => {
   const { value, setValue, characters, setPage } = props;
 
   const handleScrollToTop = () => {

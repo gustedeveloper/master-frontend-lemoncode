@@ -1,11 +1,12 @@
 import { Grid2, List, Skeleton } from "@mui/material";
-import React from "react";
+import React, { FC } from "react";
 
 interface ListSkeletonProps {
   count: number;
 }
 
-export const ListSkeleton: React.FC<ListSkeletonProps> = ({ count }) => {
+export const ListSkeleton: FC<ListSkeletonProps> = (props) => {
+  const { count } = props;
   return (
     <>
       <Grid2
