@@ -35,7 +35,7 @@ export const CharacterDetailComponent: FC<CharacterDetailProps> = (props) => {
           display: "flex",
           flexDirection: "column",
           width: 300,
-          height: 600,
+          height: 700,
           borderRadius: 5,
         }}
       >
@@ -63,7 +63,12 @@ export const CharacterDetailComponent: FC<CharacterDetailProps> = (props) => {
             {character.species}
           </Typography>
           <Typography>
-            {character.type && `<strong>Type: </strong> ${character.type}`}
+            {character.type && (
+              <>
+                <strong>Type: </strong>
+                {character.type}
+              </>
+            )}
           </Typography>
           <Typography>
             <strong>Gender: </strong>
