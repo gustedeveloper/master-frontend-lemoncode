@@ -20,7 +20,7 @@ export const CharacterDetailContainer: FC = () => {
       const mappedCharacter = mapCharacterFromApiToVm(apiCharacter);
       setCharacter(mappedCharacter);
     });
-  }, []);
+  }, [id]);
 
   return <CharacterDetailComponent character={character} />;
 };
