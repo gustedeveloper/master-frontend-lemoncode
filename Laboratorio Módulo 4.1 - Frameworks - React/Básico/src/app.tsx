@@ -7,6 +7,7 @@ import { LoginPage } from "./login";
 import { ListPage } from "./scenes/list";
 import { DetailPage } from "./scenes/detail";
 import { CharactersRamPage } from "./scenes/characters-ram";
+import { CharacterRamDetailPage } from "./scenes/character-ram-detail";
 
 export const App = () => {
   return (
@@ -17,6 +18,10 @@ export const App = () => {
           <Route path="/list" element={<ListPage />} />
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/characters" element={<CharactersRamPage />} />
+          <Route
+            path="/character-detail/:id"
+            element={<CharacterRamDetailPage />}
+          />
         </Routes>
       </Router>
     </OrganizationProvider>
