@@ -102,7 +102,6 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                     <CardContent
                       sx={{
                         display: "flex",
-
                         flexDirection: "column",
                       }}
                     >

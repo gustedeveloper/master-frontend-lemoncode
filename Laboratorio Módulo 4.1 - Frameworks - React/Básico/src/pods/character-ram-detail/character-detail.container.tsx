@@ -22,5 +22,5 @@ export const CharacterDetailContainer: FC = () => {
     });
   }, []);
 
-  return <CharacterDetailComponent character={character} id={id} />;
+  return <CharacterDetailComponent character={character} />;
 };
