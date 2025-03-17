@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { OrganizationProvider } from "./core";
 
-import { LoginPage } from "./login";
+import { LoginPage } from "./scenes/login";
 import { ListPage } from "./scenes/list";
 import { DetailPage } from "./scenes/detail";
 import { CharactersRamPage } from "./scenes/characters-ram";
