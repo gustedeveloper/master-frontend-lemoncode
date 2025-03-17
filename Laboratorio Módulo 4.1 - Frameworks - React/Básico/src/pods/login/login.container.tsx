@@ -10,8 +10,8 @@ export interface User {
 export const LoginContainer: FC = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User>({
-    name: "",
-    password: "",
+    name: "rick",
+    password: "morty",
   });
 
   const handleNavigation = (e: FormEvent<HTMLFormElement>) => {
