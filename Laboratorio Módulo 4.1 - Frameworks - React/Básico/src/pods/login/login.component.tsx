@@ -7,8 +7,17 @@ import {
   Typography,
 } from "@mui/material";
 import React, { FC } from "react";
+import { User } from "./login.container";
 
-export const LoginComponent: FC = () => {
+interface Props {
+  user: User;
+  setUser: (value: React.SetStateAction<User>) => void;
+  handleNavigation: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+export const LoginComponent: FC<Props> = (props) => {
+  const { user, setUser, handleNavigation } = props;
+
   return (
     <>
       <Container
@@ -23,6 +32,7 @@ export const LoginComponent: FC = () => {
       >
         <Box
           component="form"
+          onSubmit={handleNavigation}
           sx={{
             bgcolor: "white",
             display: "flex",
@@ -56,6 +66,8 @@ export const LoginComponent: FC = () => {
             <FormLabel>Username</FormLabel>
             <OutlinedInput
               fullWidth
+              value={user.name}
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
               type="text"
               placeholder="Write your username"
               sx={{ marginTop: "10px", height: "40px" }}
@@ -65,6 +77,8 @@ export const LoginComponent: FC = () => {
             <FormLabel>Password</FormLabel>
             <OutlinedInput
               fullWidth
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
               type="password"
               placeholder="••••••"
               sx={{ marginTop: "10px", height: "40px" }}
