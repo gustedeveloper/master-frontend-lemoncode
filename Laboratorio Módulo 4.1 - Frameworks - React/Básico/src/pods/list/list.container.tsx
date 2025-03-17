@@ -4,6 +4,7 @@ import { OrganizationContext } from "../../core";
 import { ListComponent } from "./list.component";
 import { PaginationComponent } from "./pagination.component";
 import { ListSkeleton } from "./skeleton";
+import { getMembers } from "./api/list.api";
 
 export const ListContainer: FC = () => {
   const { organization, setOrganization, members, setMembers } =
@@ -19,15 +20,7 @@ export const ListContainer: FC = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`https://api.github.com/orgs/${organization}/members`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `Error ${response.status}: Organización no encontrada`
-          );
-        }
-        return response.json();
-      })
+    getMembers(organization)
       .then((json) => setMembers(json))
       .catch((error) => {
         console.error("Error al obtener los miembros: ", error);
