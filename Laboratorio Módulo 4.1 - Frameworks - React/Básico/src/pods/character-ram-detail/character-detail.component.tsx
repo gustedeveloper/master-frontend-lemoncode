@@ -83,8 +83,18 @@ export const CharacterDetailComponent: FC<CharacterDetailProps> = (props) => {
           <Typography sx={{ fontWeight: "bold" }}>First seen in:</Typography>
           <Typography>{character.origin.name}</Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small" onClick={() => navigate(`/characters`)}>
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <Button
+            variant="contained"
+            size="small"
+            onClick={() => navigate(`/characters`)}
+          >
             Go back to list
           </Button>
         </CardActions>
