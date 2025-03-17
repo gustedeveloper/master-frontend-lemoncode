@@ -9,8 +9,9 @@ import {
   TextField,
   Typography,
   Link as MuiLink,
+  Box,
 } from "@mui/material";
-import Brightness1RoundedIcon from "@mui/icons-material/Brightness1Rounded";
+
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -119,28 +120,21 @@ export const CharactersRAMComponent: FC<Props> = (props) => {
                       <Typography
                         sx={{
                           color: "white",
-
-                          fontSize: "20px",
+                          fontSize: "16px",
                           display: "flex",
                           alignItems: "center",
                         }}
                       >
-                        {character.status !== "Alive" ? (
-                          <>
-                            <Brightness1RoundedIcon
-                              fontSize="small"
-                              sx={{ pr: "5px", color: "red" }}
-                            ></Brightness1RoundedIcon>
-                          </>
-                        ) : (
-                          <>
-                            <Brightness1RoundedIcon
-                              fontSize="small"
-                              sx={{ pr: "5px", color: "#38b000" }}
-                            ></Brightness1RoundedIcon>
-                          </>
-                        )}
-
+                        <Box
+                          sx={{
+                            marginRight: "6px",
+                            width: 8,
+                            height: 8,
+                            borderRadius: "50%",
+                            backgroundColor:
+                              character.status === "Alive" ? "#36c430" : "red",
+                          }}
+                        />
                         {character.status}
                       </Typography>
                     </CardContent>
