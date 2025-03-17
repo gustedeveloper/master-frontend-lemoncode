@@ -51,6 +51,7 @@ export const LoginComponent: FC<Props> = (props) => {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
+              height: "150px",
             }}
           >
             <Box
