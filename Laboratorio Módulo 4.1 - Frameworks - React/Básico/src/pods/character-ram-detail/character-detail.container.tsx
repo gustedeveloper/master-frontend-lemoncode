@@ -5,7 +5,7 @@ import {
   createDefaultCharacterVM,
 } from "./character-detail.vm";
 import { useParams } from "react-router-dom";
-import { getCharacterDetail } from "./api/character-detail.api";
+import { getCharacterDetail } from "./api";
 import { mapCharacterFromApiToVm } from "./character-detail.mapper";
 
 export const CharacterDetailContainer: FC = () => {

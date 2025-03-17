@@ -8,7 +8,6 @@ import {
   CardMedia,
   Container,
   Typography,
-  Link as MuiLink,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

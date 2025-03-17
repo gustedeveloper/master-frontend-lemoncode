@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { CharacterVm } from "./characters-ram.vm";
-import { getCharactersCollection } from "./api/characters-ram.api";
+import { getCharactersCollection } from "./api";
 import { mapCharacterCollectionFromApiToVm } from "./characters-ram.mapper";
 import { CharactersRAMComponent } from "./characters-ram.component";
 import { useDebounce } from "use-debounce";

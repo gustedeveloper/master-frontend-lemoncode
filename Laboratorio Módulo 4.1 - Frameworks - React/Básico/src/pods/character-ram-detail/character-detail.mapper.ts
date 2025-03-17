@@ -1,5 +1,5 @@
 import * as vm from "./character-detail.vm";
-import * as api from "./api/character-detail.api-model";
+import * as api from "./api";
 
 export const mapCharacterFromApiToVm = (
   character: api.CharacterApi
