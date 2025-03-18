@@ -1,4 +1,5 @@
 import { CityCategoryPage } from "../scenes/city-category";
+import { HomePage } from "../scenes/home";
 import { LandscapeCategoryPage } from "../scenes/landscape-category";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,7 +9,7 @@ export const AppRoutes = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/"></Route>
+          <Route path="/" element={<HomePage />} />
           <Route path="/city-category" element={<CityCategoryPage />} />
           <Route
             path="/landscape-category"
