@@ -5,6 +5,6 @@ export const getPictures = (): Promise<PictureInfo[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(landscapePictures);
-    }, 1000);
+    }, 100);
   });
 };
