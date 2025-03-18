@@ -54,37 +54,37 @@ export const cityPictures: PictureInfo[] = [
   },
   {
     id: "c2",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}2.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c3",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}3.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c4",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}4.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c5",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}5.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c6",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}6.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c7",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}7.jpg`,
     title: "Helsinki Cathedral",
   },
   {
     id: "c8",
-    picUrl: `${citySrc}1.jpg`,
+    picUrl: `${citySrc}8.jpg`,
     title: "Helsinki Cathedral",
   },
 ];
