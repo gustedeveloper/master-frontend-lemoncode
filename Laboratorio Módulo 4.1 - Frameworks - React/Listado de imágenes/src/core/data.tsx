@@ -55,36 +55,36 @@ export const cityPictures: PictureInfo[] = [
   {
     id: "c2",
     picUrl: `${citySrc}2.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Natural park",
   },
   {
     id: "c3",
     picUrl: `${citySrc}3.jpg`,
-    title: "Helsinki Cathedral",
+    title: "City sightseeing",
   },
   {
     id: "c4",
     picUrl: `${citySrc}4.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Personal dock",
   },
   {
     id: "c5",
     picUrl: `${citySrc}5.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Red house between the trees",
   },
   {
     id: "c6",
     picUrl: `${citySrc}6.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Swan in the lake",
   },
   {
     id: "c7",
     picUrl: `${citySrc}7.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Ship in city canal",
   },
   {
     id: "c8",
     picUrl: `${citySrc}8.jpg`,
-    title: "Helsinki Cathedral",
+    title: "Finnish architecture",
   },
 ];
