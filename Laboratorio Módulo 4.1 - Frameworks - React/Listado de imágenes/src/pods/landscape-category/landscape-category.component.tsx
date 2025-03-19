@@ -9,7 +9,7 @@ interface Props {
 export const LandscapeCategoryComponent: FC<Props> = (props) => {
   const { pictures } = props;
   return (
-    <>
+    <div>
       <h1>Landscape Category</h1>
       <div className="container">
         {pictures.map((picture) => (
@@ -22,6 +22,6 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };

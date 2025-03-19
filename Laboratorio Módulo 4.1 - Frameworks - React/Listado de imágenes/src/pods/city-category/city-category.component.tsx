@@ -8,7 +8,7 @@ interface Props {
 export const CityCategoryComponent: FC<Props> = (props) => {
   const { pictures } = props;
   return (
-    <>
+    <div>
       <h1>City Category</h1>
       <div className="container">
         {pictures.map((picture) => (
@@ -20,6 +20,6 @@ export const CityCategoryComponent: FC<Props> = (props) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };

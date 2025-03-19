@@ -4,6 +4,10 @@ body {
   width: 100%;
 }
 
+.layout-app-container {
+  display: flex;
+}
+
 .container {
   width: 100%;
   flex-wrap: wrap;
@@ -14,4 +18,8 @@ body {
 
 img {
   width: 300px;
+}
+
+.cart {
+  width: 50%;
 }
