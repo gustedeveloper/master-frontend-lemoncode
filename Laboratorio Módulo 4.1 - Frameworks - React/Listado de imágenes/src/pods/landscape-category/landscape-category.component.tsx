@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { PictureInfoVm } from "./landscape.vm";
+import "../../index.css";
 
 interface Props {
   pictures: PictureInfoVm[];
@@ -10,14 +11,16 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
   return (
     <>
       <h1>Landscape Category</h1>
-      {pictures.map((picture) => (
-        <div key={picture.id}>
-          <img style={{ width: "300px" }} src={picture.picUrl} />
-          <span>{picture.title}</span>
-          <span>{picture.selected}</span>
-          <input type="checkbox" />
-        </div>
-      ))}
+      <div className="container">
+        {pictures.map((picture) => (
+          <div key={picture.id}>
+            <img src={picture.picUrl} />
+            <p>{picture.title}</p>
+            <p>{picture.selected}</p>
+            <input type="checkbox" />
+          </div>
+        ))}
+      </div>
     </>
   );
 };
