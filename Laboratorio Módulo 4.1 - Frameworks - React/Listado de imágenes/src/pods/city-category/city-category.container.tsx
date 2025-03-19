@@ -9,8 +9,20 @@ export const CityCategoryContainer: FC = () => {
 
   const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
 
-  const handleClick = (id: string) => {
-    setSelectedPictures([...selectedPictures, id]);
+  const handleCheckBox = (id: string) => {
+    const selection = pictures.find((picture) => picture.id === id);
+    if (selection) {
+      selection.selected = !selection.selected;
+      const updatedPictures = pictures.map((picture) =>
+        picture.id === selection.id
+          ? {
+              ...picture,
+              selected: selection?.selected,
+            }
+          : picture
+      );
+      setPictures(updatedPictures);
+    }
   };
 
   useEffect(() => {
@@ -21,6 +33,9 @@ export const CityCategoryContainer: FC = () => {
   }, []);
 
   return (
-    <CityCategoryComponent pictures={pictures} handleClick={handleClick} />
+    <CityCategoryComponent
+      pictures={pictures}
+      handleCheckBox={handleCheckBox}
+    />
   );
 };
