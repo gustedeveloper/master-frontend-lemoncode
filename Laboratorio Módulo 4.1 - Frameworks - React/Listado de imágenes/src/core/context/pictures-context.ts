@@ -2,7 +2,7 @@ import React from "react";
 
 interface ContextModel {
   selectedPictures: string[];
-  setSelectedPictures: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedPictures: (pictures: string[]) => void;
 }
 
 export const PicturesContext = React.createContext<ContextModel>({

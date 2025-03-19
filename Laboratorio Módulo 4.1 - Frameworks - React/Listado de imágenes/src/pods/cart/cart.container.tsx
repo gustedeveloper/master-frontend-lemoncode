@@ -3,11 +3,12 @@ import { PicturesContext } from "../../core/context/pictures-context";
 
 export const CartContainer: FC = () => {
   const { selectedPictures } = useContext(PicturesContext);
+
   return (
     <div className="cart">
       <h1>Shopping Cart</h1>
-      {selectedPictures.map((picture) => (
-        <p>{picture}</p>
+      {selectedPictures.map((picture, index) => (
+        <p key={picture[index]}>{picture}</p>
       ))}
     </div>
   );

@@ -7,7 +7,11 @@ import { PicturesContext } from "../../core/context/pictures-context";
 export const CityCategoryContainer: FC = () => {
   const [pictures, setPictures] = useState<PictureInfoVm[]>([]);
 
-  const { selectedPictures } = useContext(PicturesContext);
+  const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
+
+  const handleClick = (id: string) => {
+    setSelectedPictures([...selectedPictures, id]);
+  };
 
   useEffect(() => {
     getPictures().then((apiPictures) => {
@@ -16,5 +20,7 @@ export const CityCategoryContainer: FC = () => {
     });
   }, []);
 
-  return <CityCategoryComponent pictures={pictures} />;
+  return (
+    <CityCategoryComponent pictures={pictures} handleClick={handleClick} />
+  );
 };
