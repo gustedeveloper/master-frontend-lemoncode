@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { PictureInfo } from "../../core/model";
+import { PictureInfoVm } from "./landscape.vm";
 
 interface Props {
-  pictures: PictureInfo[];
+  pictures: PictureInfoVm[];
 }
 
 export const LandscapeCategoryComponent: FC<Props> = (props) => {
@@ -14,6 +14,8 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
         <div key={picture.id}>
           <img style={{ width: "300px" }} src={picture.picUrl} />
           <span>{picture.title}</span>
+          <span>{picture.selected}</span>
+          <input type="checkbox" />
         </div>
       ))}
     </>

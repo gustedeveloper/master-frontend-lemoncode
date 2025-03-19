@@ -1,14 +1,15 @@
 import { FC, useEffect, useState } from "react";
 import { LandscapeCategoryComponent } from "./landscape-category.component";
-import { PictureInfo } from "../../core/model";
 import { getPictures } from "./landscape-category.api";
+import { mapPictureCollectionFromApiToVm, PictureInfoVm } from "./landscape.vm";
 
 export const LandscapeCategoryContainer: FC = () => {
-  const [pictures, setPictures] = useState<PictureInfo[]>([]);
+  const [pictures, setPictures] = useState<PictureInfoVm[]>([]);
 
   useEffect(() => {
     getPictures().then((apiPictures) => {
-      setPictures(apiPictures);
+      const mappedPictures = mapPictureCollectionFromApiToVm(apiPictures);
+      setPictures(mappedPictures);
     });
   }, []);
 
