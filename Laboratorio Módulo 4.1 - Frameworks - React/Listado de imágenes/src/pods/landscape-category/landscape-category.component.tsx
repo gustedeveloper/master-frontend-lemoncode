@@ -18,6 +18,7 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
             <p>{picture.title}</p>
             <p>{picture.selected}</p>
             <input type="checkbox" />
+            <label>Buy</label>
           </div>
         ))}
       </div>

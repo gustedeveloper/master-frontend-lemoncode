@@ -16,6 +16,7 @@ export const CityCategoryComponent: FC<Props> = (props) => {
             <img style={{ width: "300px" }} src={picture.picUrl} />
             <p>{picture.title}</p>
             <input type="checkbox" />
+            <label>Buy</label>
           </div>
         ))}
       </div>
