@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { PictureInfo } from "../../core/model";
+import { PictureInfoVm } from "./city.vm";
 
 interface Props {
-  pictures: PictureInfo[];
+  pictures: PictureInfoVm[];
 }
 
 export const CityCategoryComponent: FC<Props> = (props) => {
@@ -15,8 +15,7 @@ export const CityCategoryComponent: FC<Props> = (props) => {
           <div key={picture.id}>
             <img style={{ width: "300px" }} src={picture.picUrl} />
             <p>{picture.title}</p>
-            <input type="checkbox" />
-            <label>Buy</label>
+            <button>Buy</button>
           </div>
         ))}
       </div>

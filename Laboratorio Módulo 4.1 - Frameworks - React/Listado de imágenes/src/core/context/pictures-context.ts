@@ -1,9 +1,11 @@
-import { PictureInfo } from "../model";
 import React from "react";
 
 interface ContextModel {
-  selectedPictures: PictureInfo[];
-  setSelectedPictures: React.Dispatch<React.SetStateAction<PictureInfo[]>>;
+  selectedPictures: string[];
+  setSelectedPictures: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const PicturesContext = React.createContext<ContextModel | null>(null);
+export const PicturesContext = React.createContext<ContextModel>({
+  selectedPictures: [],
+  setSelectedPictures: () => {},
+});
