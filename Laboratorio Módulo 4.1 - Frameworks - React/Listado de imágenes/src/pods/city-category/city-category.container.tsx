@@ -11,6 +11,7 @@ export const CityCategoryContainer: FC = () => {
 
   const handleCheckBox = (id: string) => {
     const selection = pictures.find((picture) => picture.id === id);
+
     if (selection) {
       selection.selected = !selection.selected;
       const updatedPictures = pictures.map((picture) =>
@@ -22,6 +23,19 @@ export const CityCategoryContainer: FC = () => {
           : picture
       );
       setPictures(updatedPictures);
+      addDeleteFromCart(selection, id);
+    }
+  };
+
+  const addDeleteFromCart = (selection: PictureInfoVm, id: string) => {
+    const updateWithDeletedPicture = selectedPictures.filter(
+      (picture) => picture !== selection.id
+    );
+
+    if (selection.selected === true)
+      setSelectedPictures([...selectedPictures, id]);
+    else {
+      setSelectedPictures(updateWithDeletedPicture);
     }
   };
 
