@@ -1,13 +1,12 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useEffect } from "react";
 import { CityCategoryComponent } from "./city-category.component";
 import { getPictures } from "./city-category.api";
 import { mapPictureCollectionFromApiToVm, PictureInfoVm } from "./city.vm";
 import { PicturesContext } from "../../core/context/pictures-context";
 
 export const CityCategoryContainer: FC = () => {
-  const [pictures, setPictures] = useState<PictureInfoVm[]>([]);
-
-  const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
+  const { pictures, setPictures, selectedPictures, setSelectedPictures } =
+    useContext(PicturesContext);
 
   const handleCheckBox = (id: string) => {
     const selection = pictures.find((picture) => picture.id === id);
@@ -41,10 +40,13 @@ export const CityCategoryContainer: FC = () => {
 
   useEffect(() => {
     getPictures().then((apiPictures) => {
-      const mappedPictures = mapPictureCollectionFromApiToVm(apiPictures);
+      const mappedPictures = mapPictureCollectionFromApiToVm(
+        apiPictures,
+        selectedPictures
+      );
       setPictures(mappedPictures);
     });
-  }, []);
+  }, [selectedPictures]);
 
   return (
     <CityCategoryComponent
