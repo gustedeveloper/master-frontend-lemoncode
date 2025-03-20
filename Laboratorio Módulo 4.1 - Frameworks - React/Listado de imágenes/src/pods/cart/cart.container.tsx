@@ -1,15 +1,9 @@
 import { FC, useContext } from "react";
 import { PicturesContext } from "../../core/context/pictures-context";
+import { CartComponent } from "./cart.component";
 
 export const CartContainer: FC = () => {
   const { selectedPictures } = useContext(PicturesContext);
 
-  return (
-    <div className="cart">
-      <h1>Shopping Cart</h1>
-      {selectedPictures.map((picture) => (
-        <p key={picture}>{picture}</p>
-      ))}
-    </div>
-  );
+  return <CartComponent selectedPictures={selectedPictures} />;
 };
