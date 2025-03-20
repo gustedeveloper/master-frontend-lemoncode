@@ -8,15 +8,19 @@ export interface PictureInfoVm {
 }
 
 export const mapPictureFromApiToVm = (
-  picture: api.PictureInfo
+  picture: api.PictureInfo,
+  selectedPictures: string[]
 ): PictureInfoVm => ({
   id: picture.id,
   picUrl: picture.picUrl,
   title: picture.title,
-  selected: false,
+  selected: selectedPictures.includes(picture.id),
 });
 
 export const mapPictureCollectionFromApiToVm = (
-  pictureCollection: api.PictureInfo[]
+  pictureCollection: api.PictureInfo[],
+  selectedPictures: string[]
 ): PictureInfoVm[] =>
-  pictureCollection.map((picture) => mapPictureFromApiToVm(picture));
+  pictureCollection.map((picture) =>
+    mapPictureFromApiToVm(picture, selectedPictures)
+  );

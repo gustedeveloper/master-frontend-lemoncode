@@ -4,10 +4,11 @@ import "../../index.css";
 
 interface Props {
   pictures: PictureInfoVm[];
+  handleCheckBox: (id: string) => void;
 }
 
 export const LandscapeCategoryComponent: FC<Props> = (props) => {
-  const { pictures } = props;
+  const { pictures, handleCheckBox } = props;
   return (
     <div>
       <h1>Landscape Category</h1>
@@ -17,7 +18,11 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
             <img src={picture.picUrl} />
             <p>{picture.title}</p>
             <p>{picture.selected}</p>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={picture.selected}
+              onChange={() => handleCheckBox(picture.id)}
+            />
             <label>Buy</label>
           </div>
         ))}
