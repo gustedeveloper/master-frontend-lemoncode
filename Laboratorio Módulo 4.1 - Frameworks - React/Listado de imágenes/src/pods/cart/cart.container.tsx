@@ -7,8 +7,8 @@ export const CartContainer: FC = () => {
   return (
     <div className="cart">
       <h1>Shopping Cart</h1>
-      {selectedPictures.map((picture, index) => (
-        <p key={picture[index]}>{picture}</p>
+      {selectedPictures.map((picture) => (
+        <p key={picture}>{picture}</p>
       ))}
     </div>
   );
