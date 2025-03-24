@@ -14,7 +14,7 @@ export const CartContainer: FC = () => {
         apiPictures.filter((picture) => selectedPictures.includes(picture.id))
       );
     });
-  });
+  }, [selectedPictures]);
 
   const deleteFromCart = (id: string) => {
     const updateWithDeletedPicture = selectedPictures.filter(
