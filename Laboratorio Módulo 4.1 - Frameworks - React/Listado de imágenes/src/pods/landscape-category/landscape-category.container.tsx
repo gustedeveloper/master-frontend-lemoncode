@@ -46,7 +46,7 @@ export const LandscapeCategoryContainer: FC = () => {
       );
       setPictures(mappedPictures);
     });
-  }, [selectedPictures]);
+  }, [selectedPictures, setPictures]);
 
   return (
     <LandscapeCategoryComponent
