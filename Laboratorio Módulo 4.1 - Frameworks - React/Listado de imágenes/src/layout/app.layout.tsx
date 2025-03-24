@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { NavBarContainer } from "../pods/navbar";
-import { Header } from "./header";
+import { Header } from "./header.layout";
 
 interface Props {
   children: React.ReactNode;
@@ -8,8 +8,7 @@ interface Props {
 
 export const AppLayout: FC<Props> = ({ children }) => (
   <>
-    <Header />
-    <NavBarContainer />
+    <Header children={<NavBarContainer />} />
     <div className="layout-app-container">{children}</div>
   </>
 );

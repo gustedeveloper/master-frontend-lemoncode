@@ -1,16 +1,47 @@
+import { Tab, Tabs } from "@mui/material";
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+interface Pages {
+  id: number;
+  name: string;
+  path: string;
+}
+
+const pages: Pages[] = [
+  {
+    id: 1,
+    name: "City category",
+    path: "/city-category",
+  },
+  {
+    id: 2,
+    name: "Nature category",
+    path: "/landscape-category",
+  },
+];
 
 export const NavBarComponent: FC = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
-      <h1>Lemon Stock</h1>
-      <button onClick={() => navigate("/city-category")}>City category</button>
-      <button onClick={() => navigate("/landscape-category")}>
-        Landscape category
-      </button>
+      <Tabs
+        value={location.pathname}
+        textColor="inherit"
+        indicatorColor="secondary"
+      >
+        {pages.map((page) => (
+          <Tab
+            key={page.id}
+            label={page.name}
+            value={page.path}
+            component={Link}
+            to={page.path}
+            sx={{ fontSize: "16px" }}
+          ></Tab>
+        ))}
+      </Tabs>
     </>
   );
 };
