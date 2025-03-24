@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { PictureInfo } from "../../core/model";
-import "../../index.css";
 
 interface Props {
   cartPictures: PictureInfo[];

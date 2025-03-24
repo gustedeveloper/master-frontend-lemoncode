@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { PictureInfoVm } from "./landscape.vm";
-import "../../index.css";
 
 interface Props {
   pictures: PictureInfoVm[];
