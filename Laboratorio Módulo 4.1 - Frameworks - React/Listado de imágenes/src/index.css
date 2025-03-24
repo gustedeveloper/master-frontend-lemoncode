@@ -23,3 +23,13 @@ img {
 .cart {
   width: 50%;
 }
+
+.pic-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-img {
+  width: 50px;
+}

@@ -1,19 +1,25 @@
 import { FC } from "react";
-import { CartContainer } from "./cart.container";
+import { PictureInfo } from "../../core/model";
+import "../../index.css";
 
 interface Props {
-  selectedPictures: string[];
+  allPictures: PictureInfo[];
 }
 
 export const CartComponent: FC<Props> = (props) => {
-  const { selectedPictures } = props;
+  const { allPictures } = props;
 
   return (
     <>
       <div className="cart">
         <h1>Shopping Cart</h1>
-        {selectedPictures.map((picture) => (
-          <p key={picture}>{picture}</p>
+        {allPictures.map((picture, index) => (
+          <>
+            <div key={index} className="pic-container">
+              <img className="cart-img" src={picture.picUrl} />
+              <span>{picture.title}</span>
+            </div>
+          </>
         ))}
       </div>
     </>
