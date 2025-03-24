@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { NavBarContainer } from "../pods/navbar";
 import { Header } from "./header.layout";
+import { Container } from "@mui/material";
 
 interface Props {
   children: React.ReactNode;
@@ -9,6 +10,10 @@ interface Props {
 export const AppLayout: FC<Props> = ({ children }) => (
   <>
     <Header children={<NavBarContainer />} />
-    <div className="layout-app-container">{children}</div>
+    <Container
+      sx={{ mt: "100px", display: "flex", justifyContent: "space-evenly" }}
+    >
+      {children}
+    </Container>
   </>
 );
