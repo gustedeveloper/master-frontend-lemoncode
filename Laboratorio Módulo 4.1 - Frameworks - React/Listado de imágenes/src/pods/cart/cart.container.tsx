@@ -6,11 +6,11 @@ import { PictureInfo } from "../../core/model";
 
 export const CartContainer: FC = () => {
   const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
-  const [allPictures, setAllPictures] = useState<PictureInfo[]>([]);
+  const [cartPictures, setCartPictures] = useState<PictureInfo[]>([]);
 
   useEffect(() => {
     getAllPictures().then((apiPictures) => {
-      setAllPictures(
+      setCartPictures(
         apiPictures.filter((picture) => selectedPictures.includes(picture.id))
       );
     });
@@ -25,6 +25,9 @@ export const CartContainer: FC = () => {
   };
 
   return (
-    <CartComponent allPictures={allPictures} deleteFromCart={deleteFromCart} />
+    <CartComponent
+      cartPictures={cartPictures}
+      deleteFromCart={deleteFromCart}
+    />
   );
 };
