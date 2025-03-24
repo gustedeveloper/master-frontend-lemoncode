@@ -1,5 +1,6 @@
+import { FC } from "react";
 import { NavBarComponent } from "./navbar.component";
 
-export const NavBarContainer = () => {
+export const NavBarContainer: FC = () => {
   return <NavBarComponent />;
 };
