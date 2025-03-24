@@ -22,11 +22,11 @@ export const LandscapeCategoryContainer: FC = () => {
           : picture
       );
       setPictures(updatedPictures);
-      addDeleteFromCart(selection, id);
+      addDeleteFromCheckBox(selection, id);
     }
   };
 
-  const addDeleteFromCart = (selection: PictureInfoVm, id: string) => {
+  const addDeleteFromCheckBox = (selection: PictureInfoVm, id: string) => {
     const updateWithDeletedPicture = selectedPictures.filter(
       (picture) => picture !== selection.id
     );

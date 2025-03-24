@@ -24,6 +24,12 @@ img {
   width: 50%;
 }
 
+.img-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .pic-container {
   display: flex;
   align-items: center;

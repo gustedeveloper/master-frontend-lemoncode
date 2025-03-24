@@ -5,7 +5,7 @@ import { getAllPictures } from "./cart.api";
 import { PictureInfo } from "../../core/model";
 
 export const CartContainer: FC = () => {
-  const { selectedPictures } = useContext(PicturesContext);
+  const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
   const [allPictures, setAllPictures] = useState<PictureInfo[]>([]);
 
   useEffect(() => {
@@ -16,5 +16,15 @@ export const CartContainer: FC = () => {
     });
   });
 
-  return <CartComponent allPictures={allPictures} />;
+  const deleteFromCart = (id: string) => {
+    const updateWithDeletedPicture = selectedPictures.filter(
+      (picture) => picture !== id
+    );
+
+    setSelectedPictures(updateWithDeletedPicture);
+  };
+
+  return (
+    <CartComponent allPictures={allPictures} deleteFromCart={deleteFromCart} />
+  );
 };
