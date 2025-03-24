@@ -18,7 +18,7 @@ export const HomeComponent: FC = () => {
           display: "flex",
           width: "1200px",
           justifyContent: "center",
-          paddingTop: "100px",
+          paddingTop: "150px",
           gap: "50px",
           "& > :not(style)": {
             m: 1,
