@@ -14,7 +14,7 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
       <div className="container">
         {pictures.map((picture) => (
           <div key={picture.id}>
-            <img src={picture.picUrl} />
+            <img style={{ width: "300px" }} src={picture.picUrl} />
             <p>{picture.title}</p>
             <p>{picture.selected}</p>
             <input
