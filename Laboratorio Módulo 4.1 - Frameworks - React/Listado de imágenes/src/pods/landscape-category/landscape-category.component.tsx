@@ -10,7 +10,6 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
   const { pictures, handleCheckBox } = props;
   return (
     <div>
-      <h1>Landscape Category</h1>
       <div className="container">
         {pictures.map((picture) => (
           <div key={picture.id}>
