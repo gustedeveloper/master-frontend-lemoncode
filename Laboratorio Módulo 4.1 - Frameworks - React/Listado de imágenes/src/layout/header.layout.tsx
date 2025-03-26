@@ -36,11 +36,15 @@ export const Header: FC<Props> = ({ children }) => {
           </Typography>
         </Box>
         <Box>{children}</Box>
-        <Box>
+        <Box
+          sx={{ width: "142px", display: " flex", justifyContent: "flex-end" }}
+        >
           <Button
             variant="contained"
             color="secondary"
-            sx={{ margin: "10px 0px" }}
+            sx={{
+              margin: "10px 0px",
+            }}
             onClick={handleDrawerOpen}
           >
             <ShoppingCartIcon />
