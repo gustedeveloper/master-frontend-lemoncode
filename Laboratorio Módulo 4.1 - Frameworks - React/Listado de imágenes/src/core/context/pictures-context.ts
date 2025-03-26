@@ -6,6 +6,10 @@ interface ContextModel {
   setPictures: (pictures: PictureInfoVm[]) => void;
   selectedPictures: string[];
   setSelectedPictures: (pictures: string[]) => void;
+  drawer: boolean;
+  setDrawer: (value: boolean) => void;
+  handleDrawerOpen: () => void;
+  handleDrawerClose: () => void;
 }
 
 export const PicturesContext = React.createContext<ContextModel>({
@@ -13,4 +17,8 @@ export const PicturesContext = React.createContext<ContextModel>({
   setPictures: () => {},
   selectedPictures: [],
   setSelectedPictures: () => {},
+  drawer: false,
+  setDrawer: () => {},
+  handleDrawerOpen: () => {},
+  handleDrawerClose: () => {},
 });
