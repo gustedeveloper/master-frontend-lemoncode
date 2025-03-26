@@ -39,6 +39,7 @@ export const CartComponent: FC<Props> = (props) => {
           display: "flex",
           width: {
             xs: "160px",
+            sm: "300px",
             md: "400px",
           },
         }}
