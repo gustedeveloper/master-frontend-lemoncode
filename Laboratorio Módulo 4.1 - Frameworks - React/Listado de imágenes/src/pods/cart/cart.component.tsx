@@ -31,6 +31,8 @@ export const CartComponent: FC<Props> = (props) => {
       <Grid2
         container
         sx={{
+          display: "flex",
+
           width: {
             xs: "160px",
             md: "400px",
@@ -47,6 +49,7 @@ export const CartComponent: FC<Props> = (props) => {
           size={12}
           sx={{
             display: "flex",
+
             flexDirection: "column",
             gap: "20px",
             p: " 0px 15px",
@@ -54,7 +57,7 @@ export const CartComponent: FC<Props> = (props) => {
         >
           <Divider />
           {cartPictures.map((picture) => (
-            <Grid2 container key={picture.id}>
+            <Grid2 container key={picture.id} sx={{ justifyContent: "center" }}>
               <Grid2
                 sx={{
                   display: "flex",
@@ -73,8 +76,13 @@ export const CartComponent: FC<Props> = (props) => {
                 </Card>
                 <Box
                   sx={{
+                    width: "150px",
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    flexDirection: {
+                      xs: "column",
+                      md: "row",
+                    },
                     alignItems: "center",
                   }}
                 >
