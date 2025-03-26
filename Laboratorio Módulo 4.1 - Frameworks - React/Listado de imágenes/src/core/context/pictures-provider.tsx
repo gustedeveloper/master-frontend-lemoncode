@@ -9,10 +9,12 @@ export const PicturesProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const handleDrawerOpen = () => {
     setDrawer(true);
+    console.log("hey");
   };
 
   const handleDrawerClose = () => {
     setDrawer(false);
+    console.log("ho");
   };
 
   return (
