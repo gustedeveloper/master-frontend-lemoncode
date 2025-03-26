@@ -88,7 +88,14 @@ export const CartComponent: FC<Props> = (props) => {
                     },
                   }}
                 >
-                  <Card sx={{ width: "130px" }}>
+                  <Card
+                    sx={{
+                      width: {
+                        xs: "130px",
+                        sm: "150px",
+                      },
+                    }}
+                  >
                     <CardMedia
                       component="img"
                       image={picture.picUrl}
@@ -97,7 +104,10 @@ export const CartComponent: FC<Props> = (props) => {
                   </Card>
                   <Box
                     sx={{
-                      width: "150px",
+                      width: {
+                        xs: "130px",
+                        sm: "150px",
+                      },
                       display: "flex",
                       justifyContent: "space-between",
                       flexDirection: {
