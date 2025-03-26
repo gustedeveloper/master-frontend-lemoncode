@@ -37,7 +37,14 @@ export const Header: FC<Props> = ({ children }) => {
         </Box>
         <Box>{children}</Box>
         <Box
-          sx={{ width: "142px", display: " flex", justifyContent: "flex-end" }}
+          sx={{
+            width: "142px",
+            display: " flex",
+            justifyContent: {
+              xs: "center",
+              md: "flex-end",
+            },
+          }}
         >
           <Button
             variant="contained"
