@@ -54,7 +54,7 @@ export const Header: FC<Props> = ({ children }) => {
             }}
             onClick={handleDrawerOpen}
           >
-            <ShoppingCartIcon />
+            <ShoppingCartIcon color="action" />
           </Button>
         </Box>
       </Toolbar>
