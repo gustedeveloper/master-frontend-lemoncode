@@ -27,12 +27,16 @@ export const CartComponent: FC<Props> = (props) => {
   const { drawer, handleDrawerClose } = useContext(PicturesContext);
 
   return (
-    <Drawer variant="persistent" anchor="right" open={drawer}>
+    <Drawer
+      variant="temporary"
+      anchor="right"
+      open={drawer}
+      onClose={handleDrawerClose}
+    >
       <Grid2
         container
         sx={{
           display: "flex",
-
           width: {
             xs: "160px",
             md: "400px",
@@ -49,7 +53,6 @@ export const CartComponent: FC<Props> = (props) => {
           size={12}
           sx={{
             display: "flex",
-
             flexDirection: "column",
             gap: "20px",
             p: " 0px 15px",
