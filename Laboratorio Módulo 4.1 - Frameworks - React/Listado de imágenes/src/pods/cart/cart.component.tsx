@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 interface Props {
   cartPictures: PictureInfo[];
@@ -52,24 +53,21 @@ export const CartComponent: FC<Props> = (props) => {
               <Box
                 sx={{
                   display: "flex",
-                  flexDirection: "column",
+                  alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <CardContent sx={{ p: "5px 20px" }}>
+                <CardContent sx={{ p: "5px 15px" }}>
                   <Typography sx={{ fontSize: "12px" }}>
                     {picture.title}
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button
-                    variant="contained"
-                    size="small"
-                    sx={{ ml: "20px" }}
+                  <DeleteForeverIcon
+                    color="primary"
                     onClick={() => deleteFromCart(picture.id)}
-                  >
-                    Delete
-                  </Button>
+                    sx={{ cursor: "pointer" }}
+                  ></DeleteForeverIcon>
                 </CardActions>
               </Box>
             </Grid2>
