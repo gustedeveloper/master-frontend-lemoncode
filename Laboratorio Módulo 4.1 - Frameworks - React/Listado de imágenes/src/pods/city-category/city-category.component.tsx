@@ -30,7 +30,17 @@ export const CityCategoryComponent: FC<Props> = (props) => {
           <Grid2 container key={picture.id}>
             <Grid2 size={{ xs: 12, sm: 4, md: 4, lg: 3 }}>
               <Card
-                sx={{ width: "400px", height: "300px", position: "relative" }}
+                sx={{
+                  width: {
+                    xs: "200px",
+                    md: "400px",
+                  },
+                  height: {
+                    xs: "150px",
+                    md: "300px",
+                  },
+                  position: "relative",
+                }}
                 onMouseEnter={() => setHoveredId(picture.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
@@ -40,7 +50,13 @@ export const CityCategoryComponent: FC<Props> = (props) => {
                     height="300"
                     image={picture.picUrl}
                     alt={picture.title}
-                    sx={{ objectFit: "cover" }}
+                    sx={{
+                      objectFit: "cover",
+                      height: {
+                        xs: "150px",
+                        md: "300px",
+                      },
+                    }}
                   ></CardMedia>
                   <Box
                     sx={{

@@ -25,23 +25,32 @@ export const NavBarComponent: FC = () => {
   const location = useLocation();
 
   return (
-    <>
-      <Tabs
-        value={location.pathname}
-        textColor="inherit"
-        indicatorColor="secondary"
-      >
-        {pages.map((page) => (
-          <Tab
-            key={page.id}
-            label={page.name}
-            value={page.path}
-            component={Link}
-            to={page.path}
-            sx={{ fontSize: "16px" }}
-          ></Tab>
-        ))}
-      </Tabs>
-    </>
+    <Tabs
+      value={location.pathname}
+      textColor="inherit"
+      indicatorColor="secondary"
+      sx={{
+        "& .MuiTabs-flexContainer": {
+          display: "flex",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+        },
+      }}
+    >
+      {pages.map((page) => (
+        <Tab
+          key={page.id}
+          label={page.name}
+          value={page.path}
+          component={Link}
+          to={page.path}
+          sx={{
+            fontSize: "16px",
+          }}
+        ></Tab>
+      ))}
+    </Tabs>
   );
 };
