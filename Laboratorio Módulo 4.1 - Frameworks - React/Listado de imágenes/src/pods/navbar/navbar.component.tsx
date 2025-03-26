@@ -32,10 +32,7 @@ export const NavBarComponent: FC = () => {
       sx={{
         "& .MuiTabs-flexContainer": {
           display: "flex",
-          flexDirection: {
-            xs: "column",
-            md: "row",
-          },
+          gap: "10px",
         },
       }}
     >
@@ -47,6 +44,7 @@ export const NavBarComponent: FC = () => {
           component={Link}
           to={page.path}
           sx={{
+            width: "197px",
             fontSize: "16px",
           }}
         ></Tab>

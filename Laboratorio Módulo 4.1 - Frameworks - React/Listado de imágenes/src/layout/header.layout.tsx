@@ -18,33 +18,34 @@ export const Header: FC<Props> = ({ children }) => {
             xs: "column",
             md: "row",
           },
-          justifyContent: "center",
+          justifyContent: "space-between",
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            color: "#cad2c5",
-            flex: 1,
-            m: {
-              xs: "15px",
-              md: "0px",
-            },
-          }}
-        >
-          Lemonstock
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flex: 1.5,
-          }}
-        >
-          {children}
+        <Box>
+          <Typography
+            variant="h3"
+            sx={{
+              color: "#cad2c5",
+              m: {
+                xs: "15px",
+                md: "0px",
+              },
+            }}
+          >
+            Lemonstock
+          </Typography>
         </Box>
-        <Button variant="contained" color="secondary">
-          <ShoppingCartIcon onClick={handleDrawerOpen} />
-        </Button>
+        <Box>{children}</Box>
+        <Box>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ margin: "10px 0px" }}
+            onClick={handleDrawerOpen}
+          >
+            <ShoppingCartIcon />
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
