@@ -28,7 +28,15 @@ export const CartComponent: FC<Props> = (props) => {
 
   return (
     <Drawer variant="persistent" anchor="right" open={drawer}>
-      <Grid2 container sx={{ width: "400px" }}>
+      <Grid2
+        container
+        sx={{
+          width: {
+            xs: "160px",
+            md: "400px",
+          },
+        }}
+      >
         <Grid2 size={12}>
           <IconButton onClick={handleDrawerClose} sx={{ p: "5px", m: "15px" }}>
             <ChevronRightIcon />
@@ -66,8 +74,8 @@ export const CartComponent: FC<Props> = (props) => {
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
                   }}
                 >
                   <CardContent sx={{ p: "5px 15px" }}>
@@ -75,11 +83,19 @@ export const CartComponent: FC<Props> = (props) => {
                       {picture.title}
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  <CardActions
+                    sx={{
+                      p: {
+                        xs: "0px",
+                      },
+                    }}
+                  >
                     <DeleteForeverIcon
                       color="primary"
                       onClick={() => deleteFromCart(picture.id)}
-                      sx={{ cursor: "pointer" }}
+                      sx={{
+                        cursor: "pointer",
+                      }}
                     ></DeleteForeverIcon>
                   </CardActions>
                 </Box>
