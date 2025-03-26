@@ -21,26 +21,58 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <Grid2 container>
+    <Grid2
+      container
+      sx={{
+        justifyContent: "center",
+        margin: {
+          xs: "180px 0px",
+          md: "0px",
+        },
+      }}
+    >
       <Typography variant="h3" sx={{ p: "20px 0px" }}>
-        City Category
+        Nature Category
       </Typography>
-      <Grid2 size={12} sx={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
+      <Grid2
+        size={12}
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "30px",
+          justifyContent: "center",
+        }}
+      >
         {pictures.map((picture) => (
           <Grid2 container key={picture.id}>
-            <Grid2 size={{ xs: 12, sm: 4, md: 4, lg: 3 }}>
+            <Grid2>
               <Card
-                sx={{ width: "300px", height: "500px", position: "relative" }}
+                sx={{
+                  width: {
+                    xs: "200px",
+                    md: "300px",
+                  },
+                  height: {
+                    xs: "300px",
+                    md: "500px",
+                  },
+                  position: "relative",
+                }}
                 onMouseEnter={() => setHoveredId(picture.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="500"
                     image={picture.picUrl}
                     alt={picture.title}
-                    sx={{ objectFit: "cover" }}
+                    sx={{
+                      objectFit: "cover",
+                      height: {
+                        xs: "300px",
+                        md: "500px",
+                      },
+                    }}
                   ></CardMedia>
                   <Box
                     sx={{

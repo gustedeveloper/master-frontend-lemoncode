@@ -1,7 +1,6 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { FC, useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { CartContainer } from "../pods/cart";
 import { PicturesContext } from "../core/context/pictures-context";
 
 interface Props {
@@ -46,7 +45,6 @@ export const Header: FC<Props> = ({ children }) => {
         <Button variant="contained" color="secondary">
           <ShoppingCartIcon onClick={handleDrawerOpen} />
         </Button>
-        <CartContainer />
       </Toolbar>
     </AppBar>
   );

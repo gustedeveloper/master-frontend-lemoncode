@@ -21,25 +21,43 @@ export const CityCategoryComponent: FC<Props> = (props) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <Grid2 container>
+    <Grid2
+      container
+      sx={{
+        justifyContent: "center",
+        margin: {
+          xs: "180px 0px",
+          md: "0px",
+        },
+      }}
+    >
       <Typography variant="h3" sx={{ p: "20px 0px" }}>
         City Category
       </Typography>
-      <Grid2 size={12} sx={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
+      <Grid2
+        size={12}
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "30px",
+          justifyContent: "center",
+        }}
+      >
         {pictures.map((picture) => (
           <Grid2 container key={picture.id}>
-            <Grid2 size={{ xs: 12, sm: 4, md: 4, lg: 3 }}>
+            <Grid2>
               <Card
                 sx={{
                   width: {
-                    xs: "200px",
+                    xs: "300px",
                     md: "400px",
                   },
                   height: {
-                    xs: "150px",
+                    xs: "200px",
                     md: "300px",
                   },
                   position: "relative",
+                  objectFit: "cover",
                 }}
                 onMouseEnter={() => setHoveredId(picture.id)}
                 onMouseLeave={() => setHoveredId(null)}
@@ -47,13 +65,12 @@ export const CityCategoryComponent: FC<Props> = (props) => {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="300"
                     image={picture.picUrl}
                     alt={picture.title}
                     sx={{
                       objectFit: "cover",
                       height: {
-                        xs: "150px",
+                        xs: "200px",
                         md: "300px",
                       },
                     }}

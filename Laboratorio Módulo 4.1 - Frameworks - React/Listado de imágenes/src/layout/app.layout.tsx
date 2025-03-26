@@ -13,27 +13,15 @@ export const AppLayout: FC<Props> = ({ children }) => (
     <Grid2
       container
       sx={{
+        m: "50px",
         mt: {
           xs: "14px",
           md: "65px",
         },
-        justifyContent: "space-evenly",
       }}
     >
-      <Grid2 size={12}>
-        <Grid2
-          container
-          spacing={2}
-          sx={{
-            p: {
-              xs: "0 30px",
-              md: "0px 60px",
-            },
-          }}
-        >
-          <Grid2 size={{ xs: 6, sm: 8, md: 7.5, lg: 9 }}>{children[0]}</Grid2>
-          <Grid2 size={{ xs: 6, sm: 4, md: 4.5, lg: 3 }}>{children[1]}</Grid2>
-        </Grid2>
+      <Grid2 size={12} sx={{ display: "flex", justifyContent: "center" }}>
+        {children}
       </Grid2>
     </Grid2>
   </>
