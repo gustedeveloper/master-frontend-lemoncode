@@ -26,7 +26,7 @@ export const LandscapeCategoryComponent: FC<Props> = (props) => {
       sx={{
         justifyContent: "center",
         margin: {
-          xs: "180px 0px",
+          xs: "150px 0px",
           md: "0px",
         },
       }}
