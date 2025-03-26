@@ -56,60 +56,78 @@ export const CartComponent: FC<Props> = (props) => {
           }}
         >
           <Divider />
-          {cartPictures.map((picture) => (
-            <Grid2 container key={picture.id} sx={{ justifyContent: "center" }}>
+
+          {cartPictures.length === 0 ? (
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontSize: "14px",
+                p: "20px",
+                color: "gray",
+              }}
+            >
+              Your shopping cart is empty 🛒
+            </Typography>
+          ) : (
+            cartPictures.map((picture) => (
               <Grid2
-                sx={{
-                  display: "flex",
-                  flexDirection: {
-                    xs: "column",
-                    md: "row",
-                  },
-                }}
+                container
+                key={picture.id}
+                sx={{ justifyContent: "center" }}
               >
-                <Card sx={{ width: "130px" }}>
-                  <CardMedia
-                    component="img"
-                    image={picture.picUrl}
-                    alt={picture.title}
-                  ></CardMedia>
-                </Card>
-                <Box
+                <Grid2
                   sx={{
-                    width: "150px",
                     display: "flex",
-                    justifyContent: "space-between",
                     flexDirection: {
                       xs: "column",
                       md: "row",
                     },
-                    alignItems: "center",
                   }}
                 >
-                  <CardContent sx={{ p: "5px 15px" }}>
-                    <Typography sx={{ fontSize: "12px" }}>
-                      {picture.title}
-                    </Typography>
-                  </CardContent>
-                  <CardActions
+                  <Card sx={{ width: "130px" }}>
+                    <CardMedia
+                      component="img"
+                      image={picture.picUrl}
+                      alt={picture.title}
+                    ></CardMedia>
+                  </Card>
+                  <Box
                     sx={{
-                      p: {
-                        xs: "0px",
+                      width: "150px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      flexDirection: {
+                        xs: "column",
+                        md: "row",
                       },
+                      alignItems: "center",
                     }}
                   >
-                    <DeleteForeverIcon
-                      color="primary"
-                      onClick={() => deleteFromCart(picture.id)}
+                    <CardContent sx={{ p: "5px 15px" }}>
+                      <Typography sx={{ fontSize: "12px" }}>
+                        {picture.title}
+                      </Typography>
+                    </CardContent>
+                    <CardActions
                       sx={{
-                        cursor: "pointer",
+                        p: {
+                          xs: "0px",
+                        },
                       }}
-                    ></DeleteForeverIcon>
-                  </CardActions>
-                </Box>
+                    >
+                      <DeleteForeverIcon
+                        color="primary"
+                        onClick={() => deleteFromCart(picture.id)}
+                        sx={{
+                          cursor: "pointer",
+                        }}
+                      ></DeleteForeverIcon>
+                    </CardActions>
+                  </Box>
+                </Grid2>
               </Grid2>
-            </Grid2>
-          ))}
+            ))
+          )}
         </Grid2>
       </Grid2>
     </Drawer>
