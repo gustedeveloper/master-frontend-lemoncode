@@ -10,6 +10,7 @@ import {
   Grid2,
   Typography,
 } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 interface Props {
   cartPictures: PictureInfo[];
@@ -21,16 +22,26 @@ export const CartComponent: FC<Props> = (props) => {
 
   return (
     <Grid2 container>
-      <Typography variant="h3" sx={{ p: "20px 0px" }}>
-        Shopping Cart
-      </Typography>
+      <Grid2 sx={{ p: "20px 0px" }}>
+        <Button variant="contained">
+          <ShoppingCartIcon />
+        </Button>
+      </Grid2>
       <Grid2
         size={12}
         sx={{ display: "flex", flexDirection: "column", gap: "20px" }}
       >
         {cartPictures.map((picture) => (
           <Grid2 container key={picture.id}>
-            <Grid2 sx={{ display: "flex" }}>
+            <Grid2
+              sx={{
+                display: "flex",
+                flexDirection: {
+                  xs: "column",
+                  md: "row",
+                },
+              }}
+            >
               <Card sx={{ width: "130px" }}>
                 <CardMedia
                   component="img"
