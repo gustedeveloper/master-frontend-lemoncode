@@ -5,6 +5,7 @@ export interface PictureInfoVm {
   picUrl: string;
   title: string;
   selected: boolean;
+  price: number;
 }
 
 export const mapPictureFromApiToVm = (
@@ -14,6 +15,7 @@ export const mapPictureFromApiToVm = (
   id: picture.id,
   picUrl: picture.picUrl,
   title: picture.title,
+  price: picture.price,
   selected: selectedPictures.includes(picture.id),
 });
 
