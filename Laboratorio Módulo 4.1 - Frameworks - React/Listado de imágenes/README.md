@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+### Máster Front End XVII - Laboratorio React "Listado de imágenes"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Galería de Imágenes con React
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación web desarrollada con React que permite visualizar y gestionar una galería de imágenes dividida en dos categorías: naturaleza y ciudad. La aplicación incluye un carrito de compras funcional y una interfaz de usuario moderna y responsive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Características
 
-## Expanding the ESLint configuration
+- Visualización de imágenes en dos categorías: naturaleza y ciudad
+- Carrito de compras funcional
+- Interfaz de usuario responsive
+- Navegación intuitiva entre categorías
+- Diseño moderno con Material-UI
+- Gestión de estado con Context API
+- Implementado con TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías Utilizadas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React
+- TypeScript
+- Material-UI
+- React Router
+- Context API
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── core/
+│   ├── context/
+│   |__ model/
+│   |__ data/
+│   |__ mui/
+├── layout/
+├── pods/
+│   ├── cart/
+|   ├── checkout/
+│   ├── city-category/
+|   ├── home/
+│   ├── landscape-category/
+│   └── navbar/
+├── scenes/
+└── routes/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Funcionalidades Principales
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Visualización de Imágenes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Navegación entre categorías de imágenes
+- Vista detallada de cada imagen
+- Información de precio y título
+
+### Carrito de Compras
+
+- Añadir/eliminar imágenes del carrito
+- Cálculo automático del total
+- Persistencia del estado del carrito
+
+### Interfaz de Usuario
+
+- Diseño responsive
+- Navegación intuitiva
+- Efectos visuales en la interacción
+
+## 🔄 Estado de la Aplicación
+
+La aplicación utiliza Context API para manejar el estado global, incluyendo:
+
+- Lista de imágenes
+- Estado del carrito
+- Total de la compra
+- Estado del drawer
+
+## 🎨 Diseño
+
+El proyecto utiliza Material-UI para el diseño de la interfaz, proporcionando:
+
+- Componentes consistentes
+- Diseño responsive
+- Temas personalizables
+- Animaciones suaves
+
+## 📱 Responsive Design
+
+La aplicación está optimizada para diferentes tamaños de pantalla:
+
+- Móvil
+- Tablet
+- Desktop
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+
+## 👥 Autores
+
+- Guste Gaubaite - Proyecto del Laboratorio de React "Listado de Imágenes" del Máster Frontend de Lemoncode
