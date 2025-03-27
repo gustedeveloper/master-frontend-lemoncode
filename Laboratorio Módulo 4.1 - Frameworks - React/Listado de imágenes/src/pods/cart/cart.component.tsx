@@ -2,6 +2,7 @@ import { FC, useContext } from "react";
 import { PictureInfo } from "../../core/model";
 import {
   Box,
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -14,6 +15,7 @@ import {
 } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { PicturesContext } from "../../core/context/pictures-context";
 
@@ -73,74 +75,98 @@ export const CartComponent: FC<Props> = (props) => {
               Your shopping cart is empty 🛒
             </Typography>
           ) : (
-            cartPictures.map((picture) => (
-              <Grid2
-                container
-                key={picture.id}
-                sx={{ justifyContent: "center" }}
-              >
+            <>
+              {cartPictures.map((picture) => (
                 <Grid2
-                  sx={{
-                    display: "flex",
-                    flexDirection: {
-                      xs: "column",
-                      md: "row",
-                    },
-                  }}
+                  container
+                  key={picture.id}
+                  sx={{ justifyContent: "center" }}
                 >
-                  <Card
+                  <Grid2
                     sx={{
-                      width: {
-                        xs: "130px",
-                        sm: "150px",
-                      },
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      image={picture.picUrl}
-                      alt={picture.title}
-                    ></CardMedia>
-                  </Card>
-                  <Box
-                    sx={{
-                      width: {
-                        xs: "130px",
-                        sm: "150px",
-                      },
                       display: "flex",
-                      justifyContent: "space-between",
                       flexDirection: {
                         xs: "column",
                         md: "row",
                       },
-                      alignItems: "center",
                     }}
                   >
-                    <CardContent sx={{ p: "5px 15px" }}>
-                      <Typography sx={{ fontSize: "12px" }}>
-                        {picture.title}
-                      </Typography>
-                    </CardContent>
-                    <CardActions
+                    <Card
                       sx={{
-                        p: {
-                          xs: "0px",
+                        width: {
+                          xs: "130px",
+                          sm: "150px",
                         },
                       }}
                     >
-                      <DeleteForeverIcon
-                        color="primary"
-                        onClick={() => deleteFromCart(picture.id)}
+                      <CardMedia
+                        component="img"
+                        image={picture.picUrl}
+                        alt={picture.title}
+                      ></CardMedia>
+                    </Card>
+                    <Box
+                      sx={{
+                        width: {
+                          xs: "130px",
+                          sm: "150px",
+                        },
+                        display: "flex",
+                        justifyContent: "space-between",
+                        flexDirection: {
+                          xs: "column",
+                          md: "row",
+                        },
+                        alignItems: "center",
+                      }}
+                    >
+                      <CardContent sx={{ p: "5px 15px" }}>
+                        <Typography sx={{ fontSize: "12px" }}>
+                          {picture.title}
+                        </Typography>
+                      </CardContent>
+                      <CardActions
                         sx={{
-                          cursor: "pointer",
+                          p: {
+                            xs: "0px",
+                          },
                         }}
-                      ></DeleteForeverIcon>
-                    </CardActions>
-                  </Box>
+                      >
+                        <DeleteForeverIcon
+                          color="primary"
+                          onClick={() => deleteFromCart(picture.id)}
+                          sx={{
+                            cursor: "pointer",
+                          }}
+                        ></DeleteForeverIcon>
+                      </CardActions>
+                    </Box>
+                  </Grid2>
                 </Grid2>
+              ))}
+              <Grid2
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "5px",
+                  flexDirection: {
+                    xs: "column",
+                    sm: "row",
+                  },
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<DeleteIcon />}
+                >
+                  Remove All
+                </Button>
+                <Button variant="contained" size="small">
+                  Checkout
+                </Button>
               </Grid2>
-            ))
+            </>
           )}
         </Grid2>
       </Grid2>
