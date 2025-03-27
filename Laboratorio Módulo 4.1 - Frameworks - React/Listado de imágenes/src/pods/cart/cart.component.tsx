@@ -97,6 +97,7 @@ export const CartComponent: FC<Props> = (props) => {
                       },
                       display: "flex",
                       justifyContent: "space-between",
+
                       flexDirection: {
                         xs: "column",
                         md: "row",
@@ -108,7 +109,15 @@ export const CartComponent: FC<Props> = (props) => {
                       <Typography sx={{ fontSize: "12px" }}>
                         {picture.title}
                       </Typography>
-                      <Typography color="primary.main">
+                      <Typography
+                        color="primary.main"
+                        sx={{
+                          textAlign: {
+                            xs: "center",
+                            md: "start",
+                          },
+                        }}
+                      >
                         {picture.price.toFixed(2)} €
                       </Typography>
                     </CardContent>
