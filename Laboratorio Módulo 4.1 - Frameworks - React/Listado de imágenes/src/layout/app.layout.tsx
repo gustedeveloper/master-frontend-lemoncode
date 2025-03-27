@@ -13,7 +13,7 @@ export const AppLayout: FC<Props> = ({ children }) => (
     <Grid2
       container
       sx={{
-        m: "30px",
+        m: "10px",
         mt: {
           xs: "14px",
           md: "65px",

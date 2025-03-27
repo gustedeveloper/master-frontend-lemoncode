@@ -12,9 +12,15 @@ export const CheckoutComponent: FC<Props> = (props) => {
     <Grid2
       container
       sx={{
-        p: "50px",
-        width: "415px",
-        height: "400px",
+        p: {
+          xs: "20px",
+          md: "50px",
+        },
+        width: {
+          xs: "200px",
+          md: "415px",
+        },
+        height: "250px",
         bgcolor: "secondary.light",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -29,11 +35,25 @@ export const CheckoutComponent: FC<Props> = (props) => {
         </Typography>
       </Grid2>
 
-      <Grid2 sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography>Balance</Typography>
+      <Grid2
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography sx={{ fontWeight: "lighter", alignSelf: "center" }}>
+          Balance
+        </Typography>
         <Typography
-          variant="h3"
-          sx={{ fontWeight: "lighter", fontStyle: "oblique", pr: "50px" }}
+          variant="h5"
+          sx={{
+            fontWeight: "lighter",
+            fontStyle: "oblique",
+            pr: {
+              xs: "0px",
+              md: "50px",
+            },
+          }}
         >
           {totalCartBalance.toFixed(2)} €
         </Typography>

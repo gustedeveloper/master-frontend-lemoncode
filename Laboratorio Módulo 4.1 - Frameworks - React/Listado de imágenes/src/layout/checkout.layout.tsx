@@ -9,11 +9,10 @@ export const CheckoutLayout: FC<Props> = ({ children }) => (
   <Container
     sx={{
       display: "flex",
-      justifyContent: "space-around",
-
+      justifyContent: "center",
       margin: {
         xs: "200px 0px",
-        md: "0px",
+        md: "50px",
       },
       gap: "50px",
     }}
