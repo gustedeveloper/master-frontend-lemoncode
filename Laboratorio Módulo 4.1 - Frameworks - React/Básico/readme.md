@@ -1,212 +1,75 @@
-# 03 List
+# Máster Front End XVII - Laboratorio React "Básico"
 
-## Summary
+Este proyecto es una aplicación web desarrollada con React que muestra dos funcionalidades principales:
 
-This example takes the _02-login_ example as a starting point.
+1. Lista de miembros de organizaciones de GitHub
+2. Lista de personajes de Rick and Morty
 
-We are going to implement a list page and link it to a detail page.
+## 🚀 Características
 
-That is, we will show a list of members that belong to a Github organisation.
-and when we click on a user's name we'll navigate to the detail page by passing in the
-detail page by passing in the URL the id of the selected member.
+- **Autenticación de Usuario**: Sistema de login básico
+- **Lista de Miembros de GitHub**:
+  - Búsqueda de organizaciones
+  - Visualización de miembros con avatares
+  - Paginación de resultados
+- **Rick and Morty**:
+  - Lista de personajes con estado (vivo/muerto)
+  - Búsqueda de personajes
+  - Carga infinita de resultados
+  - Vista detallada de personajes
 
-In this example we'll do a direct implementation of the list, if you
-you want to see a step by step you can consult a previous example that we have
-which shows how to create a list of users step by step.
+## 🛠️ Tecnologías Utilizadas
 
-## Paso a Paso
+- React
+- TypeScript
+- Material-UI
+- React Router
+- Context API
 
-- First we copy the above example, and do an _npm install_.
+## 🔑 Credenciales de Acceso
 
-```bash
-npm install
+Para acceder a la aplicación, utiliza las siguientes credenciales:
+
+- Usuario: `rick`
+- Contraseña: `morty`
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── core/                # Configuración global y contexto
+├── pods/                # Componentes principales
+│   ├── characters-ram/  # Módulo de Rick and Morty
+│   ├── character-ram-detail/ # Detalle de personajes
+|   ├── detail/          # Detalle de miembros
+│   ├── list/            # Lista de miembros de GitHub
+│   ├── login/           # Módulo de autenticación
+│   └── navbar/          # Barra de navegación
+├── scenes/              # Páginas principales
+└── app.tsx              # Componente principal
 ```
 
-- If we want to see what kind of data we are going to handle, we can open the web browser and see what Github's Rest API returns.
+## 🔄 Flujo de la Aplicación
 
-```bash
-https://api.github.com/orgs/lemoncode/members
-```
+1. El usuario inicia en la página de login
+2. Tras autenticarse, puede acceder a:
+   - Lista de miembros de organizaciones de GitHub
+   - Lista de personajes de Rick and Morty
+3. En cada sección puede:
+   - Realizar búsquedas
+   - Ver detalles de elementos
+   - Navegar entre diferentes vistas
 
-- We are going to create an interface to have our interface typed, and modify the component that will display this listing.
+## 📝 Notas Adicionales
 
-_./src/list.tsx_
+- La aplicación utiliza la API pública de GitHub para obtener información de organizaciones
+- Los datos de Rick and Morty se obtienen de la API pública de Rick and Morty
+- El diseño es responsive y se adapta a diferentes tamaños de pantalla
 
-```diff
-import React from "react";
-import { Link } from "react-router-dom";
+## 📄 Licencia
 
-+ interface MemberEntity {
-+   id : string;
-+   login: string;
-+   avatar_url: string;
-+ }
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
-export const ListPage: React.FC = () => {
-+  const [members, setMembers] = React.useState<MemberEntity[]>([]);
+## 👥 Autores
 
-  return (
-    <>
-      <h2>Hello from List page</h2>
-      <Link to="/detail">Navigate to detail page</Link>
-    </>
-  );
-};
-```
-
-- We are now going to load the data
-
-_./src/list.tsx_
-
-```diff
-export const ListPage: React.FC = () => {
-  const [members, setMembers] = React.useState<MemberEntity>([]);
-
-+  React.useEffect(() => {
-+    fetch(`https://api.github.com/orgs/lemoncode/members`)
-+      .then((response) => response.json())
-+      .then((json) => setMembers(json));
-+  }, []);
-
-  return (
-```
-
-- Let's check that the data is indeed being loaded:
-
-_./src/list.tsx_
-
-```diff
-  return (
-    <>
-      <h2>Hello from List page</h2>
-+    {members.map((member) =>
-+       <span key={member.id}>{member.login}</span>
-+    )}
--      <Link to="/detail">Navigate to detail page</Link>
-    </>
-  );
-```
-
-- And now let's add a grid table showing the data:
-
-_./src/styles.css_
-
-```diff
-+ .list-user-list-container {
-+  display: grid;
-+  grid-template-columns: 80px 1fr 3fr;
-+  grid-template-rows: 20px;
-+  grid-auto-rows: 80px;
-+  grid-gap: 10px 5px;
-+}
-+
-+.list-header {
-+  background-color: #2f4858;
-+  color: white;
-+  font-weight: bold;
-+}
-+
-+.list-user-list-container > img {
-+  width: 80px;
-+}
-```
-
-_./src/list.tsx_
-
-```diff
-  return (
-    <>
--      <h2>Hello from List page</h2>
--      {members.map((member) => (
--        <span key={member.id}>{member.login}</span>
--      ))}
-+      <div className="list-user-list-container">
-+        <span className="list-header">Avatar</span>
-+        <span className="list-header">Id</span>
-+        <span className="list-header">Name</span>
-+        {members.map((member) => (
-+          <>
-+            <img src={member.avatar_url} />
-+            <span>{member.id}</span>
-+            <span>{member.login}</span>
-+          </>
-+        ))}
-+      </div>
-    </>
-  );
-```
-
-- So far so good, but I want that when the user clicks on a member's name, he/she navigates to the
-  member navigates to the detail page of the application to display the token, we could first
-  first we could think of building something like this:
-
-```diff
-  <td>
--    <span>{member.login}</span>
-+    <Link to={`/detail/${member.login}`}>{member.login}</Link>
-  </td>
-```
-
-- Another way to create the url is to use _generatePath_, but be careful in version 5
-  this did do the encoding of the parameters, in version 6 it didn't (https://github.com/remix-run/react-router/issues/7428)
-
-_./src/list.tsx_
-
-```diff
-import React from "react";
-- import { Link } from "react-router-dom";
-+ import { Link, generatePath } from "react-router-dom";
-```
-
-_./src/list.tsx_
-
-```diff
-  <td>
--    <Link to={`/detail/${member.login}`}>{member.login}</Link>
-+    <Link to={generatePath('/detail/:id', {id: member.login})}>{member.login}</Link>
-  </td>
-```
-
-What is the impact of not encoding? If you want to test it, replace the code inside the useEffect with this one;
-
-```tsx
-setMembers([{ id: "2", login: "a/b", avatar_url: "" }]);
-```
-
-> In the architecture part we will learn how to remove "magic strings" from our application.
-> harcoding url all around our app is not a good idea.
-
-- Very interesting, but how can I read the id of the user I am receiving in the URL parameter?
-
-First we are going to define the parameter in the url of our router.
-
-_./src/app.tsx_
-
-```diff
--  <Route path="/detail" element={<DetailPage />} />
-+  <Route path="/detail/:id" element={<DetailPage/>}/>
-  </Route>
-```
-
-Using the _useParams_ hooks.
-
-_./src/detail.tsx_
-
-```diff
-import React from "react";
-- import { Link } from "react-router-dom";
-+ import { Link, useParams } from "react-router-dom";
-
-
-export const DetailPage: React.FC = () => {
-+ const {id} = useParams();
-
-  return (
-    <>
-      <h2>Hello from Detail page</h2>
-+     <h3>User Id: {id}</h3>
-      <Link to="/list">Back to list page</Link>
-    </>
-  );
-};
-```
+- Guste Gaubaite - Proyecto del Laboratorio de React "Básico" del Máster Frontend de Lemoncode
