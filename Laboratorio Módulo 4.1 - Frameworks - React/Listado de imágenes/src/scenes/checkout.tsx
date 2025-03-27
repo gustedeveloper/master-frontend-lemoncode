@@ -7,8 +7,8 @@ export const CheckoutPage: FC = () => {
   return (
     <>
       <AppLayout>
-        <CheckoutContainer />
         <CartContainer />
+        <CheckoutContainer />
       </AppLayout>
     </>
   );

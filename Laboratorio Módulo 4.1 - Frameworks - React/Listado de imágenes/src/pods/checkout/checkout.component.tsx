@@ -4,7 +4,7 @@ import { FC } from "react";
 export const CheckoutComponent: FC = () => {
   return (
     <>
-      <Typography>Checkout</Typography>
+      <Typography variant="h3">Summary</Typography>
     </>
   );
 };
