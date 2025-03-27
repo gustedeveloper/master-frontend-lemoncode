@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import React from "react";
 
 interface Props {
   cartPictures: PictureInfo[];
@@ -18,7 +19,7 @@ interface Props {
   totalCartBalance: number;
 }
 
-export const CartComponent: FC<Props> = (props) => {
+export const CartComponent: FC<Props> = React.memo((props) => {
   const { cartPictures, deleteFromCart } = props;
 
   return (
@@ -139,4 +140,4 @@ export const CartComponent: FC<Props> = (props) => {
       </Grid2>
     </Grid2>
   );
-};
+});

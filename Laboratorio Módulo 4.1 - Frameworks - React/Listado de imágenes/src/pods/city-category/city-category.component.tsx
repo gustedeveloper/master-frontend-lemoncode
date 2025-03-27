@@ -10,13 +10,14 @@ import {
   Grid2,
   Typography,
 } from "@mui/material";
+import React from "react";
 
 interface Props {
   pictures: PictureInfoVm[];
   handleCheckBox: (id: string) => void;
 }
 
-export const CityCategoryComponent: FC<Props> = (props) => {
+export const CityCategoryComponent: FC<Props> = React.memo((props) => {
   const { pictures, handleCheckBox } = props;
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
@@ -111,4 +112,4 @@ export const CityCategoryComponent: FC<Props> = (props) => {
       </Grid2>
     </Grid2>
   );
-};
+});
