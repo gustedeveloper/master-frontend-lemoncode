@@ -157,7 +157,7 @@ export const CartComponent: FC<Props> = (props) => {
                 }}
               >
                 <Grid2 sx={{ textAlign: "center" }}>
-                  <Typography>
+                  <Typography variant="h6" color="primary.main">
                     Total balance: {totalCartBalance.toFixed(2)} €
                   </Typography>
                 </Grid2>
