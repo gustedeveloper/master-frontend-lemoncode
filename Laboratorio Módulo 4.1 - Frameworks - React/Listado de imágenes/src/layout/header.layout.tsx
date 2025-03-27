@@ -25,7 +25,7 @@ export const Header: FC<Props> = ({ children }) => {
           <Typography
             variant="h3"
             sx={{
-              color: "#cad2c5",
+              color: "secondary.light",
               m: {
                 xs: "15px",
                 md: "0px",

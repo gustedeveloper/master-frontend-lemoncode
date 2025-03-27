@@ -10,6 +10,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: "#84a98c",
+      light: "#cad2c5",
     },
   },
   typography: {
