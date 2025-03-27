@@ -49,10 +49,6 @@ export const CheckoutComponent: FC<Props> = (props) => {
           sx={{
             fontWeight: "lighter",
             fontStyle: "oblique",
-            pr: {
-              xs: "0px",
-              md: "50px",
-            },
           }}
         >
           {totalCartBalance.toFixed(2)} €
