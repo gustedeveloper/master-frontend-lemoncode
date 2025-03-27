@@ -16,6 +16,11 @@ export const PicturesProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setDrawer(false);
   };
 
+  const removeAll = () => {
+    const empty: string[] = [];
+    setSelectedPictures(empty);
+  };
+
   return (
     <PicturesContext.Provider
       value={{
@@ -29,6 +34,7 @@ export const PicturesProvider: React.FC<PropsWithChildren> = ({ children }) => {
         handleDrawerClose,
         totalCartBalance,
         setTotalCartBalance,
+        removeAll,
       }}
     >
       {children}

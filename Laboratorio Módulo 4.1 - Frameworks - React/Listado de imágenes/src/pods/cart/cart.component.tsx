@@ -2,7 +2,6 @@ import { FC } from "react";
 import { PictureInfo } from "../../core/model";
 import {
   Box,
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -12,10 +11,6 @@ import {
 } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-import DeleteIcon from "@mui/icons-material/Delete";
-
-import { useNavigate } from "react-router-dom";
-
 interface Props {
   cartPictures: PictureInfo[];
   deleteFromCart: (id: string) => void;
@@ -24,8 +19,7 @@ interface Props {
 }
 
 export const CartComponent: FC<Props> = (props) => {
-  const { cartPictures, deleteFromCart, removeAll, totalCartBalance } = props;
-  const navigate = useNavigate();
+  const { cartPictures, deleteFromCart } = props;
 
   return (
     <Grid2
@@ -141,55 +135,6 @@ export const CartComponent: FC<Props> = (props) => {
                 </Grid2>
               </Grid2>
             ))}
-            <Grid2
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                pb: "30px",
-              }}
-            >
-              <Grid2
-                container
-                sx={{
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  gap: "15px",
-                }}
-              >
-                <Grid2 sx={{ textAlign: "center" }}>
-                  <Typography variant="h6" color="primary.main">
-                    Total balance: {totalCartBalance.toFixed(2)} €
-                  </Typography>
-                </Grid2>
-                <Grid2
-                  sx={{
-                    display: "flex",
-                    gap: "10px",
-                    flexDirection: {
-                      xs: "column",
-                      md: "row",
-                    },
-                  }}
-                >
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    startIcon={<DeleteIcon />}
-                    onClick={removeAll}
-                  >
-                    Remove All
-                  </Button>
-                  <Button
-                    sx={{ width: "130px" }}
-                    variant="contained"
-                    size="small"
-                    onClick={() => navigate("/checkout")}
-                  >
-                    Checkout
-                  </Button>
-                </Grid2>
-              </Grid2>
-            </Grid2>
           </>
         )}
       </Grid2>
