@@ -22,10 +22,11 @@ import { PicturesContext } from "../../core/context/pictures-context";
 interface Props {
   cartPictures: PictureInfo[];
   deleteFromCart: (id: string) => void;
+  removeAll: () => void;
 }
 
 export const CartComponent: FC<Props> = (props) => {
-  const { cartPictures, deleteFromCart } = props;
+  const { cartPictures, deleteFromCart, removeAll } = props;
   const { drawer, handleDrawerClose } = useContext(PicturesContext);
 
   return (
@@ -159,6 +160,7 @@ export const CartComponent: FC<Props> = (props) => {
                   variant="outlined"
                   size="small"
                   startIcon={<DeleteIcon />}
+                  onClick={removeAll}
                 >
                   Remove All
                 </Button>

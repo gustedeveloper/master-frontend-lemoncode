@@ -24,10 +24,16 @@ export const CartContainer: FC = () => {
     setSelectedPictures(updateWithDeletedPicture);
   };
 
+  const removeAll = () => {
+    const empty: string[] = [];
+    setSelectedPictures(empty);
+  };
+
   return (
     <CartComponent
       cartPictures={cartPictures}
       deleteFromCart={deleteFromCart}
+      removeAll={removeAll}
     />
   );
 };
