@@ -8,6 +8,25 @@ import {
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface Category {
+  name: string;
+  path: string;
+  img: string;
+}
+
+const pages: Category[] = [
+  {
+    name: "City category",
+    path: "/city-category",
+    img: "../src/assets/city/city1.jpg",
+  },
+  {
+    name: "Nature category",
+    path: "/landscape-category",
+    img: "../src/assets/landscapes/landscape3.jpg",
+  },
+];
+
 export const HomeComponent: FC = () => {
   const navigate = useNavigate();
 
@@ -37,84 +56,48 @@ export const HomeComponent: FC = () => {
           },
         }}
       >
-        <Card
-          sx={{
-            position: "relative",
-            overflow: "hidden",
-            transition: "opacity 0.7s",
-            "&:hover": {
-              opacity: 0.9,
-            },
-          }}
-        >
-          <CardActionArea onClick={() => navigate("/city-category")}>
-            <CardMedia
-              component="img"
-              image="../src/assets/city/city1.jpg"
-              sx={{
-                height: {
-                  xs: 200,
-                  sm: 300,
-                },
-              }}
-            />
-            <Typography
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                fontSize: "2rem",
-                fontWeight: "bold",
-              }}
-            >
-              City Category
-            </Typography>
-          </CardActionArea>
-        </Card>
-        <Card
-          sx={{
-            transition: "opacity 0.7s",
-            "&:hover": {
-              opacity: 0.9,
-            },
-          }}
-        >
-          <CardActionArea onClick={() => navigate("/landscape-category")}>
-            <CardMedia
-              component="img"
-              sx={{
-                height: {
-                  xs: 200,
-                  sm: 300,
-                },
-              }}
-              image="../src/assets/landscapes/landscape3.jpg"
-            />
-            <Typography
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                fontSize: "2rem",
-                fontWeight: "bold",
-              }}
-            >
-              Nature Category
-            </Typography>
-          </CardActionArea>
-        </Card>
+        {pages.map((page) => (
+          <Card
+            sx={{
+              position: "relative",
+              overflow: "hidden",
+              transition: "opacity 0.7s",
+              "&:hover": {
+                opacity: 0.9,
+              },
+            }}
+          >
+            <CardActionArea onClick={() => navigate(page.path)}>
+              <CardMedia
+                component="img"
+                image={page.img}
+                sx={{
+                  height: {
+                    xs: 200,
+                    sm: 300,
+                  },
+                }}
+              />
+              <Typography
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontSize: "2rem",
+                  fontWeight: "lighter",
+                }}
+              >
+                {page.name}
+              </Typography>
+            </CardActionArea>
+          </Card>
+        ))}
       </Container>
     </>
   );
