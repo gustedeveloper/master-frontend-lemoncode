@@ -95,4 +95,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 👥 Authors
 
-- Guste Gaubaite - React Laboratory Project "Image Gallery" from Lemoncode Frontend Master
+- Guste Gaubaite - React Laboratory Project "Image Gallery" for Lemoncode Frontend Master
