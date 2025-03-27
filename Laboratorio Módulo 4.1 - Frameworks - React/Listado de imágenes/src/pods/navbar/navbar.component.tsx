@@ -24,9 +24,15 @@ const pages: Pages[] = [
 export const NavBarComponent: FC = () => {
   const location = useLocation();
 
+  const tabValue = ["/city-category", "/landscape-category"].includes(
+    location.pathname
+  )
+    ? location.pathname
+    : false;
+
   return (
     <Tabs
-      value={location.pathname}
+      value={tabValue}
       textColor="inherit"
       indicatorColor="secondary"
       sx={{
