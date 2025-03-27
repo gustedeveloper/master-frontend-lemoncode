@@ -1,12 +1,9 @@
 import { FC, useContext } from "react";
-import { PicturesContext } from "../core/context/pictures-context";
 import { Drawer } from "@mui/material";
+import { PicturesContext } from "../../core/context/pictures-context";
+import { CartContainer } from "../cart";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export const DrawerLayout: FC<Props> = ({ children }) => {
+export const CartInsideDrawer: FC = () => {
   const { drawer, handleDrawerClose } = useContext(PicturesContext);
 
   return (
@@ -17,7 +14,7 @@ export const DrawerLayout: FC<Props> = ({ children }) => {
         open={drawer}
         onClose={handleDrawerClose}
       >
-        {children}
+        <CartContainer />
       </Drawer>
     </>
   );
