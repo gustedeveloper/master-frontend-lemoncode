@@ -27,7 +27,7 @@ export const CartComponent: FC<Props> = (props) => {
       sx={{
         display: "flex",
         width: {
-          xs: "160px",
+          xs: "170px",
           sm: "300px",
           md: "415px",
         },
@@ -39,7 +39,6 @@ export const CartComponent: FC<Props> = (props) => {
           display: "flex",
           flexDirection: "column",
           gap: "20px",
-          p: "20px",
         }}
       >
         {cartPictures.length === 0 ? (

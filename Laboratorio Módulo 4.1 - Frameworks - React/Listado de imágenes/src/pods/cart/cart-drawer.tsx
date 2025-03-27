@@ -36,7 +36,7 @@ export const CartInsideDrawer: FC = () => {
           <ChevronRightIcon />
         </IconButton>
       </Grid2>
-      <Divider />
+      <Divider sx={{ mb: "20px" }} />
       <CartContainer />
 
       {selectedPictures.length !== 0 ? (
@@ -44,7 +44,7 @@ export const CartInsideDrawer: FC = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            pb: "30px",
+            mt: "20px",
           }}
         >
           <Grid2
@@ -57,7 +57,7 @@ export const CartInsideDrawer: FC = () => {
           >
             <Grid2 sx={{ textAlign: "center" }}>
               <Typography variant="h6" color="primary.main">
-                Total balance: {totalCartBalance.toFixed(2)} €
+                Total: {totalCartBalance.toFixed(2)} €
               </Typography>
             </Grid2>
             <Grid2

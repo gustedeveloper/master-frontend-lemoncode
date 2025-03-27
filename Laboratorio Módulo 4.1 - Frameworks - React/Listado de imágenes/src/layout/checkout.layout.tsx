@@ -11,7 +11,10 @@ export const CheckoutLayout: FC<Props> = ({ children }) => (
       display: "flex",
       justifyContent: "space-around",
 
-      mt: "100px",
+      margin: {
+        xs: "200px 0px",
+        md: "0px",
+      },
       gap: "50px",
     }}
   >
