@@ -43,7 +43,7 @@ export const CartComponent: FC<Props> = (props) => {
           width: {
             xs: "160px",
             sm: "300px",
-            md: "400px",
+            md: "415px",
           },
         }}
       >
@@ -52,7 +52,6 @@ export const CartComponent: FC<Props> = (props) => {
             <ChevronRightIcon />
           </IconButton>
         </Grid2>
-
         <Grid2
           size={12}
           sx={{
@@ -63,7 +62,6 @@ export const CartComponent: FC<Props> = (props) => {
           }}
         >
           <Divider />
-
           {cartPictures.length === 0 ? (
             <Typography
               sx={{
@@ -150,6 +148,7 @@ export const CartComponent: FC<Props> = (props) => {
                   display: "flex",
                   justifyContent: "center",
                   gap: "5px",
+                  pb: "30px",
                   flexDirection: {
                     xs: "column",
                     sm: "row",
