@@ -1,20 +1,20 @@
-# Máster Front End XVII - Laboratorio React "Listado de imágenes"
+# Master Front End XVII - React Laboratory "Image Gallery"
 
-# Galería de Imágenes con React
+# Image Gallery with React
 
-Este proyecto es una aplicación web desarrollada con React que permite visualizar y gestionar una galería de imágenes dividida en dos categorías: naturaleza y ciudad. La aplicación incluye un carrito de compras funcional y una interfaz de usuario moderna y responsive.
+This project is a web application developed with React that allows users to view and manage an image gallery divided into two categories: nature and city. The application includes a functional shopping cart and a modern, responsive user interface.
 
-## 🚀 Características
+## 🚀 Features
 
-- Visualización de imágenes en dos categorías: naturaleza y ciudad
-- Carrito de compras funcional
-- Interfaz de usuario responsive
-- Navegación intuitiva entre categorías
-- Diseño moderno con Material-UI
-- Gestión de estado con Context API
-- Implementado con TypeScript
+- Image visualization in two categories: nature and city
+- Functional shopping cart
+- Responsive user interface
+- Intuitive navigation between categories
+- Modern design with Material-UI
+- State management with Context API
+- Implemented with TypeScript
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
 - React
 - TypeScript
@@ -22,7 +22,7 @@ Este proyecto es una aplicación web desarrollada con React que permite visualiz
 - React Router
 - Context API
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 src/
@@ -43,56 +43,56 @@ src/
 └── routes/
 ```
 
-## 🎯 Funcionalidades Principales
+## 🎯 Main Features
 
-### Visualización de Imágenes
+### Image Visualization
 
-- Navegación entre categorías de imágenes
-- Vista detallada de cada imagen
-- Información de precio y título
+- Navigation between image categories
+- Detailed view of each image
+- Price and title information
 
-### Carrito de Compras
+### Shopping Cart
 
-- Añadir/eliminar imágenes del carrito
-- Cálculo automático del total
-- Persistencia del estado del carrito
+- Add/remove images from cart
+- Automatic total calculation
+- Cart state persistence
 
-### Interfaz de Usuario
+### User Interface
 
-- Diseño responsive
-- Navegación intuitiva
-- Efectos visuales en la interacción
+- Responsive design
+- Intuitive navigation
+- Visual effects on interaction
 
-## 🔄 Estado de la Aplicación
+## 🔄 Application State
 
-La aplicación utiliza Context API para manejar el estado global, incluyendo:
+The application uses Context API to manage global state, including:
 
-- Lista de imágenes
-- Estado del carrito
-- Total de la compra
-- Estado del drawer
+- Image list
+- Cart state
+- Purchase total
+- Drawer state
 
-## 🎨 Diseño
+## 🎨 Design
 
-El proyecto utiliza Material-UI para el diseño de la interfaz, proporcionando:
+The project uses Material-UI for interface design, providing:
 
-- Componentes consistentes
-- Diseño responsive
-- Temas personalizables
-- Animaciones suaves
+- Consistent components
+- Responsive design
+- Customizable themes
+- Smooth animations
 
 ## 📱 Responsive Design
 
-La aplicación está optimizada para diferentes tamaños de pantalla:
+The application is optimized for different screen sizes:
 
-- Móvil
+- Mobile
 - Tablet
 - Desktop
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## 👥 Autores
+## 👥 Authors
 
-- Guste Gaubaite - Proyecto del Laboratorio de React "Listado de Imágenes" del Máster Frontend de Lemoncode
+- Guste Gaubaite - React Laboratory Project "Image Gallery" from Lemoncode Frontend Master
