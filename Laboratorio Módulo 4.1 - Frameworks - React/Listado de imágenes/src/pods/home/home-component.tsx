@@ -16,14 +16,24 @@ export const HomeComponent: FC = () => {
       <Container
         sx={{
           display: "flex",
-          width: "1200px",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+          maxWidth: "1200px",
           justifyContent: "center",
+          alignItems: "center",
           paddingTop: "150px",
           gap: "50px",
           "& > :not(style)": {
-            m: 1,
-            width: 400,
-            height: 300,
+            width: {
+              xs: 300,
+              sm: 400,
+            },
+            height: {
+              xs: 200,
+              sm: 300,
+            },
           },
         }}
       >
@@ -40,8 +50,13 @@ export const HomeComponent: FC = () => {
           <CardActionArea onClick={() => navigate("/city-category")}>
             <CardMedia
               component="img"
-              height="300"
               image="../src/assets/city/city1.jpg"
+              sx={{
+                height: {
+                  xs: 200,
+                  sm: 300,
+                },
+              }}
             />
             <Typography
               sx={{
@@ -73,7 +88,12 @@ export const HomeComponent: FC = () => {
           <CardActionArea onClick={() => navigate("/landscape-category")}>
             <CardMedia
               component="img"
-              height="300"
+              sx={{
+                height: {
+                  xs: 200,
+                  sm: 300,
+                },
+              }}
               image="../src/assets/landscapes/landscape3.jpg"
             />
             <Typography
