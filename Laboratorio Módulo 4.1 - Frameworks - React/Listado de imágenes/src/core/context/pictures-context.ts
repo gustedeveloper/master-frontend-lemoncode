@@ -10,6 +10,8 @@ interface ContextModel {
   setDrawer: (value: boolean) => void;
   handleDrawerOpen: () => void;
   handleDrawerClose: () => void;
+  totalCartBalance: number;
+  setTotalCartBalance: (value: number) => void;
 }
 
 export const PicturesContext = React.createContext<ContextModel>({
@@ -21,4 +23,6 @@ export const PicturesContext = React.createContext<ContextModel>({
   setDrawer: () => {},
   handleDrawerOpen: () => {},
   handleDrawerClose: () => {},
+  totalCartBalance: 0,
+  setTotalCartBalance: () => {},
 });

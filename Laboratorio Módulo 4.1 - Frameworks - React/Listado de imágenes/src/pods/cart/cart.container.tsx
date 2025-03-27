@@ -5,7 +5,12 @@ import { getAllPictures } from "./cart.api";
 import { PictureInfo } from "../../core/model";
 
 export const CartContainer: FC = () => {
-  const { selectedPictures, setSelectedPictures } = useContext(PicturesContext);
+  const {
+    selectedPictures,
+    setSelectedPictures,
+    totalCartBalance,
+    setTotalCartBalance,
+  } = useContext(PicturesContext);
   const [cartPictures, setCartPictures] = useState<PictureInfo[]>([]);
 
   useEffect(() => {
@@ -14,7 +19,8 @@ export const CartContainer: FC = () => {
         apiPictures.filter((picture) => selectedPictures.includes(picture.id))
       );
     });
-  }, [selectedPictures]);
+    getTotalCartBalance();
+  }, [selectedPictures, cartPictures]);
 
   const deleteFromCart = (id: string) => {
     const updateWithDeletedPicture = selectedPictures.filter(
@@ -29,11 +35,23 @@ export const CartContainer: FC = () => {
     setSelectedPictures(empty);
   };
 
+  const getTotalCartBalance = () => {
+    const totalBalance = cartPictures.reduce(
+      (total, picture) => total + picture.price,
+      0
+    );
+
+    const decimals = totalBalance.toFixed(2);
+
+    setTotalCartBalance(Number(decimals));
+  };
+
   return (
     <CartComponent
       cartPictures={cartPictures}
       deleteFromCart={deleteFromCart}
       removeAll={removeAll}
+      totalCartBalance={totalCartBalance}
     />
   );
 };

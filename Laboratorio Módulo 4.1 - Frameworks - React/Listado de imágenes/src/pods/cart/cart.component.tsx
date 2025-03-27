@@ -20,10 +20,11 @@ interface Props {
   cartPictures: PictureInfo[];
   deleteFromCart: (id: string) => void;
   removeAll: () => void;
+  totalCartBalance: number;
 }
 
 export const CartComponent: FC<Props> = (props) => {
-  const { cartPictures, deleteFromCart, removeAll } = props;
+  const { cartPictures, deleteFromCart, removeAll, totalCartBalance } = props;
   const navigate = useNavigate();
 
   return (
@@ -144,29 +145,50 @@ export const CartComponent: FC<Props> = (props) => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                gap: "5px",
                 pb: "30px",
-                flexDirection: {
-                  xs: "column",
-                  sm: "row",
-                },
               }}
             >
-              <Button
-                variant="outlined"
-                size="small"
-                startIcon={<DeleteIcon />}
-                onClick={removeAll}
+              <Grid2
+                container
+                sx={{
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  gap: "15px",
+                }}
               >
-                Remove All
-              </Button>
-              <Button
-                variant="contained"
-                size="small"
-                onClick={() => navigate("/checkout")}
-              >
-                Checkout
-              </Button>
+                <Grid2 sx={{ textAlign: "center" }}>
+                  <Typography>
+                    Total balance: {totalCartBalance.toFixed(2)} €
+                  </Typography>
+                </Grid2>
+                <Grid2
+                  sx={{
+                    display: "flex",
+                    gap: "10px",
+                    flexDirection: {
+                      xs: "column",
+                      md: "row",
+                    },
+                  }}
+                >
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={removeAll}
+                  >
+                    Remove All
+                  </Button>
+                  <Button
+                    sx={{ width: "130px" }}
+                    variant="contained"
+                    size="small"
+                    onClick={() => navigate("/checkout")}
+                  >
+                    Checkout
+                  </Button>
+                </Grid2>
+              </Grid2>
             </Grid2>
           </>
         )}
