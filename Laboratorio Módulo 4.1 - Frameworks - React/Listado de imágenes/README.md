@@ -1,4 +1,4 @@
-### Máster Front End XVII - Laboratorio React "Listado de imágenes"
+# Máster Front End XVII - Laboratorio React "Listado de imágenes"
 
 # Galería de Imágenes con React
 
