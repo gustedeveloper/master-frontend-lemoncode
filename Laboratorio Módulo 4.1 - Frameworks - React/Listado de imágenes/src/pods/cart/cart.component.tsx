@@ -18,6 +18,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { PicturesContext } from "../../core/context/pictures-context";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   cartPictures: PictureInfo[];
@@ -28,6 +29,7 @@ interface Props {
 export const CartComponent: FC<Props> = (props) => {
   const { cartPictures, deleteFromCart, removeAll } = props;
   const { drawer, handleDrawerClose } = useContext(PicturesContext);
+  const navigate = useNavigate();
 
   return (
     <Drawer
@@ -163,7 +165,11 @@ export const CartComponent: FC<Props> = (props) => {
                 >
                   Remove All
                 </Button>
-                <Button variant="contained" size="small">
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={() => navigate("/checkout")}
+                >
                   Checkout
                 </Button>
               </Grid2>

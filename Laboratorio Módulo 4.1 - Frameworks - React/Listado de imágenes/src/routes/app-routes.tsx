@@ -1,3 +1,4 @@
+import { CheckoutPage } from "../scenes/checkout";
 import { CityCategoryPage } from "../scenes/city-category";
 import { HomePage } from "../scenes/home";
 import { LandscapeCategoryPage } from "../scenes/landscape-category";
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
             path="/landscape-category"
             element={<LandscapeCategoryPage />}
           />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </Router>
     </>

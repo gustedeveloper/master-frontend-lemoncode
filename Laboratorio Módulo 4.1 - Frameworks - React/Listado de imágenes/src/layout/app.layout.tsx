@@ -4,7 +4,7 @@ import { Header } from "./header.layout";
 import { Grid2 } from "@mui/material";
 
 interface Props {
-  children: [React.ReactNode, React.ReactNode];
+  children: React.ReactNode | [React.ReactNode, React.ReactNode];
 }
 
 export const AppLayout: FC<Props> = ({ children }) => (
