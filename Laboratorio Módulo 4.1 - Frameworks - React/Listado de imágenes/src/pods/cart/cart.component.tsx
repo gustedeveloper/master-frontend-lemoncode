@@ -108,6 +108,9 @@ export const CartComponent: FC<Props> = (props) => {
                       <Typography sx={{ fontSize: "12px" }}>
                         {picture.title}
                       </Typography>
+                      <Typography color="primary.main">
+                        {picture.price.toFixed(2)} €
+                      </Typography>
                     </CardContent>
                     <CardActions
                       sx={{
