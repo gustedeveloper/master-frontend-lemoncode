@@ -1,9 +1,22 @@
+import { TableCell, TableHead } from "@mui/material";
 import { FC } from "react";
+
+const headerElements: string[] = [
+  "Status",
+  "Order nº",
+  "Supplier",
+  "Date",
+  "Total",
+];
 
 export const OrdersListHeader: FC = () => {
   return (
     <>
-      <h1>Header</h1>
+      <TableHead>
+        {headerElements.map((element) => (
+          <TableCell>{element}</TableCell>
+        ))}
+      </TableHead>
     </>
   );
 };
