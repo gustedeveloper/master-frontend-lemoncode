@@ -10,5 +10,5 @@ export const OrdersListContainer: FC = () => {
     getOrders().then((apiOrders) => setOrders(apiOrders));
   }, []);
 
-  return <OrdersListComponent />;
+  return <OrdersListComponent orders={orders} />;
 };
