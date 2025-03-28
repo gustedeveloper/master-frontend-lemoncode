@@ -1,4 +1,4 @@
-import { TableCell, TableHead } from "@mui/material";
+import { TableCell, TableHead, TableRow } from "@mui/material";
 import { FC } from "react";
 
 const headerElements: string[] = [
@@ -13,9 +13,11 @@ export const OrdersListHeader: FC = () => {
   return (
     <>
       <TableHead>
-        {headerElements.map((element) => (
-          <TableCell>{element}</TableCell>
-        ))}
+        <TableRow>
+          {headerElements.map((element) => (
+            <TableCell>{element}</TableCell>
+          ))}
+        </TableRow>
       </TableHead>
     </>
   );
