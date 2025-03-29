@@ -8,7 +8,9 @@ import {
   TableCell,
   TableContainer,
   TableRow,
+  Link as MuiLink,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface Props {
   orders: Order[];
@@ -36,7 +38,15 @@ export const OrdersListComponent: FC<Props> = (props) => {
                   }}
                 />
               </TableCell>
-              <TableCell>{order.orderNumber}</TableCell>
+              <TableCell>
+                <MuiLink
+                  component={Link}
+                  to={`/order-detail/${order.orderNumber}`}
+                  sx={{ textDecoration: "none" }}
+                >
+                  {order.orderNumber}
+                </MuiLink>
+              </TableCell>
               <TableCell>{order.supplier}</TableCell>
               <TableCell>{order.date.toDateString()}</TableCell>
               <TableCell>{order.totalAmount} €</TableCell>
