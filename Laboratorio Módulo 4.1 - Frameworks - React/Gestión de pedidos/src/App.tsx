@@ -1,5 +1,10 @@
+import { OrdersProvider } from "./core/context/orders-provider";
 import { AppRoutes } from "./routes/app-routes";
 
 export const App = () => {
-  return <AppRoutes />;
+  return (
+    <OrdersProvider>
+      <AppRoutes />
+    </OrdersProvider>
+  );
 };
