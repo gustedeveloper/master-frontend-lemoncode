@@ -13,19 +13,15 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
     <Box sx={{ m: "50px", width: "1000px", display: "flex", gap: "30px" }}>
       <TextField
         disabled
-        defaultValue={selectedOrder?.orderNumber}
+        value={selectedOrder?.orderNumber}
         label="Order Nº"
       ></TextField>
       <TextField
         disabled
-        defaultValue={selectedOrder?.supplier}
+        value={selectedOrder?.supplier}
         label="Supplier"
       ></TextField>
-      <TextField
-        disabled
-        defaultValue={selectedOrder?.date}
-        label="Date"
-      ></TextField>
+      <TextField disabled value={selectedOrder?.date} label="Date"></TextField>
     </Box>
   );
 };
