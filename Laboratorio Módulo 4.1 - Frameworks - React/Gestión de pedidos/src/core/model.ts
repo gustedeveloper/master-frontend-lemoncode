@@ -8,6 +8,7 @@ export interface Order {
 }
 
 export interface Item {
+  id: string;
   status: boolean;
   description: string;
   amount: number;
