@@ -11,7 +11,7 @@ export const TableHeader: FC<TableHeaderProps> = ({ headers }) => {
       <TableHead>
         <TableRow>
           {headers.map((element) => (
-            <TableCell>{element}</TableCell>
+            <TableCell key={element}>{element}</TableCell>
           ))}
         </TableRow>
       </TableHead>
