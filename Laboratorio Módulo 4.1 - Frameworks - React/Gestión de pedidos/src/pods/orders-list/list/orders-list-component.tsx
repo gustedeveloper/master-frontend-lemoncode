@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { OrdersListHeader } from "../header/orders-list-header.component";
+import { TableHeader } from "../../table-header/table-header";
 import { Order } from "@/core/model";
 import {
   Box,
@@ -12,6 +12,14 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+const headerElements: string[] = [
+  "Status",
+  "Order nº",
+  "Supplier",
+  "Date",
+  "Total",
+];
+
 interface Props {
   orders: Order[];
 }
@@ -22,7 +30,7 @@ export const OrdersListComponent: FC<Props> = (props) => {
   return (
     <TableContainer>
       <Table sx={{ minWidth: 650 }}>
-        <OrdersListHeader />
+        <TableHeader headers={headerElements} />
         <TableBody>
           {orders.map((order) => (
             <TableRow key={order.orderNumber}>

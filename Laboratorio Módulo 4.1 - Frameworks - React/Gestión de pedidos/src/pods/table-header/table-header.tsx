@@ -1,20 +1,16 @@
 import { TableCell, TableHead, TableRow } from "@mui/material";
 import { FC } from "react";
 
-const headerElements: string[] = [
-  "Status",
-  "Order nº",
-  "Supplier",
-  "Date",
-  "Total",
-];
+interface TableHeaderProps {
+  headers: string[];
+}
 
-export const OrdersListHeader: FC = () => {
+export const TableHeader: FC<TableHeaderProps> = ({ headers }) => {
   return (
     <>
       <TableHead>
         <TableRow>
-          {headerElements.map((element) => (
+          {headers.map((element) => (
             <TableCell>{element}</TableCell>
           ))}
         </TableRow>
