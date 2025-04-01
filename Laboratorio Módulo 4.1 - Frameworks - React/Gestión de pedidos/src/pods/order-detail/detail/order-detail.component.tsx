@@ -23,7 +23,7 @@ export const OrderDetailComponent: FC<Props> = (props) => {
   const { items } = props;
   return (
     <>
-      <Box sx={{ display: "flex", gap: "15px" }}>
+      <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
         <Button variant="contained">Validate</Button>
         <Button variant="contained">Invalidate</Button>
       </Box>
