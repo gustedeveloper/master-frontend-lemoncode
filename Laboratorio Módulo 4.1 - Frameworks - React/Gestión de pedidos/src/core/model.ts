@@ -9,6 +9,7 @@ export interface Order {
 
 export interface Item {
   id: string;
+  isChecked: boolean;
   status: boolean;
   description: string;
   amount: number;

@@ -10,18 +10,21 @@ export const orders: Order[] = [
     items: [
       {
         id: "a1",
+        isChecked: false,
         status: false,
         description: "AMD Ryzen 7 7800X3D Processor",
         amount: 449.99,
       },
       {
         id: "a2",
+        isChecked: false,
         status: true,
         description: "MSI MAG B550 TOMAHAWK Motherboard",
         amount: 179.99,
       },
       {
         id: "a3",
+        isChecked: false,
         status: false,
         description: "Corsair Vengeance LPX 32GB (2 x 16GB) DDR4 3600MHz RAM",
         amount: 175.99,
@@ -37,30 +40,35 @@ export const orders: Order[] = [
     items: [
       {
         id: "b1",
+        isChecked: false,
         status: true,
         description: "NVIDIA RTX 4070 Ti 12GB Graphics Card",
         amount: 899.99,
       },
       {
         id: "b2",
+        isChecked: false,
         status: false,
         description: "Samsung 990 PRO 2TB NVMe M.2 SSD",
         amount: 199.99,
       },
       {
         id: "b3",
+        isChecked: false,
         status: true,
         description: "Corsair RM850x 850W 80 Plus Gold Power Supply",
         amount: 149.99,
       },
       {
         id: "b4",
+        isChecked: false,
         status: false,
         description: "NZXT H510 Elite ATX Case - Black",
         amount: 149.99,
       },
       {
         id: "b5",
+        isChecked: false,
         status: true,
         description: "LG UltraGear 27GP850-B 27 QHD 165Hz Monitor",
         amount: 564.99,
