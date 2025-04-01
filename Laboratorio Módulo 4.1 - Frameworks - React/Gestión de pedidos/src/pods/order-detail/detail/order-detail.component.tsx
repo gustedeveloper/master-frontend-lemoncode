@@ -15,12 +15,13 @@ import { FC } from "react";
 
 interface Props {
   items: Item[];
+  handleCheckbox: (id: string) => void;
 }
 
 const headerElements: string[] = ["", "Status", "Description", "Amount"];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items } = props;
+  const { items, handleCheckbox } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
@@ -34,7 +35,10 @@ export const OrderDetailComponent: FC<Props> = (props) => {
             {items.map((item) => (
               <TableRow key={item.description}>
                 <TableCell>
-                  <Checkbox />
+                  <Checkbox
+                    checked={item.isChecked}
+                    onChange={() => handleCheckbox(item.id)}
+                  />
                 </TableCell>
                 <TableCell sx={{ color: item.status ? "#36c430" : "orange" }}>
                   {item.status ? "Validated" : "Pending"}
