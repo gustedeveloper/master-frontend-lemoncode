@@ -1,6 +1,8 @@
 import { Item } from "@/core/model";
 import { TableHeader } from "@/pods/table-header/table-header";
 import {
+  Checkbox,
+  Input,
   Table,
   TableBody,
   TableCell,
@@ -25,10 +27,16 @@ export const OrderDetailComponent: FC<Props> = (props) => {
           <TableBody>
             {items.map((item) => (
               <TableRow key={item.description}>
-                <TableCell></TableCell>
-                <TableCell>{item.status}</TableCell>
+                <TableCell>
+                  <Checkbox />
+                </TableCell>
+                <TableCell sx={{ color: item.status ? "#36c430" : "orange" }}>
+                  {item.status ? "Validated" : "Pending"}
+                </TableCell>
                 <TableCell>{item.description}</TableCell>
-                <TableCell>{item.amount} €</TableCell>
+                <TableCell>
+                  <Input value={`${item.amount} €`} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
