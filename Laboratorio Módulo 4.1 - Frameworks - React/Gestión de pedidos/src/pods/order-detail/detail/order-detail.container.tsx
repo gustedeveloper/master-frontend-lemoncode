@@ -12,6 +12,7 @@ export const OrderDetailContainer: FC = () => {
 
     if (selection) {
       selection.isChecked = !selection.isChecked;
+
       const updatedItems = items.map((item) =>
         item.id === selection.id
           ? {
@@ -24,9 +25,23 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
+  const validate = () => {
+    const updatedItems = items.map((item) =>
+      item.isChecked && !item.status ? { ...item, status: true } : item
+    );
+
+    setItems(updatedItems);
+  };
+
   useEffect(() => {
     if (selectedOrder) setItems(selectedOrder?.items);
   }, [selectedOrder]);
 
-  return <OrderDetailComponent items={items} handleCheckbox={handleCheckbox} />;
+  return (
+    <OrderDetailComponent
+      items={items}
+      handleCheckbox={handleCheckbox}
+      validate={validate}
+    />
+  );
 };

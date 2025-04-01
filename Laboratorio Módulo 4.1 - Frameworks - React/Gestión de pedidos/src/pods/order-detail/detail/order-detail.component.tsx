@@ -16,16 +16,19 @@ import { FC } from "react";
 interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
+  validate: () => void;
 }
 
 const headerElements: string[] = ["", "Status", "Description", "Amount"];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items, handleCheckbox } = props;
+  const { items, handleCheckbox, validate } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
-        <Button variant="contained">Validate</Button>
+        <Button variant="contained" onClick={validate}>
+          Validate
+        </Button>
         <Button variant="contained">Invalidate</Button>
       </Box>
       <TableContainer>
