@@ -1,6 +1,8 @@
 import { Item } from "@/core/model";
 import { TableHeader } from "@/pods/table-header/table-header";
 import {
+  Box,
+  Button,
   Checkbox,
   Input,
   Table,
@@ -21,6 +23,10 @@ export const OrderDetailComponent: FC<Props> = (props) => {
   const { items } = props;
   return (
     <>
+      <Box sx={{ display: "flex", gap: "15px" }}>
+        <Button variant="contained">Validate</Button>
+        <Button variant="contained">Invalidate</Button>
+      </Box>
       <TableContainer>
         <Table sx={{ minWidth: 650 }}>
           <TableHeader headers={headerElements} />
