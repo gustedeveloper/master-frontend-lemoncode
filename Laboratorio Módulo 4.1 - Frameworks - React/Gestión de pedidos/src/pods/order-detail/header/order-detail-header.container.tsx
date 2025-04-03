@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { OrdersContext } from "@/core/context/orders-context";
 
 export const OrderDetailHeaderContainer: FC = () => {
-  const { orders, selectedOrder, setSelectedOrder } = useContext(OrdersContext);
+  const { orders, selectedOrder, setSelectedOrder, updateOrder } =
+    useContext(OrdersContext);
   const [statusPercentage, setStatusPercentage] = useState<number>(0);
   const { id } = useParams();
 
@@ -17,8 +18,19 @@ export const OrderDetailHeaderContainer: FC = () => {
     const items = selectedOrder?.items ?? [];
     const validatedItems = items.filter((item) => item.status).length;
     const percentage = (validatedItems / items.length) * 100;
-    setStatusPercentage(isNaN(percentage) ? 0 : percentage);
-  }, [selectedOrder?.items]);
+    const roundedPercentage = isNaN(percentage) ? 0 : percentage;
+
+    setStatusPercentage(roundedPercentage);
+
+    if (selectedOrder) {
+      const newStatus = roundedPercentage === 100 ? "Approved" : "Pending";
+      const updatedOrder = {
+        ...selectedOrder,
+        status: newStatus,
+      };
+      updateOrder(updatedOrder);
+    }
+  }, [selectedOrder, selectedOrder?.items, updateOrder]);
 
   return (
     <OrderDetailHeaderComponent
