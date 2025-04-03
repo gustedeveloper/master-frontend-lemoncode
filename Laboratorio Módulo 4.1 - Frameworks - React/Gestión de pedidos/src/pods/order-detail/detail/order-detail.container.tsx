@@ -25,9 +25,16 @@ export const OrderDetailContainer: FC = () => {
   };
 
   const validate = () => {
-    const updatedItems = items.map((item) =>
-      item.isChecked && !item.status ? { ...item, status: true } : item
-    );
+    const updatedItems = items.map((item) => {
+      if (item.isChecked && !item.status) {
+        return { ...item, status: true, isChecked: false };
+      }
+      if (item.isChecked) {
+        return { ...item, isChecked: false };
+      }
+
+      return item;
+    });
 
     if (selectedOrder) {
       const updatedOrder = {
