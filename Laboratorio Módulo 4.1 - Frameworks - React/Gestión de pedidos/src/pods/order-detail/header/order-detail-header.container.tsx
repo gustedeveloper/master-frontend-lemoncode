@@ -11,22 +11,14 @@ export const OrderDetailHeaderContainer: FC = () => {
   useEffect(() => {
     const order = orders.find((order) => order.orderNumber === id);
     if (order) setSelectedOrder(order);
+  }, [id, orders, setSelectedOrder]);
 
-    const percentage = getStatusPercentage();
-    if (percentage) setStatusPercentage(percentage);
-  }, [id, orders, setSelectedOrder, selectedOrder]);
-
-  const getStatusPercentage = () => {
-    const items = selectedOrder?.items;
-    let validatedItems = 0;
-    if (items) {
-      items.forEach((item) => {
-        if (item.status) validatedItems += 1;
-      });
-
-      return (validatedItems / items.length) * 100;
-    }
-  };
+  useEffect(() => {
+    const items = selectedOrder?.items ?? [];
+    const validatedItems = items.filter((item) => item.status).length;
+    const percentage = (validatedItems / items.length) * 100;
+    setStatusPercentage(isNaN(percentage) ? 0 : percentage);
+  }, [selectedOrder?.items]);
 
   return (
     <OrderDetailHeaderComponent
