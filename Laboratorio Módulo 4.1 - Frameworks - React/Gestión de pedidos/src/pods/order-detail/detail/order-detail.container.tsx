@@ -2,6 +2,7 @@ import { FC, useContext } from "react";
 import { OrderDetailComponent } from "./order-detail.component";
 import { OrdersContext } from "@/core/context/orders-context";
 import { Item } from "@/core/model";
+import { useDebouncedCallback } from "use-debounce";
 
 export type Action = "validate" | "invalidate";
 
@@ -54,6 +55,22 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
+  const debouncedUpdateTotal = useDebouncedCallback((updatedItems: Item[]) => {
+    if (selectedOrder) {
+      const newTotal = updatedItems.reduce(
+        (total, item) => total + item.amount,
+        0
+      );
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+        totalAmount: Number(newTotal.toFixed(2)),
+      };
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+    }
+  }, 700);
+
   const handleOnChange = (id: string, value: string) => {
     let newValue = parseFloat(value);
 
@@ -64,19 +81,14 @@ export const OrderDetailContainer: FC = () => {
     );
 
     if (selectedOrder) {
-      const newTotal = updatedItems.reduce(
-        (total, item) => total + item.amount,
-        0
-      );
-
       const updatedOrder = {
         ...selectedOrder,
         items: updatedItems,
-        totalAmount: Number(newTotal.toFixed(2)),
       };
       updateOrder(updatedOrder);
       setSelectedOrder(updatedOrder);
     }
+    debouncedUpdateTotal(updatedItems);
   };
 
   return (
