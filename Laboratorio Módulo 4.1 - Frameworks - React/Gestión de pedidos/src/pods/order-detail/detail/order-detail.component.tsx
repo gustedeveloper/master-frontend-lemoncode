@@ -18,12 +18,13 @@ interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
   validateInvalidate: (value: Action) => void;
+  handleOnChange: (id: string, value: string) => void;
 }
 
 const headerElements: string[] = ["", "Status", "Description", "Amount"];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items, handleCheckbox, validateInvalidate } = props;
+  const { items, handleCheckbox, validateInvalidate, handleOnChange } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
@@ -57,7 +58,12 @@ export const OrderDetailComponent: FC<Props> = (props) => {
                 </TableCell>
                 <TableCell>{item.description}</TableCell>
                 <TableCell>
-                  <Input value={`${item.amount} €`} />
+                  <Input
+                    type="number"
+                    value={item.amount === 0 ? "" : item.amount}
+                    onChange={(e) => handleOnChange(item.id, e.target.value)}
+                  />
+                  €
                 </TableCell>
               </TableRow>
             ))}

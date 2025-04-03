@@ -54,11 +54,37 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
+  const handleOnChange = (id: string, value: string) => {
+    let newValue = parseFloat(value);
+
+    if (isNaN(newValue)) newValue = 0;
+
+    const updatedItems = items.map((item) =>
+      item.id === id ? { ...item, amount: newValue } : item
+    );
+
+    if (selectedOrder) {
+      const newTotal = updatedItems.reduce(
+        (total, item) => total + item.amount,
+        0
+      );
+
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+        totalAmount: Number(newTotal.toFixed(2)),
+      };
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+    }
+  };
+
   return (
     <OrderDetailComponent
       items={items}
       handleCheckbox={handleCheckbox}
       validateInvalidate={validateInvalidate}
+      handleOnChange={handleOnChange}
     />
   );
 };
