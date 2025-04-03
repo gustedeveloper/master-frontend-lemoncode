@@ -8,8 +8,10 @@ export const OrdersListContainer: FC = () => {
   const { orders, setOrders } = useContext(OrdersContext);
 
   useEffect(() => {
-    getOrders().then((apiOrders) => setOrders(apiOrders));
-  }, [setOrders]);
+    if (orders.length === 0) {
+      getOrders().then((apiOrders) => setOrders(apiOrders));
+    }
+  }, [orders, setOrders]);
 
   return <OrdersListComponent orders={orders} />;
 };
