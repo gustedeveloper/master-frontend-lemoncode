@@ -1,4 +1,5 @@
 import { Order } from "@/core/model";
+import { formatDate } from "@/core/utils/date";
 import { Box, Button, TextField } from "@mui/material";
 import { FC } from "react";
 
@@ -25,7 +26,7 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
         ></TextField>
         <TextField
           disabled
-          value={selectedOrder?.date ?? ""}
+          value={formatDate(selectedOrder?.date)}
           label="Date"
         ></TextField>
       </Box>

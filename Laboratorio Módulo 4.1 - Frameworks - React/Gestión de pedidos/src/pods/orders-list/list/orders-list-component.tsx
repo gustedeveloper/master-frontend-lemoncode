@@ -11,6 +11,7 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { formatDate } from "@/core/utils/date";
 
 const headerElements: string[] = [
   "Status",
@@ -56,7 +57,7 @@ export const OrdersListComponent: FC<Props> = (props) => {
                 </MuiLink>
               </TableCell>
               <TableCell>{order.supplier}</TableCell>
-              <TableCell>{order.date.toDateString()}</TableCell>
+              <TableCell>{formatDate(order.date)}</TableCell>
               <TableCell>{order.totalAmount} €</TableCell>
             </TableRow>
           ))}
