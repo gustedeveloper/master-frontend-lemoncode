@@ -47,11 +47,35 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
+  const invalidate = () => {
+    const updatedItems = items.map((item) => {
+      if (item.isChecked && item.status) {
+        return { ...item, status: false, isChecked: false };
+      }
+      if (item.isChecked) {
+        return { ...item, isChecked: false };
+      }
+
+      return item;
+    });
+
+    if (selectedOrder) {
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+      };
+
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+    }
+  };
+
   return (
     <OrderDetailComponent
       items={items}
       handleCheckbox={handleCheckbox}
       validate={validate}
+      invalidate={invalidate}
     />
   );
 };

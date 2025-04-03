@@ -17,19 +17,22 @@ interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
   validate: () => void;
+  invalidate: () => void;
 }
 
 const headerElements: string[] = ["", "Status", "Description", "Amount"];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items, handleCheckbox, validate } = props;
+  const { items, handleCheckbox, validate, invalidate } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
         <Button variant="contained" onClick={validate}>
           Validate
         </Button>
-        <Button variant="contained">Invalidate</Button>
+        <Button variant="contained" onClick={invalidate}>
+          Invalidate
+        </Button>
       </Box>
       <TableContainer>
         <Table sx={{ minWidth: 650 }}>
