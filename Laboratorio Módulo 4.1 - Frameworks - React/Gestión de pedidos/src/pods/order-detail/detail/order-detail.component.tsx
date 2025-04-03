@@ -12,25 +12,31 @@ import {
   TableRow,
 } from "@mui/material";
 import { FC } from "react";
+import { Action } from "./order-detail.container";
 
 interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
-  validate: () => void;
-  invalidate: () => void;
+  validateInvalidate: (value: Action) => void;
 }
 
 const headerElements: string[] = ["", "Status", "Description", "Amount"];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items, handleCheckbox, validate, invalidate } = props;
+  const { items, handleCheckbox, validateInvalidate } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
-        <Button variant="contained" onClick={validate}>
+        <Button
+          variant="contained"
+          onClick={() => validateInvalidate("validate")}
+        >
           Validate
         </Button>
-        <Button variant="contained" onClick={invalidate}>
+        <Button
+          variant="contained"
+          onClick={() => validateInvalidate("invalidate")}
+        >
           Invalidate
         </Button>
       </Box>

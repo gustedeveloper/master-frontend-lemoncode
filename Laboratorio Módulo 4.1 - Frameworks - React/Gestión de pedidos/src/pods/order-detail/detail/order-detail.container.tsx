@@ -1,6 +1,9 @@
 import { FC, useContext } from "react";
 import { OrderDetailComponent } from "./order-detail.component";
 import { OrdersContext } from "@/core/context/orders-context";
+import { Item } from "@/core/model";
+
+export type Action = "validate" | "invalidate";
 
 export const OrderDetailContainer: FC = () => {
   const { selectedOrder, setSelectedOrder, updateOrder } =
@@ -24,40 +27,21 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
-  const validate = () => {
-    const updatedItems = items.map((item) => {
-      if (item.isChecked && !item.status) {
+  const updateItemByAction = (item: Item, action: Action): Item => {
+    if (item.isChecked) {
+      if (action === "validate" && !item.status) {
         return { ...item, status: true, isChecked: false };
       }
-      if (item.isChecked) {
-        return { ...item, isChecked: false };
-      }
-
-      return item;
-    });
-
-    if (selectedOrder) {
-      const updatedOrder = {
-        ...selectedOrder,
-        items: updatedItems,
-      };
-
-      updateOrder(updatedOrder);
-      setSelectedOrder(updatedOrder);
-    }
-  };
-
-  const invalidate = () => {
-    const updatedItems = items.map((item) => {
-      if (item.isChecked && item.status) {
+      if (action === "invalidate" && item.status) {
         return { ...item, status: false, isChecked: false };
       }
-      if (item.isChecked) {
-        return { ...item, isChecked: false };
-      }
+      return { ...item, isChecked: false };
+    }
+    return item;
+  };
 
-      return item;
-    });
+  const validateInvalidate = (action: Action) => {
+    const updatedItems = items.map((item) => updateItemByAction(item, action));
 
     if (selectedOrder) {
       const updatedOrder = {
@@ -74,8 +58,7 @@ export const OrderDetailContainer: FC = () => {
     <OrderDetailComponent
       items={items}
       handleCheckbox={handleCheckbox}
-      validate={validate}
-      invalidate={invalidate}
+      validateInvalidate={validateInvalidate}
     />
   );
 };
