@@ -24,11 +24,14 @@ export const OrderDetailHeaderContainer: FC = () => {
 
     if (selectedOrder) {
       const newStatus = roundedPercentage === 100 ? "Approved" : "Pending";
-      const updatedOrder = {
-        ...selectedOrder,
-        status: newStatus,
-      };
-      updateOrder(updatedOrder);
+
+      if (selectedOrder.status !== newStatus) {
+        const updatedOrder = {
+          ...selectedOrder,
+          status: newStatus,
+        };
+        updateOrder(updatedOrder);
+      }
     }
   }, [selectedOrder, selectedOrder?.items, updateOrder]);
 
