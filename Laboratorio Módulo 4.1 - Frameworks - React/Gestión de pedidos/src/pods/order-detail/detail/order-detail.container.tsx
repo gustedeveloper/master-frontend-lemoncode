@@ -4,24 +4,25 @@ import { OrdersContext } from "@/core/context/orders-context";
 import { Item } from "@/core/model";
 
 export const OrderDetailContainer: FC = () => {
-  const { selectedOrder } = useContext(OrdersContext);
+  const { selectedOrder, setSelectedOrder, updateOrder } =
+    useContext(OrdersContext);
   const [items, setItems] = useState<Item[]>([]);
 
   const handleCheckbox = (id: string) => {
-    const selection = items.find((item) => item.id === id);
+    const updatedItems = items.map((item) =>
+      item.id === id ? { ...item, isChecked: !item.isChecked } : item
+    );
 
-    if (selection) {
-      selection.isChecked = !selection.isChecked;
+    setItems(updatedItems);
 
-      const updatedItems = items.map((item) =>
-        item.id === selection.id
-          ? {
-              ...item,
-              isChecked: selection?.isChecked,
-            }
-          : item
-      );
-      setItems(updatedItems);
+    if (selectedOrder) {
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+      };
+
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
     }
   };
 
@@ -31,6 +32,16 @@ export const OrderDetailContainer: FC = () => {
     );
 
     setItems(updatedItems);
+
+    if (selectedOrder) {
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+      };
+
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+    }
   };
 
   useEffect(() => {

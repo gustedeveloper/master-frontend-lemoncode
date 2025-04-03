@@ -6,6 +6,7 @@ interface ContextModel {
   setOrders: (orders: Order[]) => void;
   selectedOrder?: Order;
   setSelectedOrder: (selectedOrder: Order) => void;
+  updateOrder: (updatedOrder: Order) => void;
 }
 
 export const OrdersContext = React.createContext<ContextModel>({
@@ -13,4 +14,5 @@ export const OrdersContext = React.createContext<ContextModel>({
   setOrders: () => {},
   selectedOrder: undefined,
   setSelectedOrder: () => {},
+  updateOrder: () => {},
 });
