@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { formatDate } from "@/core/utils/date";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import EditIcon from "@mui/icons-material/Edit";
 
 const headerElements: string[] = [
   "Status",
@@ -19,6 +21,7 @@ const headerElements: string[] = [
   "Supplier",
   "Date",
   "Total",
+  "Actions",
 ];
 
 interface Props {
@@ -59,6 +62,10 @@ export const OrdersListComponent: FC<Props> = (props) => {
               <TableCell>{order.supplier}</TableCell>
               <TableCell>{formatDate(order.date)}</TableCell>
               <TableCell>{order.totalAmount} €</TableCell>
+              <TableCell sx={{ display: "flex", gap: "5px" }}>
+                <EditIcon />
+                <RemoveCircleOutlineIcon color="error" />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
