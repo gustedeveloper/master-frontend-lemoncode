@@ -9,11 +9,12 @@ import {
   TableContainer,
   TableRow,
   Link as MuiLink,
+  IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { formatDate } from "@/core/utils/date";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import EditIcon from "@mui/icons-material/Edit";
+import { AlertDialog } from "./delete-alert";
 
 const headerElements: string[] = [
   "Status",
@@ -26,10 +27,11 @@ const headerElements: string[] = [
 
 interface Props {
   orders: Order[];
+  deleteOrder: (value: string) => void;
 }
 
 export const OrdersListComponent: FC<Props> = (props) => {
-  const { orders } = props;
+  const { orders, deleteOrder } = props;
 
   return (
     <TableContainer>
@@ -63,8 +65,10 @@ export const OrdersListComponent: FC<Props> = (props) => {
               <TableCell>{formatDate(order.date)}</TableCell>
               <TableCell>{order.totalAmount} €</TableCell>
               <TableCell sx={{ display: "flex", gap: "5px" }}>
-                <EditIcon />
-                <RemoveCircleOutlineIcon color="error" />
+                <IconButton>
+                  <EditIcon />
+                </IconButton>
+                <AlertDialog orderToDelete={order} deleteOrder={deleteOrder} />
               </TableCell>
             </TableRow>
           ))}
