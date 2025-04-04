@@ -6,8 +6,8 @@ import {
 export const OrdersListPage = () => {
   return (
     <>
-      <OrdersListContainer />
       <AddEditOrderContainer />
+      <OrdersListContainer />
     </>
   );
 };

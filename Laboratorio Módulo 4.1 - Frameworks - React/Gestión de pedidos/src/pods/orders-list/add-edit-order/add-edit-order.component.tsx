@@ -12,9 +12,6 @@ export const AddEditOrderComponent: FC = () => {
           gap: "20px",
         }}
       >
-        <Button sx={{ width: "200px" }} variant="contained">
-          Add new order
-        </Button>
         <TextField
           type="text"
           slotProps={{
@@ -52,6 +49,9 @@ export const AddEditOrderComponent: FC = () => {
           }}
           label="Total amount"
         ></TextField>
+        <Button sx={{ width: "200px" }} variant="contained">
+          Add new order
+        </Button>
       </Box>
     </>
   );
