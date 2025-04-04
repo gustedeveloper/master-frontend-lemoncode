@@ -1,7 +1,17 @@
+import { Order } from "@/core/model";
+
 import { Box, Button, TextField } from "@mui/material";
 import { FC } from "react";
 
-export const AddEditOrderComponent: FC = () => {
+interface Props {
+  newOrder: Order;
+  setNewOrder: (value: Order) => void;
+  addEdit: () => void;
+}
+
+export const AddEditOrderComponent: FC<Props> = (props) => {
+  const { newOrder, setNewOrder, addEdit } = props;
+
   return (
     <>
       <Box
@@ -19,16 +29,11 @@ export const AddEditOrderComponent: FC = () => {
               shrink: true,
             },
           }}
-          label="Order Nº"
-        ></TextField>
-        <TextField
-          type="text"
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
           label="Supplier"
+          value={newOrder.supplier}
+          onChange={(e) =>
+            setNewOrder({ ...newOrder, supplier: e.target.value })
+          }
         ></TextField>
         <TextField
           type="date"
@@ -38,18 +43,12 @@ export const AddEditOrderComponent: FC = () => {
             },
           }}
           label="Date"
-          placeholder=""
+          value={newOrder.date.toISOString().split("T")[0]}
+          onChange={(e) =>
+            setNewOrder({ ...newOrder, date: new Date(e.target.value) })
+          }
         ></TextField>
-        <TextField
-          disabled
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
-          label="Total amount"
-        ></TextField>
-        <Button sx={{ width: "200px" }} variant="contained">
+        <Button sx={{ width: "200px" }} variant="contained" onClick={addEdit}>
           Add new order
         </Button>
       </Box>
