@@ -19,6 +19,14 @@ export const AddEditOrderContainer: FC = () => {
   const addEdit = () => {
     const updatedOrder = [...orders, newOrder];
     setOrders(updatedOrder);
+    setNewOrder({
+      status: "Pending",
+      orderNumber: "",
+      supplier: "",
+      date: new Date(),
+      totalAmount: 0,
+      items: [],
+    });
   };
 
   useEffect(() => {
