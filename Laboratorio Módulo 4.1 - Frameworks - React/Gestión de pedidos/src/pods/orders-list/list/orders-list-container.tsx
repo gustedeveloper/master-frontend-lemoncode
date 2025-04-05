@@ -1,6 +1,5 @@
-import { FC, useContext, useEffect } from "react";
+import { FC, useContext } from "react";
 import { OrdersListComponent } from "./orders-list-component";
-import { getOrders } from "./api";
 import { OrdersContext } from "@/core/context/orders-context";
 
 export const OrdersListContainer: FC = () => {
@@ -12,12 +11,6 @@ export const OrdersListContainer: FC = () => {
     );
     setOrders(updatedOrders);
   };
-
-  useEffect(() => {
-    if (orders.length === 0) {
-      getOrders().then((apiOrders) => setOrders(apiOrders));
-    }
-  }, [orders, setOrders]);
 
   return <OrdersListComponent orders={orders} deleteOrder={deleteOrder} />;
 };

@@ -1,6 +1,7 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import { Order } from "../model";
 import { OrdersContext } from "./orders-context";
+import { getOrders } from "./api";
 
 export const OrdersProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -13,6 +14,10 @@ export const OrdersProvider: React.FC<PropsWithChildren> = ({ children }) => {
       )
     );
   };
+
+  useEffect(() => {
+    getOrders().then(setOrders);
+  }, []);
 
   return (
     <OrdersContext.Provider
