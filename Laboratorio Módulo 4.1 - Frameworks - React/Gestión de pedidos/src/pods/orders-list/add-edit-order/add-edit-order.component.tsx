@@ -4,13 +4,13 @@ import { Box, Button, TextField } from "@mui/material";
 import { FC } from "react";
 
 interface Props {
-  newOrder: Order;
-  setNewOrder: (value: Order) => void;
+  order: Order;
+  setOrder: (value: Order) => void;
   addEdit: () => void;
 }
 
 export const AddEditOrderComponent: FC<Props> = (props) => {
-  const { newOrder, setNewOrder, addEdit } = props;
+  const { order, setOrder, addEdit } = props;
 
   return (
     <>
@@ -30,10 +30,8 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
             },
           }}
           label="Supplier"
-          value={newOrder.supplier}
-          onChange={(e) =>
-            setNewOrder({ ...newOrder, supplier: e.target.value })
-          }
+          value={order.supplier}
+          onChange={(e) => setOrder({ ...order, supplier: e.target.value })}
         ></TextField>
         <TextField
           type="date"
@@ -43,9 +41,9 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
             },
           }}
           label="Date"
-          value={newOrder.date.toISOString().split("T")[0]}
+          value={order.date.toISOString().split("T")[0]}
           onChange={(e) =>
-            setNewOrder({ ...newOrder, date: new Date(e.target.value) })
+            setOrder({ ...order, date: new Date(e.target.value) })
           }
         ></TextField>
         <Button sx={{ width: "200px" }} variant="contained" onClick={addEdit}>

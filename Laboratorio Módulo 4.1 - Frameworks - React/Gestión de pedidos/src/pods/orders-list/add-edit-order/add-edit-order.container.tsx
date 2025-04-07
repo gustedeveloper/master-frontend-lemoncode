@@ -5,9 +5,9 @@ import { OrdersContext } from "@/core/context/orders-context";
 import { generateOrderNumber } from "@/core/utils/order-number";
 
 export const AddEditOrderContainer: FC = () => {
-  const { orders, setOrders } = useContext(OrdersContext);
+  const { orders, setOrders, selectedOrderToEdit } = useContext(OrdersContext);
 
-  const [newOrder, setNewOrder] = useState<Order>({
+  const [order, setOrder] = useState<Order>({
     status: "Pending",
     orderNumber: "",
     supplier: "",
@@ -17,9 +17,10 @@ export const AddEditOrderContainer: FC = () => {
   });
 
   const addEdit = () => {
-    const updatedOrder = [...orders, newOrder];
+    const updatedOrder = [...orders, order];
     setOrders(updatedOrder);
-    setNewOrder({
+
+    setOrder({
       status: "Pending",
       orderNumber: "",
       supplier: "",
@@ -30,16 +31,27 @@ export const AddEditOrderContainer: FC = () => {
   };
 
   useEffect(() => {
-    setNewOrder((prev) => ({
+    if (selectedOrderToEdit) {
+      const selectedOrder = {
+        status: selectedOrderToEdit.status,
+        orderNumber: selectedOrderToEdit.orderNumber,
+        supplier: selectedOrderToEdit.supplier,
+        date: selectedOrderToEdit.date,
+        totalAmount: selectedOrderToEdit.totalAmount,
+        items: selectedOrderToEdit.items,
+      };
+      setOrder(selectedOrder);
+    }
+    setOrder((prev) => ({
       ...prev,
       orderNumber: generateOrderNumber(orders),
     }));
-  }, [orders]);
+  }, [orders, selectedOrderToEdit]);
 
   return (
     <AddEditOrderComponent
-      newOrder={newOrder}
-      setNewOrder={setNewOrder}
+      order={order}
+      setOrder={setOrder}
       addEdit={addEdit}
     />
   );

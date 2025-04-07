@@ -6,6 +6,7 @@ import { getOrders } from "./api";
 export const OrdersProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [selectedOrder, setSelectedOrder] = useState<Order>();
+  const [selectedOrderToEdit, setSelectedOrderToEdit] = useState<Order>();
 
   const updateOrder = (updatedOrder: Order) => {
     setOrders((prevOrders) =>
@@ -27,6 +28,8 @@ export const OrdersProvider: React.FC<PropsWithChildren> = ({ children }) => {
         selectedOrder,
         setSelectedOrder,
         updateOrder,
+        selectedOrderToEdit,
+        setSelectedOrderToEdit,
       }}
     >
       {children}

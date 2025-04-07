@@ -28,10 +28,11 @@ const headerElements: string[] = [
 interface Props {
   orders: Order[];
   deleteOrder: (value: string) => void;
+  getSelectedOrderToEdit: (order: Order) => void;
 }
 
 export const OrdersListComponent: FC<Props> = (props) => {
-  const { orders, deleteOrder } = props;
+  const { orders, deleteOrder, getSelectedOrderToEdit } = props;
 
   return (
     <TableContainer>
@@ -65,7 +66,7 @@ export const OrdersListComponent: FC<Props> = (props) => {
               <TableCell>{formatDate(order.date)}</TableCell>
               <TableCell>{order.totalAmount} €</TableCell>
               <TableCell sx={{ display: "flex", gap: "5px" }}>
-                <IconButton>
+                <IconButton onClick={() => getSelectedOrderToEdit(order)}>
                   <EditIcon />
                 </IconButton>
                 <AlertDialog orderToDelete={order} deleteOrder={deleteOrder} />
