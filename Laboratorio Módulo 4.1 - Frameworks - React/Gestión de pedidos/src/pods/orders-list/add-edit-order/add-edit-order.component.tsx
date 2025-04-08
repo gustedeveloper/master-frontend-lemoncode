@@ -7,10 +7,11 @@ interface Props {
   order: Order;
   setOrder: (value: Order) => void;
   addEdit: () => void;
+  selectedOrderToEdit?: Order;
 }
 
 export const AddEditOrderComponent: FC<Props> = (props) => {
-  const { order, setOrder, addEdit } = props;
+  const { order, setOrder, addEdit, selectedOrderToEdit } = props;
 
   return (
     <>
@@ -47,7 +48,7 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
           }
         ></TextField>
         <Button sx={{ width: "200px" }} variant="contained" onClick={addEdit}>
-          Add new order
+          {selectedOrderToEdit ? "Edit order" : "Add new order"}
         </Button>
       </Box>
     </>

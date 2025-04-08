@@ -5,7 +5,8 @@ import { OrdersContext } from "@/core/context/orders-context";
 import { generateOrderNumber } from "@/core/utils/order-number";
 
 export const AddEditOrderContainer: FC = () => {
-  const { orders, setOrders, selectedOrderToEdit } = useContext(OrdersContext);
+  const { orders, setOrders, selectedOrderToEdit, setSelectedOrderToEdit } =
+    useContext(OrdersContext);
 
   const [order, setOrder] = useState<Order>({
     status: "Pending",
@@ -17,9 +18,15 @@ export const AddEditOrderContainer: FC = () => {
   });
 
   const addEdit = () => {
-    const updatedOrder = [...orders, order];
-    setOrders(updatedOrder);
-
+    if (selectedOrderToEdit) {
+      const updatedOrders = orders.map((o) =>
+        o.orderNumber === selectedOrderToEdit.orderNumber ? order : o
+      );
+      setOrders(updatedOrders);
+    } else {
+      const updatedOrders = [...orders, order];
+      setOrders(updatedOrders);
+    }
     setOrder({
       status: "Pending",
       orderNumber: "",
@@ -28,24 +35,19 @@ export const AddEditOrderContainer: FC = () => {
       totalAmount: 0,
       items: [],
     });
+    setSelectedOrderToEdit(undefined);
   };
 
   useEffect(() => {
     if (selectedOrderToEdit) {
-      const selectedOrder = {
-        status: selectedOrderToEdit.status,
-        orderNumber: selectedOrderToEdit.orderNumber,
-        supplier: selectedOrderToEdit.supplier,
-        date: selectedOrderToEdit.date,
-        totalAmount: selectedOrderToEdit.totalAmount,
-        items: selectedOrderToEdit.items,
-      };
-      setOrder(selectedOrder);
+      setOrder(selectedOrderToEdit);
+    } else {
+      setOrder((prev) => ({
+        ...prev,
+        orderNumber: generateOrderNumber(orders),
+        date: new Date(),
+      }));
     }
-    setOrder((prev) => ({
-      ...prev,
-      orderNumber: generateOrderNumber(orders),
-    }));
   }, [orders, selectedOrderToEdit]);
 
   return (
@@ -53,6 +55,7 @@ export const AddEditOrderContainer: FC = () => {
       order={order}
       setOrder={setOrder}
       addEdit={addEdit}
+      selectedOrderToEdit={selectedOrderToEdit}
     />
   );
 };
