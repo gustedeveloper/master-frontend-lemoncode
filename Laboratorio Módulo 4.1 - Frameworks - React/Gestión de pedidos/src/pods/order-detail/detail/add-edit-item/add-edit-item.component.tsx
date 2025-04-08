@@ -9,14 +9,18 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { Item } from "@/core/model";
 
 interface Props {
   showNewItemForm: boolean;
   setShowNewItemForm: (value: boolean) => void;
+  item: Item;
+  setItem: (item: Item) => void;
+  addItem: () => void;
 }
 
 export const AddEditItemComponent: FC<Props> = (props) => {
-  const { showNewItemForm, setShowNewItemForm } = props;
+  const { showNewItemForm, setShowNewItemForm, item, setItem, addItem } = props;
 
   return (
     <>
@@ -33,13 +37,45 @@ export const AddEditItemComponent: FC<Props> = (props) => {
           <Box
             sx={{
               display: "flex",
+              alignItems: "center",
               gap: "15px",
-              mt: "20px",
             }}
           >
-            <TextField label="Description" sx={{ width: "500px" }}></TextField>
-            <TextField label="Amount" sx={{ width: "200px" }}></TextField>
-            <Button variant="contained">Add</Button>
+            <TextField
+              variant="standard"
+              type="text"
+              label="Description"
+              sx={{ width: "500px", mr: "20px" }}
+              value={item.description}
+              onChange={(e) =>
+                setItem({
+                  ...item,
+                  description: e.target.value,
+                })
+              }
+            ></TextField>
+            <TextField
+              variant="standard"
+              type="number"
+              label="Amount"
+              slotProps={{
+                inputLabel: {
+                  shrink: true,
+                },
+              }}
+              sx={{ width: "200px" }}
+              value={item.amount === 0 ? "" : item.amount}
+              onChange={(e) =>
+                setItem({
+                  ...item,
+                  amount: parseFloat(e.target.value),
+                })
+              }
+            />
+            €
+            <Button variant="contained" onClick={addItem}>
+              Add
+            </Button>
           </Box>
         </Collapse>
 
