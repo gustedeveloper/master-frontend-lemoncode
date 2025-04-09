@@ -1,5 +1,5 @@
 import {
-  AddEditItemContainer,
+  AddItemContainer,
   OrderDetailContainer,
   OrderDetailHeaderContainer,
 } from "@/pods/order-detail";
@@ -10,7 +10,7 @@ export const OrderDetailPage: FC = () => {
     <>
       <OrderDetailHeaderContainer />
       <OrderDetailContainer />
-      <AddEditItemContainer />
+      <AddItemContainer />
     </>
   );
 };

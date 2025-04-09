@@ -1,10 +1,10 @@
 import { FC, useContext, useEffect, useState } from "react";
-import { AddEditItemComponent } from "./add-edit-item.component";
+import { AddItemComponent } from "./add-item.component";
 import { OrdersContext } from "@/core/context/orders-context";
 import { Item } from "@/core/model";
 import { generateItemId } from "@/core/utils/item-id";
 
-export const AddEditItemContainer: FC = () => {
+export const AddItemContainer: FC = () => {
   const { orders, selectedOrder, setSelectedOrder, updateOrder } =
     useContext(OrdersContext);
   const [showNewItemForm, setShowNewItemForm] = useState(false);
@@ -54,7 +54,7 @@ export const AddEditItemContainer: FC = () => {
   }, [orders, setItem, selectedOrder]);
 
   return (
-    <AddEditItemComponent
+    <AddItemComponent
       showNewItemForm={showNewItemForm}
       setShowNewItemForm={setShowNewItemForm}
       item={item}

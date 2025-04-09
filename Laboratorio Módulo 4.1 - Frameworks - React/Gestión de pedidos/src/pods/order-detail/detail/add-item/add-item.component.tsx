@@ -19,7 +19,7 @@ interface Props {
   addItem: () => void;
 }
 
-export const AddEditItemComponent: FC<Props> = (props) => {
+export const AddItemComponent: FC<Props> = (props) => {
   const { showNewItemForm, setShowNewItemForm, item, setItem, addItem } = props;
 
   return (
