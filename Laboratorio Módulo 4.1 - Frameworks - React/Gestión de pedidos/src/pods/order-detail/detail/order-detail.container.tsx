@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { OrderDetailComponent } from "./order-detail.component";
 import { OrdersContext } from "@/core/context/orders-context";
 import { Item } from "@/core/model";
@@ -9,6 +9,10 @@ export type Action = "validate" | "invalidate";
 export const OrderDetailContainer: FC = () => {
   const { selectedOrder, setSelectedOrder, updateOrder } =
     useContext(OrdersContext);
+
+  const [editingItemId, setEditingItemId] = useState<string | undefined>(
+    undefined
+  );
 
   const items = selectedOrder?.items ?? [];
 
@@ -71,24 +75,38 @@ export const OrderDetailContainer: FC = () => {
     }
   }, 700);
 
-  const handleOnChange = (id: string, value: string) => {
-    let newValue = parseFloat(value);
+  const handleOnChange = (id: string, value: string, type: string) => {
+    if (type === "amount") {
+      let newValue = parseFloat(value);
 
-    if (isNaN(newValue)) newValue = 0;
+      if (isNaN(newValue)) newValue = 0;
 
-    const updatedItems = items.map((item) =>
-      item.id === id ? { ...item, amount: newValue } : item
-    );
+      const updatedItems = items.map((item) =>
+        item.id === id ? { ...item, amount: newValue } : item
+      );
 
-    if (selectedOrder) {
-      const updatedOrder = {
-        ...selectedOrder,
-        items: updatedItems,
-      };
-      updateOrder(updatedOrder);
-      setSelectedOrder(updatedOrder);
+      if (selectedOrder) {
+        const updatedOrder = {
+          ...selectedOrder,
+          items: updatedItems,
+        };
+        updateOrder(updatedOrder);
+        setSelectedOrder(updatedOrder);
+      }
+      debouncedUpdateTotal(updatedItems);
     }
-    debouncedUpdateTotal(updatedItems);
+
+    if (type === "description") {
+      const updatedItems = items.map((item) =>
+        item.id === id ? { ...item, description: value } : item
+      );
+
+      if (selectedOrder) {
+        const updatedOrder = { ...selectedOrder, items: updatedItems };
+        updateOrder(updatedOrder);
+        setSelectedOrder(updatedOrder);
+      }
+    }
   };
 
   const deleteItem = (id: string) => {
@@ -109,6 +127,10 @@ export const OrderDetailContainer: FC = () => {
     }
   };
 
+  const editItemDescription = (id: string) => {
+    setEditingItemId(id);
+  };
+
   return (
     <OrderDetailComponent
       items={items}
@@ -116,6 +138,9 @@ export const OrderDetailContainer: FC = () => {
       validateInvalidate={validateInvalidate}
       handleOnChange={handleOnChange}
       deleteElement={deleteItem}
+      editingItemId={editingItemId}
+      setEditingItemId={setEditingItemId}
+      editItemDescription={editItemDescription}
     />
   );
 };

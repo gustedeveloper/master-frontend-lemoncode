@@ -4,23 +4,29 @@ import {
   Box,
   Button,
   Checkbox,
+  IconButton,
   Input,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
+  TextField,
 } from "@mui/material";
 import { FC } from "react";
 import { Action } from "./order-detail.container";
 import { AlertDialog } from "@/core/components/delete-alert";
+import EditIcon from "@mui/icons-material/Edit";
 
 interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
   validateInvalidate: (value: Action) => void;
-  handleOnChange: (id: string, value: string) => void;
+  handleOnChange: (id: string, value: string, type: string) => void;
   deleteElement: (id: string) => void;
+  editingItemId?: string;
+  setEditingItemId: (id: string | undefined) => void;
+  editItemDescription: (id: string) => void;
 }
 
 const headerElements: string[] = [
@@ -38,6 +44,9 @@ export const OrderDetailComponent: FC<Props> = (props) => {
     validateInvalidate,
     handleOnChange,
     deleteElement,
+    editingItemId,
+    setEditingItemId,
+    editItemDescription,
   } = props;
   return (
     <>
@@ -70,16 +79,38 @@ export const OrderDetailComponent: FC<Props> = (props) => {
                 <TableCell sx={{ color: item.status ? "#36c430" : "orange" }}>
                   {item.status ? "Validated" : "Pending"}
                 </TableCell>
-                <TableCell>{item.description}</TableCell>
+                <TableCell>
+                  {editingItemId && editingItemId === item.id ? (
+                    <TextField
+                      autoFocus
+                      value={item.description}
+                      onChange={(e) =>
+                        handleOnChange(item.id, e.target.value, "description")
+                      }
+                      onBlur={() => setEditingItemId(undefined)}
+                      variant="standard"
+                      size="small"
+                      fullWidth
+                    />
+                  ) : (
+                    <Box>{item.description}</Box>
+                  )}
+                </TableCell>
                 <TableCell>
                   <Input
+                    sx={{ width: "130px" }}
                     type="number"
                     value={item.amount === 0 ? "" : item.amount}
-                    onChange={(e) => handleOnChange(item.id, e.target.value)}
+                    onChange={(e) =>
+                      handleOnChange(item.id, e.target.value, "amount")
+                    }
                   />
                   €
                 </TableCell>
                 <TableCell sx={{ display: "flex", pb: "18px" }}>
+                  <IconButton>
+                    <EditIcon onClick={() => editItemDescription(item.id)} />
+                  </IconButton>
                   <AlertDialog
                     elementToDelete={item.id}
                     deleteElement={deleteElement}
