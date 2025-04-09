@@ -29,7 +29,7 @@ export const AddEditItemComponent: FC<Props> = (props) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          p: "15px",
+          p: "0px 0px 60px 15px",
           gap: "15px",
         }}
       >
@@ -39,6 +39,7 @@ export const AddEditItemComponent: FC<Props> = (props) => {
               display: "flex",
               alignItems: "center",
               gap: "15px",
+              p: "15px",
             }}
           >
             <TextField
@@ -58,11 +59,6 @@ export const AddEditItemComponent: FC<Props> = (props) => {
               variant="standard"
               type="number"
               label="Amount"
-              slotProps={{
-                inputLabel: {
-                  shrink: true,
-                },
-              }}
               sx={{ width: "200px" }}
               value={item.amount === 0 ? "" : item.amount}
               onChange={(e) =>
@@ -72,7 +68,7 @@ export const AddEditItemComponent: FC<Props> = (props) => {
                 })
               }
             />
-            €
+
             <Button variant="contained" onClick={addItem}>
               Add
             </Button>

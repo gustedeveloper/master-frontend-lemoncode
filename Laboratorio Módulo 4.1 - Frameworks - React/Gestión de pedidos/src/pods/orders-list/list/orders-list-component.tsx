@@ -44,7 +44,7 @@ export const OrdersListComponent: FC<Props> = (props) => {
               <TableCell>
                 <Box
                   sx={{
-                    marginRight: "6px",
+                    margin: "15px",
                     width: 10,
                     height: 10,
                     borderRadius: "50%",
