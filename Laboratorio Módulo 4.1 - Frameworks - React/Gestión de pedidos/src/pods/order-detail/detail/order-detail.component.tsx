@@ -13,18 +13,32 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 import { Action } from "./order-detail.container";
+import { AlertDialog } from "@/core/components/delete-alert";
 
 interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
   validateInvalidate: (value: Action) => void;
   handleOnChange: (id: string, value: string) => void;
+  deleteElement: (id: string) => void;
 }
 
-const headerElements: string[] = ["", "Status", "Description", "Amount"];
+const headerElements: string[] = [
+  "",
+  "Status",
+  "Description",
+  "Amount",
+  "Actions",
+];
 
 export const OrderDetailComponent: FC<Props> = (props) => {
-  const { items, handleCheckbox, validateInvalidate, handleOnChange } = props;
+  const {
+    items,
+    handleCheckbox,
+    validateInvalidate,
+    handleOnChange,
+    deleteElement,
+  } = props;
   return (
     <>
       <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
@@ -64,6 +78,12 @@ export const OrderDetailComponent: FC<Props> = (props) => {
                     onChange={(e) => handleOnChange(item.id, e.target.value)}
                   />
                   €
+                </TableCell>
+                <TableCell sx={{ display: "flex", pb: "18px" }}>
+                  <AlertDialog
+                    elementToDelete={item.id}
+                    deleteElement={deleteElement}
+                  />
                 </TableCell>
               </TableRow>
             ))}

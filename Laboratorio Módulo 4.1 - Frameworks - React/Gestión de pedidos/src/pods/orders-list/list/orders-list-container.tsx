@@ -16,7 +16,6 @@ export const OrdersListContainer: FC = () => {
 
   const getSelectedOrderToEdit = (order: Order): void => {
     setSelectedOrderToEdit(order);
-    console.log(order);
   };
 
   return (

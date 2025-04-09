@@ -91,12 +91,31 @@ export const OrderDetailContainer: FC = () => {
     debouncedUpdateTotal(updatedItems);
   };
 
+  const deleteItem = (id: string) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    const newTotalAmount = updatedItems.reduce(
+      (acc, curr) => acc + curr.amount,
+      0
+    );
+
+    if (selectedOrder) {
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+        totalAmount: newTotalAmount,
+      };
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+    }
+  };
+
   return (
     <OrderDetailComponent
       items={items}
       handleCheckbox={handleCheckbox}
       validateInvalidate={validateInvalidate}
       handleOnChange={handleOnChange}
+      deleteElement={deleteItem}
     />
   );
 };

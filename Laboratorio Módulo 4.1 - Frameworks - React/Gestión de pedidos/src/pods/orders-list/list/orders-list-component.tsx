@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import { formatDate } from "@/core/utils/date";
 import EditIcon from "@mui/icons-material/Edit";
-import { AlertDialog } from "./delete-alert";
+import { AlertDialog } from "../../../core/components/delete-alert";
 
 const headerElements: string[] = [
   "Status",
@@ -69,7 +69,10 @@ export const OrdersListComponent: FC<Props> = (props) => {
                 <IconButton onClick={() => getSelectedOrderToEdit(order)}>
                   <EditIcon />
                 </IconButton>
-                <AlertDialog orderToDelete={order} deleteOrder={deleteOrder} />
+                <AlertDialog
+                  elementToDelete={order.orderNumber}
+                  deleteElement={deleteOrder}
+                />
               </TableCell>
             </TableRow>
           ))}

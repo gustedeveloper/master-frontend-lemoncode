@@ -5,15 +5,14 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import { IconButton } from "@mui/material";
-import { Order } from "@/core/model";
 
 interface Props {
-  orderToDelete: Order;
-  deleteOrder: (value: string) => void;
+  elementToDelete: string;
+  deleteElement: (value: string) => void;
 }
 
 export const AlertDialog: React.FC<Props> = (props) => {
-  const { orderToDelete, deleteOrder } = props;
+  const { elementToDelete, deleteElement } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,7 +36,7 @@ export const AlertDialog: React.FC<Props> = (props) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {`Are you sure you want to delete the order ${orderToDelete?.orderNumber}?`}
+          {`Are you sure you want to delete this element?`}
         </DialogTitle>
         <DialogActions>
           <Button variant="contained" onClick={handleClose}>
@@ -46,7 +45,7 @@ export const AlertDialog: React.FC<Props> = (props) => {
           <Button
             variant="contained"
             color="error"
-            onClick={() => deleteOrder(orderToDelete.orderNumber)}
+            onClick={() => deleteElement(elementToDelete)}
             autoFocus
           >
             Delete
