@@ -19,11 +19,16 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
         sx={{
           m: "50px",
           display: "flex",
+          alignItems: {
+            xs: "center",
+            sm: "flex-start",
+          },
           flexDirection: "column",
           gap: "20px",
         }}
       >
         <TextField
+          sx={{ minWidth: "300px" }}
           type="text"
           slotProps={{
             inputLabel: {
@@ -35,6 +40,7 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
           onChange={(e) => setOrder({ ...order, supplier: e.target.value })}
         ></TextField>
         <TextField
+          sx={{ width: "170px" }}
           type="date"
           slotProps={{
             inputLabel: {
@@ -47,7 +53,7 @@ export const AddEditOrderComponent: FC<Props> = (props) => {
             setOrder({ ...order, date: new Date(e.target.value) })
           }
         ></TextField>
-        <Button sx={{ width: "200px" }} variant="contained" onClick={addEdit}>
+        <Button sx={{ width: "170px" }} variant="contained" onClick={addEdit}>
           {selectedOrderToEdit ? "Edit order" : "Add new order"}
         </Button>
       </Box>
