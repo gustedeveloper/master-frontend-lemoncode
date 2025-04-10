@@ -5,7 +5,7 @@ import { PicturesContext } from "../core/context/pictures-context";
 import { useLocation } from "react-router-dom";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Header: FC<Props> = ({ children }) => {
