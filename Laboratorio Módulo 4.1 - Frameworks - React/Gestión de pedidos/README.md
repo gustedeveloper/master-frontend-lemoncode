@@ -1,54 +1,96 @@
-# React + TypeScript + Vite
+# Order Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based order management system built with TypeScript and Material-UI.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application provides a solution for managing orders, featuring a clean and intuitive user interface. The system allows users to view, create, and manage orders.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Orders List View**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  - Orders display in a table with:
+    - Order number
+    - Supplier
+    - Date
+    - Total
+    - Status (Approved/Pending)
+  - Access to order details
+  - Order editing
+  - Order deletion
+
+- **Order Detail View**
+  - Order items display with:
+    - Status (Validated/Pending)
+    - Description
+    - Amount
+  - Features:
+    - Validate/Invalidate items
+    - Edit item description
+    - Edit item price
+    - Delete items
+
+## Technical Stack
+
+- **Frontend Framework**: React 19
+- **Language**: TypeScript
+- **UI Components**: Material-UI (MUI)
+- **Routing**: React Router v7
+- **Build Tool**: Vite
+- **State Management**: React Context API
+- **Styling**: Emotion (CSS-in-JS)
+
+## Project Structure
+
+```
+src/
+├── assets/         # Static assets
+├── core/           # Shared components and utilities
+│   ├── components/ # Reusable UI components
+│   ├── context/    # React context providers
+│   ├── utils/      # Utility functions
+│   ├── data.tsx    # Mock data
+│   └── model.ts    # TypeScript interfaces
+├── pods/           # Feature-specific components
+│   ├── orders-list/
+│   ├── order-detail/
+│   └── table-header/
+├── scenes/         # Page components
+│   ├── orders-list.tsx
+│   └── order-detail.tsx
+└── routes/         # Routing configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Core Components
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Table**: Custom table component for displaying orders and items
+- **OrderContext**: Global state management for orders
+- **Debounced Updates**: Real-time total amount updates when editing item prices
+
+### Feature Components
+
+- **OrdersList**: Main view displaying all orders
+- **OrderDetail**: Detailed view of a single order with item management
+- **TableHeader**: Table header component for consistent column display
+
+## Future Enhancements
+
+- [ ] Add user authentication
+- [ ] Implement read-only mode for basic users
+- [ ] Implement edit mode for advanced users
+- [ ] Implement order history tracking
+- [ ] Add notification system for status changes
+
+## Contributing
+
+This project is part of a submission for the Lemoncode Frontend Master program.
+
+### Additional Features Implemented
+
+Beyond the basic requirements of the exercise, this implementation has been extended to a complete CRUD (Create, Read, Update, Delete) system for orders, including:
+
+- Full order and item management (creation, editing, deletion)
+- Improved state management using React Context
