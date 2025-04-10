@@ -79,7 +79,7 @@ export const AddItemComponent: FC<Props> = (props) => {
           <IconButton onClick={() => setShowNewItemForm(!showNewItemForm)}>
             <AddCircleOutlineIcon color="primary" />
           </IconButton>
-          <Typography>{showNewItemForm ? "Cancel" : "Add new item"}</Typography>
+          <Typography>{showNewItemForm ? "Close" : "Add new item"}</Typography>
         </Box>
       </Box>
     </>

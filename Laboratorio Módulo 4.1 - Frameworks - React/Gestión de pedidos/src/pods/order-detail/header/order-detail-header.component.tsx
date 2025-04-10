@@ -1,3 +1,4 @@
+import { SnackBar } from "@/core/components/snackbar";
 import { Order } from "@/core/model";
 import { formatDate } from "@/core/utils/date";
 import { Box, Button, TextField } from "@mui/material";
@@ -6,10 +7,19 @@ import { FC } from "react";
 interface Props {
   selectedOrder?: Order;
   statusPercentage: number;
+  openSnackbar: boolean;
+  setOpenSnackbar: (value: boolean) => void;
+  handleSend: () => void;
 }
 
 export const OrderDetailHeaderComponent: FC<Props> = (props) => {
-  const { selectedOrder, statusPercentage } = props;
+  const {
+    selectedOrder,
+    statusPercentage,
+    openSnackbar,
+    setOpenSnackbar,
+    handleSend,
+  } = props;
 
   return (
     <>
@@ -45,10 +55,12 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
         <Button
           variant="contained"
           disabled={!selectedOrder?.items.every((item) => item.status === true)}
+          onClick={handleSend}
         >
           Send
         </Button>
       </Box>
+      <SnackBar openSnackbar={openSnackbar} setOpenSnackbar={setOpenSnackbar} />
     </>
   );
 };

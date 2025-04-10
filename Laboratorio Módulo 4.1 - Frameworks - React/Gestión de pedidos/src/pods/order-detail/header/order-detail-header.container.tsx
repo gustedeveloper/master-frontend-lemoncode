@@ -9,6 +9,13 @@ export const OrderDetailHeaderContainer: FC = () => {
   const [statusPercentage, setStatusPercentage] = useState<number>(0);
   const { id } = useParams();
 
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleSend = () => {
+    setOpenSnackbar(true);
+    // lógica de envío real si la hubiera
+  };
+
   useEffect(() => {
     const order = orders.find((order) => order.orderNumber === id);
     if (order) setSelectedOrder(order);
@@ -39,6 +46,9 @@ export const OrderDetailHeaderContainer: FC = () => {
     <OrderDetailHeaderComponent
       selectedOrder={selectedOrder}
       statusPercentage={statusPercentage}
+      openSnackbar={openSnackbar}
+      setOpenSnackbar={setOpenSnackbar}
+      handleSend={handleSend}
     />
   );
 };
