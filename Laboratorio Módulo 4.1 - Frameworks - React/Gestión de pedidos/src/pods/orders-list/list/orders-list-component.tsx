@@ -36,7 +36,7 @@ export const OrdersListComponent: FC<Props> = (props) => {
 
   return (
     <TableContainer>
-      <Table sx={{ minWidth: 650 }}>
+      <Table sx={{ minWidth: 850 }}>
         <TableHeader headers={headerElements} />
         <TableBody>
           {orders.map((order) => (

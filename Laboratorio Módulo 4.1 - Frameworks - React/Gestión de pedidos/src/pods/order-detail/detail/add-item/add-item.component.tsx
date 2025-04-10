@@ -29,7 +29,7 @@ export const AddItemComponent: FC<Props> = (props) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          p: "0px 0px 60px 15px",
+          p: "0px 0px 40px 15px",
           gap: "15px",
         }}
       >
@@ -37,16 +37,29 @@ export const AddItemComponent: FC<Props> = (props) => {
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: {
+                xs: "flex-start",
+                sm: "center",
+              },
+              flexDirection: {
+                xs: "column",
+                sm: "row",
+              },
               gap: "15px",
-              p: "15px",
+              p: "15px 0px",
             }}
           >
             <TextField
               variant="standard"
               type="text"
               label="Description"
-              sx={{ width: "500px", mr: "20px" }}
+              sx={{
+                width: {
+                  xs: "350px",
+                  sm: "500px",
+                },
+                mr: "20px",
+              }}
               value={item.description}
               onChange={(e) =>
                 setItem({
@@ -69,8 +82,8 @@ export const AddItemComponent: FC<Props> = (props) => {
               }
             />
 
-            <Button variant="contained" onClick={addItem}>
-              Add
+            <Button variant="contained" onClick={addItem} sx={{ mt: "20px" }}>
+              Add new item
             </Button>
           </Box>
         </Collapse>

@@ -54,7 +54,13 @@ export const OrderDetailComponent: FC<Props> = (props) => {
   } = props;
   return (
     <>
-      <Box sx={{ display: "flex", gap: "15px", ml: "50px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "15px",
+          m: "30px 0px 20px 30px",
+        }}
+      >
         <Button
           variant="contained"
           onClick={() => validateInvalidate("validate")}
@@ -69,7 +75,7 @@ export const OrderDetailComponent: FC<Props> = (props) => {
         </Button>
       </Box>
       <TableContainer>
-        <Table sx={{ minWidth: 650 }}>
+        <Table sx={{ minWidth: 1000 }}>
           <TableHeader headers={headerElements} />
           <TableBody>
             {items.map((item) => (

@@ -1,7 +1,7 @@
 import { SnackBar } from "@/core/components/snackbar";
 import { Order } from "@/core/model";
 import { formatDate } from "@/core/utils/date";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Divider, TextField } from "@mui/material";
 import { FC } from "react";
 
 interface Props {
@@ -23,7 +23,17 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
 
   return (
     <>
-      <Box sx={{ m: "50px", width: "1000px", display: "flex", gap: "30px" }}>
+      <Box
+        sx={{
+          m: "30px",
+          display: "flex",
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          gap: "30px",
+        }}
+      >
         <TextField
           disabled
           value={selectedOrder?.orderNumber ?? ""}
@@ -40,7 +50,14 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
           label="Date"
         ></TextField>
       </Box>
-      <Box sx={{ m: "50px", width: "1000px", display: "flex", gap: "30px" }}>
+      <Box
+        sx={{
+          m: "30px",
+
+          display: "flex",
+          gap: "30px",
+        }}
+      >
         <TextField
           disabled
           value={selectedOrder?.totalAmount ?? ""}
@@ -48,7 +65,7 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
         ></TextField>
         <TextField
           disabled
-          sx={{ width: "100px" }}
+          sx={{ width: "150px" }}
           value={`${Math.round(statusPercentage) ?? 0}%`}
           label="Status"
         ></TextField>
@@ -61,6 +78,7 @@ export const OrderDetailHeaderComponent: FC<Props> = (props) => {
         </Button>
       </Box>
       <SnackBar openSnackbar={openSnackbar} setOpenSnackbar={setOpenSnackbar} />
+      <Divider />
     </>
   );
 };
