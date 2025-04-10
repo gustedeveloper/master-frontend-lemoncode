@@ -75,36 +75,33 @@ export const OrderDetailContainer: FC = () => {
     }
   }, 700);
 
-  const handleOnChange = (id: string, value: string, type: string) => {
-    if (type === "amount") {
-      let newValue = parseFloat(value);
+  const handleOnChange = (
+    id: string,
+    value: string,
+    field: "description" | "amount"
+  ) => {
+    const updatedItems = items.map((item) => {
+      if (item.id !== id) return item;
 
-      if (isNaN(newValue)) newValue = 0;
-
-      const updatedItems = items.map((item) =>
-        item.id === id ? { ...item, amount: newValue } : item
-      );
-
-      if (selectedOrder) {
-        const updatedOrder = {
-          ...selectedOrder,
-          items: updatedItems,
-        };
-        updateOrder(updatedOrder);
-        setSelectedOrder(updatedOrder);
+      if (field === "description") {
+        return { ...item, description: value };
+      } else {
+        const newValue = parseFloat(value);
+        return { ...item, amount: isNaN(newValue) ? 0 : newValue };
       }
-      debouncedUpdateTotal(updatedItems);
-    }
+    });
 
-    if (type === "description") {
-      const updatedItems = items.map((item) =>
-        item.id === id ? { ...item, description: value } : item
-      );
+    if (selectedOrder) {
+      const updatedOrder = {
+        ...selectedOrder,
+        items: updatedItems,
+      };
 
-      if (selectedOrder) {
-        const updatedOrder = { ...selectedOrder, items: updatedItems };
-        updateOrder(updatedOrder);
-        setSelectedOrder(updatedOrder);
+      updateOrder(updatedOrder);
+      setSelectedOrder(updatedOrder);
+
+      if (field === "amount") {
+        debouncedUpdateTotal(updatedItems);
       }
     }
   };

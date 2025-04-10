@@ -22,7 +22,11 @@ interface Props {
   items: Item[];
   handleCheckbox: (id: string) => void;
   validateInvalidate: (value: Action) => void;
-  handleOnChange: (id: string, value: string, type: string) => void;
+  handleOnChange: (
+    id: string,
+    value: string,
+    field: "description" | "amount"
+  ) => void;
   deleteElement: (id: string) => void;
   editingItemId?: string;
   setEditingItemId: (id: string | undefined) => void;
