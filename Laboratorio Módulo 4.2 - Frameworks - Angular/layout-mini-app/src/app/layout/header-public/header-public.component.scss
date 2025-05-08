@@ -1,0 +1,33 @@
+.header-public {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2e2e2e;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+
+  .logo img {
+    width: 170px;
+  }
+
+  .app-name {
+    font-weight: bold;
+  }
+}
+
+.menu a {
+  color: #cccccc;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &.active {
+    color: white;
+  }
+
+  &:hover {
+    color: white;
+  }
+}
