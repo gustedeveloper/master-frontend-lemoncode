@@ -1,0 +1,146 @@
+.container {
+  margin-left: 50px;
+}
+
+// HERO
+
+.hero {
+  .hero-title,
+  .hero-subtitle {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    animation-delay: 0.2s;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: lighter;
+
+    animation-delay: 0.6s;
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// FEATURES
+
+.features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 80px;
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s ease, background 0.4s ease, opacity 1s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 1s ease-out forwards;
+
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: lighter;
+
+      text-align: center;
+    }
+  }
+}
+
+// CTA
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInScale 1s ease-out forwards;
+  animation-delay: 0.5s;
+
+  .cta-button {
+    background-color: #e0829d;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    animation: fadeInScaleButton 1s ease-out forwards,
+      idlePulse 3s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+
+    &:hover {
+      background-color: #d65378;
+    }
+  }
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes idlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,5 +1,40 @@
 <div class="container">
-  <h1>Welcome to Momentum!</h1>
-  <p>Capture your memories and relive them anytime you want.</p>
-  <img src="assets/your-welcome-image.jpg" alt="Welcome image" />
+  <div class="hero">
+    <h1 class="hero-title">Keep your moments alive.</h1>
+    <h2 class="hero-subtitle">
+      Capture your memories and relive them anytime you want.
+    </h2>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-title">
+        <mat-icon>save</mat-icon>
+        <h3>Save</h3>
+      </div>
+      <p>Save your photos and thoughts.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-title">
+        <mat-icon>folder</mat-icon>
+        <h3>Organize</h3>
+      </div>
+      <p>Keep memories organized and private.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-title">
+        <mat-icon>replay</mat-icon>
+        <h3>Relive</h3>
+      </div>
+      <p>Look back whenever you need to.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <button mat-fab extended class="cta-button">
+      <a routerLink="/login">Login to start</a>
+    </button>
+  </div>
 </div>
