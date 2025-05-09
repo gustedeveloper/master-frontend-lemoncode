@@ -42,3 +42,10 @@ body {
     transform: scale(1);
   }
 }
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
