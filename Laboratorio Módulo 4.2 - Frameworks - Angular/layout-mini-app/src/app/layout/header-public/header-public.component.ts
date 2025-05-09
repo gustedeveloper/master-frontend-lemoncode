@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
-import { RouterLink } from '@angular/router';
-
+import { PublicMenuComponent } from '../public-menu/public-menu.component';
 @Component({
   selector: 'app-header-public',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [PublicMenuComponent],
   templateUrl: './header-public.component.html',
   styleUrl: './header-public.component.scss',
 })
