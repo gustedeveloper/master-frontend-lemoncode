@@ -5,6 +5,55 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// Header styles
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e2e2e;
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    img {
+      margin-left: 1rem;
+      width: 170px;
+    }
+  }
+}
+
+// Menu styles
+
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu a {
+  color: #cccccc;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &.active {
+    color: white;
+  }
+
+  &:hover {
+    color: white;
+  }
+}
+
 // Global button styles
 
 .cta {
