@@ -83,6 +83,11 @@
   }
 }
 
+button a {
+  text-decoration: none;
+  color: white;
+}
+
 @keyframes idlePulse {
   0% {
     transform: scale(1);
