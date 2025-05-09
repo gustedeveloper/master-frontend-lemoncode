@@ -8,7 +8,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
