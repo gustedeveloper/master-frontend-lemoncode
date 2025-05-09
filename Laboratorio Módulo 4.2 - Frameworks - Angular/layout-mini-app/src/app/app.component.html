@@ -5,7 +5,9 @@
   <div class="mesh mesh4"></div>
 </div>
 
-<app-header-public></app-header-public>
+<app-header-public *ngIf="!authService.isLogged()"></app-header-public>
+<app-header-private *ngIf="authService.isLogged()"></app-header-private>
+
 <div class="content-wrapper">
   <router-outlet></router-outlet>
 </div>
