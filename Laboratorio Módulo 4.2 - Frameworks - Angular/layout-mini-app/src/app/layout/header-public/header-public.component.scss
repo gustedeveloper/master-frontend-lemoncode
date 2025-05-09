@@ -1,15 +1,22 @@
 .header-public {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #2e2e2e;
   color: white;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 1.2rem;
+  position: relative;
 
-  .logo img {
-    margin-left: 16px;
-    width: 170px;
+  .logo {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    img {
+      width: 170px;
+    }
   }
 
   .app-name {
@@ -17,8 +24,14 @@
   }
 }
 
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
 .menu a {
   color: #cccccc;
+  font-size: 1.3rem;
   text-decoration: none;
   margin: 0 1rem;
   font-weight: 500;
