@@ -1,0 +1,26 @@
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logout-button {
+  background-color: #e0829d;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: lighter;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d65378;
+  }
+}
