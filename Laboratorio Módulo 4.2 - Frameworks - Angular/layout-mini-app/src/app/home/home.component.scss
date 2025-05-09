@@ -1,12 +1,9 @@
-.container {
-  margin-left: 50px;
-}
-
 // HERO
 
 .hero {
   .hero-title,
   .hero-subtitle {
+    margin-left: 50px;
     opacity: 0;
     transform: translateX(-50px);
     animation: slideInLeft 1s ease forwards;
@@ -20,7 +17,6 @@
   .hero-subtitle {
     font-size: 1.2rem;
     font-weight: lighter;
-
     animation-delay: 0.6s;
   }
 }
