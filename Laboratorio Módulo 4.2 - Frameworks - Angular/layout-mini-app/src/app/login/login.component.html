@@ -1,16 +1,42 @@
 <div class="container">
-  <form class="login-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
     <h1>Login</h1>
+
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Username</mat-label>
-      <input matInput type="text" />
+      <input matInput type="text" formControlName="username" />
+      <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Password</mat-label>
-      <input matInput type="password" />
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        Password must be at least 4 characters long
+      </mat-error>
     </mat-form-field>
+
+    <div class="error-container">
+      <div *ngIf="error" class="error-message">
+        Username or password incorrect
+      </div>
+    </div>
+
     <div class="cta">
-      <button mat-fab extended type="submit" class="cta-button">Enter</button>
+      <button
+        mat-fab
+        extended
+        type="submit"
+        class="cta-button"
+        [disabled]="loginForm.invalid"
+      >
+        Enter
+      </button>
     </div>
   </form>
 </div>
