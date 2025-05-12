@@ -2,17 +2,23 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .content-wrapper {
   flex: 1;
   padding: 2rem;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .mesh-bg {
   background-color: rgb(202, 181, 223, 0.4);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -133,5 +139,12 @@
   }
   100% {
     transform: translate3d(-600px, -400px, 0px);
+  }
+}
+
+@media (max-width: 680px) {
+  .mesh {
+    width: 500px;
+    height: 500px;
   }
 }

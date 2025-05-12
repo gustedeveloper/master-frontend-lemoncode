@@ -93,3 +93,36 @@ button a {
 .cta-button {
   @include button-pulse;
 }
+
+@media (max-width: 864px) {
+  .features {
+    .feature {
+      width: 120px;
+      height: 120px;
+
+      .feature-title {
+        h3 {
+          font-size: 1rem;
+        }
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    .hero-title,
+    .hero-subtitle {
+      margin-left: 0;
+    }
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
