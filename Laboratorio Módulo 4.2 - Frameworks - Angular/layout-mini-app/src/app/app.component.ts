@@ -5,6 +5,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderPrivateComponent } from './layout/header-private/header-private.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +23,5 @@ import { AuthService } from './core/auth.service';
 export class AppComponent {
   title = 'layout-mini-app';
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private router: Router) {}
 }
