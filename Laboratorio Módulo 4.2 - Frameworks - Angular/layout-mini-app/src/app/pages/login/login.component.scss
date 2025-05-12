@@ -48,5 +48,19 @@ h1 {
 .error-container {
   margin-top: 10px;
   height: 20px;
-  color: red;
+  color: var(--color-error);
+}
+
+@media (max-width: 453px) {
+  .login-form {
+    width: 300px;
+
+    .form-field {
+      width: 250px;
+    }
+
+    .cta-button {
+      width: 250px;
+    }
+  }
 }
