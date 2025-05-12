@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 html,
 body {
   height: 100%;
@@ -54,36 +56,17 @@ body {
   }
 }
 
-// Global button styles
+// Button styles
 
 .cta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: fadeInScale 1s ease-out forwards;
-  animation-delay: 0.5s;
+  @include button-container;
 
   .cta-button {
-    background-color: #e0829d;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: lighter;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    animation: fadeInScaleButton 1s ease-out forwards,
-      idlePulse 3s ease-in-out infinite;
-    animation-delay: 2s, 3s;
-
-    &:hover {
-      background-color: #d65378;
-    }
+    @include button-base;
   }
 }
+
+// Animations
 
 @keyframes fadeInScale {
   to {
@@ -96,5 +79,17 @@ body {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes idlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

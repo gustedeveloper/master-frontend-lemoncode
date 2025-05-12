@@ -1,0 +1,32 @@
+@mixin button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInScale 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@mixin button-base {
+  background-color: #e0829d;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  animation: fadeInScale 3s ease-in-out infinite;
+  animation-delay: 2s, 3s;
+
+  &:hover {
+    background-color: #d65378;
+  }
+}
+
+@mixin button-pulse {
+  animation: idlePulse 3s ease-in-out infinite;
+  animation-delay: 2s, 3s;
+}
