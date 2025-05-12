@@ -1,0 +1,20 @@
+.menu-smaller {
+  display: none;
+  color: var(--color-text-light);
+}
+
+.menu-username {
+  padding: 0px 12px;
+  color: var(--color-text-light);
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+@media (max-width: 1145px) {
+  .menu-desktop {
+    display: none;
+  }
+  .menu-smaller {
+    display: block;
+  }
+}

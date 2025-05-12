@@ -1,0 +1,13 @@
+.menu-smaller {
+  display: none;
+  color: white;
+}
+
+@media (max-width: 860px) {
+  .menu-desktop {
+    display: none;
+  }
+  .menu-smaller {
+    display: block;
+  }
+}

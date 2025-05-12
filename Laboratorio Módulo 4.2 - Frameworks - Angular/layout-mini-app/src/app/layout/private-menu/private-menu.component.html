@@ -1,6 +1,34 @@
-<nav class="menu">
+<nav class="menu-desktop">
   <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
   <a routerLink="/create" routerLinkActive="active">Create</a>
   <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
   <a routerLink="/profile" routerLinkActive="active">Profile</a>
 </nav>
+
+<button mat-icon-button [matMenuTriggerFor]="menu" class="menu-smaller">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" class="mat-menu">
+  <p class="menu-username">Hello, {{ username }}</p>
+  <a mat-menu-item routerLink="/dashboard" routerLinkActive="active">
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+  </a>
+  <a mat-menu-item routerLink="/create" routerLinkActive="active">
+    <mat-icon>create</mat-icon>
+    <span>Create</span>
+  </a>
+  <a mat-menu-item routerLink="/gallery" routerLinkActive="active">
+    <mat-icon>info</mat-icon>
+    <span>Gallery</span>
+  </a>
+  <a mat-menu-item routerLink="/profile" routerLinkActive="active">
+    <mat-icon>info</mat-icon>
+    <span>Profile</span>
+  </a>
+  <a mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </a>
+</mat-menu>

@@ -7,6 +7,10 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
+
+  p {
+    font-weight: lighter;
+  }
 }
 
 .logout-button {
@@ -22,5 +26,14 @@
 
   &:hover {
     background-color: #d65378;
+  }
+}
+
+@media (max-width: 1145px) {
+  .header {
+    justify-content: flex-end;
+  }
+  .user-info {
+    display: none;
   }
 }

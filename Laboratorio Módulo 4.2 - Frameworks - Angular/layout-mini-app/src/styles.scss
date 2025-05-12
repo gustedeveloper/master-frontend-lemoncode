@@ -1,4 +1,14 @@
 @use "mixins" as *;
+@use "@angular/material" as mat;
+
+:root {
+  --color-primary-dark: #2e2e2e;
+  --color-text-light: white;
+  --color-text-muted: #cccccc;
+  --color-accent: #e0829d;
+  --color-hover-light: rgba(255, 255, 255, 0.08);
+  --color-error: red;
+}
 
 html,
 body {
@@ -10,11 +20,12 @@ body {
 // Header styles
 
 .header {
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2e2e2e;
-  color: white;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
   padding: 2rem;
   font-size: 1.2rem;
   position: relative;
@@ -34,13 +45,13 @@ body {
 
 // Menu styles
 
-.menu {
+.menu-desktop {
   display: flex;
   gap: 2rem;
 }
 
-.menu a {
-  color: #cccccc;
+.menu-desktop a {
+  color: var(--color-text-muted);
   font-size: 1.3rem;
   text-decoration: none;
   margin: 0 1rem;
@@ -48,12 +59,25 @@ body {
   cursor: pointer;
 
   &.active {
-    color: white;
+    color: var(--color-text-light);
   }
 
   &:hover {
-    color: white;
+    color: var(--color-text-light);
   }
+}
+
+.mat-menu {
+  @include mat.menu-overrides(
+    (
+      item-label-text-color: var(--color-text-light),
+      item-icon-color: var(--color-accent),
+      container-color: var(--color-primary-dark),
+      container-shape: 16px,
+      item-hover-state-layer-color: var(--color-hover-light),
+      item-label-text-size: 1.1rem,
+    )
+  );
 }
 
 // Button styles
@@ -91,5 +115,18 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 860px) {
+  .header {
+    justify-content: flex-end;
+  }
+  .menu-desktop {
+    display: none;
+  }
+
+  .menu-smaller {
+    display: block;
   }
 }

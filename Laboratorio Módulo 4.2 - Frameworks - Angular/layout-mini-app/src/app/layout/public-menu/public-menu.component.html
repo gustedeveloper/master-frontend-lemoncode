@@ -1,5 +1,24 @@
-<nav class="menu">
+<nav class="menu-desktop">
   <a routerLink="/home" routerLinkActive="active">Home</a>
   <a routerLink="/login" routerLinkActive="active">Login</a>
   <a routerLink="/about" routerLinkActive="active">About</a>
 </nav>
+
+<button mat-icon-button [matMenuTriggerFor]="menu" class="menu-smaller">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" class="mat-menu">
+  <a mat-menu-item routerLink="/home" routerLinkActive="active">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </a>
+  <a mat-menu-item routerLink="/login" routerLinkActive="active">
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </a>
+  <a mat-menu-item routerLink="/about" routerLinkActive="active">
+    <mat-icon>info</mat-icon>
+    <span>About</span>
+  </a>
+</mat-menu>
