@@ -1,1 +1,9 @@
-<p>gallery works!</p>
+<div class="hero">
+  <h1 class="hero-title">Memory Gallery</h1>
+</div>
+
+<mat-grid-list cols="3" rowHeight="550px" gutterSize="12px">
+  <mat-grid-tile *ngFor="let memory of memories">
+    <app-memory-card [memory]="memory"></app-memory-card>
+  </mat-grid-tile>
+</mat-grid-list>

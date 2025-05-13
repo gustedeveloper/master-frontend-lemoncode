@@ -1,0 +1,13 @@
+.hero {
+  .hero-title {
+    margin-left: 50px;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    animation-delay: 0.2s;
+  }
+}
