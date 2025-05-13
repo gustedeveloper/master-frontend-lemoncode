@@ -1,0 +1,11 @@
+<div class="memory-card">
+  <img [src]="memory.imageUrl" alt="{{ memory.title }}" class="memory-image" />
+  <div class="memory-content">
+    <h3>{{ memory.title }}</h3>
+    <p class="memory-date">{{ memory.date }}</p>
+    <p class="memory-description">{{ memory.description }}</p>
+    <div class="memory-emojis">
+      <span *ngFor="let emoji of memory.emoji">{{ emoji }}</span>
+    </div>
+  </div>
+</div>
