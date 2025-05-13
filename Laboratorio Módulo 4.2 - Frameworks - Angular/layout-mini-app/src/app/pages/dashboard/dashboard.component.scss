@@ -1,0 +1,27 @@
+.hero {
+  .hero-title,
+  .hero-subtitle {
+    margin-left: 50px;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    animation-delay: 0.2s;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    animation-delay: 0.6s;
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}

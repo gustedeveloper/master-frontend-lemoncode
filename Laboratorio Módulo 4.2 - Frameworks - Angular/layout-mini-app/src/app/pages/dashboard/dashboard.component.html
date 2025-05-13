@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="hero">
+  <h1 class="hero-title">Welcome, {{ username }}.</h1>
+  <h2 class="hero-subtitle">Your last memories ✨</h2>
+</div>
+
+<div class="dashboard-grid">
+  <app-memory-card
+    *ngFor="let memory of memories"
+    [memory]="memory"
+  ></app-memory-card>
+</div>
