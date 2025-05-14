@@ -1,0 +1,52 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.form-field {
+  display: flex;
+  align-content: flex-start;
+}
+
+.title {
+  width: 500px;
+}
+
+.description {
+  width: 500px;
+
+  textarea {
+    max-height: 200px;
+  }
+}
+
+.image-preview img {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+}
+
+#image-upload {
+  background-color: #e0829d;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: lighter;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d65378;
+  }
+}

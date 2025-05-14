@@ -1,1 +1,55 @@
-<p>create works!</p>
+<div class="container">
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="create-form">
+    <h1>Create new memories</h1>
+    <mat-form-field appearance="outline" class="form-field title">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field date">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field description">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field emoji">
+      <mat-label>Choose 3 emojis</mat-label>
+      <mat-select
+        formControlName="emoji"
+        multiple
+        (selectionChange)="onEmojiChange($event)"
+      >
+        <mat-option *ngFor="let emoji of EMOJIS" [value]="emoji">
+          {{ emoji }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="image-upload">
+      <label>Upload image</label>
+      <input
+        type="file"
+        id="image-upload"
+        (change)="onImageUpload($event)"
+        accept="image/*"
+      />
+    </div>
+
+    <div class="image-preview" *ngIf="imagePreview">
+      <img [src]="imagePreview" alt="Preview" />
+    </div>
+
+    <div class="cta">
+      <button mat-fab extended type="submit" class="cta-button" [disabled]="">
+        Enter
+      </button>
+    </div>
+  </form>
+</div>
