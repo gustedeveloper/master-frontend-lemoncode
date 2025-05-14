@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Memory } from '../../core/memory/memory.model';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-memory-card',
-  imports: [NgFor],
+  imports: [],
   templateUrl: './memory-card.component.html',
   styleUrl: './memory-card.component.scss',
 })

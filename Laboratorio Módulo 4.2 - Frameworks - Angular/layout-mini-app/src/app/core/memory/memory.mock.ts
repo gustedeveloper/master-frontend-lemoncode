@@ -6,7 +6,7 @@ export const mockMemories: Memory[] = [
     title: 'Amanecer entre gigantes',
     date: '2024-09-22',
     description: 'Desayuno en la furgoneta frente a las montañas al amanecer.',
-    emoji: ['⛰️', '☀️', '😊'],
+    emoji: '⛰️☀️😊',
     imageUrl: 'memories/image1.jpg',
   },
   {
@@ -14,7 +14,7 @@ export const mockMemories: Memory[] = [
     title: 'Atardecer con malvaviscos',
     date: '2023-08-10',
     description: 'Tarde de senderismo y marshmallows con amigas en la cima.',
-    emoji: ['🔥', '🥰', '🌄'],
+    emoji: '🔥🥰🌄',
     imageUrl: 'memories/image2.jpg',
   },
   {
@@ -22,7 +22,7 @@ export const mockMemories: Memory[] = [
     title: 'Picnic al atardecer',
     date: '2022-06-01',
     description: 'Un picnic improvisado con risas, música y luz dorada.',
-    emoji: ['🍇', '🧀', '🧺'],
+    emoji: '🍇🧀🧺',
     imageUrl: 'memories/image3.jpg',
   },
   {
@@ -31,7 +31,7 @@ export const mockMemories: Memory[] = [
     date: '2023-07-15',
     description:
       'Explorando senderos con mochila a la espalda y buena compañía.',
-    emoji: ['🌲', '🥾', '💚'],
+    emoji: '🌲🥾💚',
     imageUrl: 'memories/image4.jpg',
   },
   {
@@ -39,7 +39,7 @@ export const mockMemories: Memory[] = [
     title: 'Refugio entre cafés',
     date: '2022-12-05',
     description: 'Café caliente, muffins caseros y lluvia tras los cristales.',
-    emoji: ['☕', '📖', '🍂'],
+    emoji: '☕📖🍂',
     imageUrl: 'memories/image5.jpg',
   },
   {
@@ -47,7 +47,7 @@ export const mockMemories: Memory[] = [
     title: 'Acantilados del fin del mundo en Escocia',
     date: '2023-05-19',
     description: 'Un faro, el viento, el mar golpeando y la inmensidad.',
-    emoji: ['🌊', '🌬️', '🗺️'],
+    emoji: '🌊🌬️🗺️',
     imageUrl: 'memories/image6.jpg',
   },
   {
@@ -55,7 +55,7 @@ export const mockMemories: Memory[] = [
     title: 'Paseo por un cuento de hadas en Edimburgo',
     date: '2023-09-10',
     description: 'Calles medievales, río tranquilo y casas de colores.',
-    emoji: ['🏰', '🍃', '🌧️'],
+    emoji: '🏰🍃🌧️',
     imageUrl: 'memories/image7.jpg',
   },
   {
@@ -63,7 +63,7 @@ export const mockMemories: Memory[] = [
     title: 'Nuestra guarida sobre ruedas',
     date: '2024-04-14',
     description: 'Vistas épicas desde la cama de nuestra furgoneta',
-    emoji: ['🛻', '🧦', '💛'],
+    emoji: '🛻🧦💛',
     imageUrl: 'memories/image8.jpg',
   },
 ];

@@ -3,6 +3,6 @@ export interface Memory {
   title: string;
   date: string;
   description: string;
-  emoji: string[];
+  emoji: string;
   imageUrl: string;
 }
