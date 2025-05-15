@@ -51,15 +51,16 @@
       </mat-select>
     </mat-form-field>
 
-    <div class="image-upload">
-      <label for="image-upload">Upload image*</label>
+    <label class="image-upload" for="image-upload-input">
+      Upload image*
       <input
         type="file"
-        id="image-upload"
+        id="image-upload-input"
         (change)="onImageUpload($event)"
         accept="image/*"
+        style="display: none"
       />
-    </div>
+    </label>
 
     <div class="image-preview" *ngIf="imagePreview">
       <img [src]="imagePreview" alt="Preview" />

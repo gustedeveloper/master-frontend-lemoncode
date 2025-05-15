@@ -54,6 +54,7 @@ h1 {
 
 .image-upload {
   display: flex;
+  color: var(--color-text-light);
   flex-direction: column;
   gap: 10px;
   border-radius: 5px;
@@ -70,12 +71,7 @@ h1 {
     background-color: var(--color-accent-hover);
   }
 
-  label {
-    cursor: pointer;
-    color: var(--color-text-light);
-  }
-
-  input#image-upload {
+  input#image-upload-input {
     display: none;
   }
 }
