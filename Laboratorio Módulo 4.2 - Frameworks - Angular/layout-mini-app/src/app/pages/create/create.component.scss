@@ -11,6 +11,7 @@ h1 {
   justify-content: flex-start;
   flex-wrap: wrap;
   align-content: center;
+  gap: 10px;
 }
 
 .form-field {
@@ -30,7 +31,17 @@ h1 {
   width: 500px;
 
   textarea {
+    min-height: 50px;
     max-height: 200px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
   }
 }
 
@@ -74,4 +85,17 @@ h1 {
 
 .cta {
   margin-top: 25px;
+}
+
+.char-counter {
+  font-size: 0.75em;
+  color: rgba(0, 0, 0, 0.6);
+  display: block;
+  text-align: right;
+  margin-top: -4px;
+  padding-right: 2px;
+}
+
+.char-counter.error-text {
+  color: var(--mat-form-field-error-text-color, #f44336);
 }
