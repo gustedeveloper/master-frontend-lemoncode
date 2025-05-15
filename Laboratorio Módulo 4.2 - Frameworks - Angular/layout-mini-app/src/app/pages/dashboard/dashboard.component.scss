@@ -23,6 +23,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
+  padding: 1rem 2rem;
 }
 
 .memory-card-container {
@@ -37,5 +38,9 @@
     .hero-subtitle {
       margin-left: 0;
     }
+  }
+
+  .dashboard-grid {
+    padding: 1rem 0;
   }
 }
