@@ -13,19 +13,22 @@
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 5rem;
-  justify-items: center;
   padding: 1rem 2rem;
+
+  column-gap: 1.5rem;
+  column-count: 3;
 }
 
 .memory-card-container {
   position: relative;
-  width: fit-content;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0;
   transform: scale(0.8);
   animation: fadeInScale 0.5s ease-out forwards;
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
 }
 
 .delete-button {
@@ -51,7 +54,13 @@
   opacity: 1;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 1000px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 750px) {
   .hero {
     .hero-title,
     .hero-subtitle {
@@ -61,5 +70,6 @@
 
   .gallery-grid {
     padding: 1rem 0;
+    column-count: 1;
   }
 }
