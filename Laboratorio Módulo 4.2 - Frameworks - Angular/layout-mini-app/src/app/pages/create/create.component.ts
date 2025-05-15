@@ -42,9 +42,9 @@ export class CreateComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private memoryService: MemoryService) {
     this.createForm = this.fb.group({
-      title: ['', [Validators.required]],
+      title: ['', [Validators.required, Validators.maxLength(100)]],
       date: [null, [Validators.required]],
-      description: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.maxLength(700)]],
       emoji: [[], [Validators.required]],
       imageUrl: [''],
     });
