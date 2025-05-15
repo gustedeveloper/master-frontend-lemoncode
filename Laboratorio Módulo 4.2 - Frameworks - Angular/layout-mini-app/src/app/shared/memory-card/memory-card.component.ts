@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Memory } from '../../core/memory/memory.model';
 
 @Component({
@@ -7,6 +7,11 @@ import { Memory } from '../../core/memory/memory.model';
   templateUrl: './memory-card.component.html',
   styleUrl: './memory-card.component.scss',
 })
-export class MemoryCardComponent {
+export class MemoryCardComponent implements OnInit {
   @Input() memory!: Memory;
+  @Input() truncateDescription: boolean = false;
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

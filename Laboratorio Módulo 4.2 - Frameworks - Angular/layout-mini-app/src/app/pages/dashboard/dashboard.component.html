@@ -5,6 +5,9 @@
 
 <div class="dashboard-grid">
   <div *ngFor="let memory of memories" class="memory-card-container">
-    <app-memory-card [memory]="memory"></app-memory-card>
+    <app-memory-card
+      [memory]="memory"
+      [truncateDescription]="true"
+    ></app-memory-card>
   </div>
 </div>

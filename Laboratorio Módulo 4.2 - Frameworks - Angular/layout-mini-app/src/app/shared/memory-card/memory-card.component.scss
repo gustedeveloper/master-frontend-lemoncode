@@ -48,6 +48,13 @@
       text-overflow: ellipsis;
     }
 
+    .memory-description.single-line-truncate {
+      white-space: nowrap;
+      display: block;
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+    }
+
     .memory-emojis span {
       font-size: 1.2rem;
       margin-right: 0.4rem;
