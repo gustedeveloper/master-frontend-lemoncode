@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.username = this.authService.getUsername();
     this.memoryService.getMemories().subscribe((memories) => {
-      this.memories = memories.slice(-3);
+      this.memories = memories.slice().reverse().slice(0, 3);
     });
   }
 }

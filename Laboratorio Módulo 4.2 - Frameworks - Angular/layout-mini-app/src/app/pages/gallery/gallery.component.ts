@@ -16,7 +16,7 @@ export class GalleryComponent implements OnInit {
   constructor(private memoryService: MemoryService) {}
   ngOnInit(): void {
     this.memoryService.getMemories().subscribe((memories) => {
-      this.memories = memories;
+      this.memories = memories.slice().reverse();
     });
   }
 
