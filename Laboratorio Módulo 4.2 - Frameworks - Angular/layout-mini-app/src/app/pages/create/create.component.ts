@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {
   FormBuilder,
   FormGroup,
+  FormGroupDirective,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -74,7 +75,7 @@ export class CreateComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(formDirective: FormGroupDirective) {
     if (this.createForm.valid) {
       const { title, date, description, emoji, imageUrl } =
         this.createForm.value;
@@ -88,6 +89,7 @@ export class CreateComponent implements OnInit {
         imageUrl,
       };
       this.memoryService.addMemory(newMemory);
+      formDirective.resetForm();
       this.createForm.reset();
       this.imagePreview = null;
     }

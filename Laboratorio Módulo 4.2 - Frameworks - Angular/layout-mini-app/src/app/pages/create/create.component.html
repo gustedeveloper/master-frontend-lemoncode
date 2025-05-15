@@ -1,5 +1,10 @@
 <div class="container">
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="create-form">
+  <form
+    [formGroup]="createForm"
+    (ngSubmit)="onSubmit(formDirective)"
+    class="create-form"
+    #formDirective="ngForm"
+  >
     <h1>Create new memories</h1>
     <mat-form-field appearance="outline" class="form-field title">
       <mat-label>Title</mat-label>
@@ -33,7 +38,7 @@
     </mat-form-field>
 
     <div class="image-upload">
-      <label>Upload image</label>
+      <label for="image-upload">Upload image*</label>
       <input
         type="file"
         id="image-upload"
@@ -48,7 +53,7 @@
 
     <div class="cta">
       <button mat-fab extended type="submit" class="cta-button" [disabled]="">
-        Enter
+        Create
       </button>
     </div>
   </form>
