@@ -11,8 +11,8 @@
 }
 
 @mixin button-base {
-  background-color: #e0829d;
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
   font-size: 1.2rem;
   font-weight: lighter;
   padding: 10px 20px;
@@ -22,7 +22,7 @@
   animation-delay: 2s, 3s;
 
   &:hover {
-    background-color: #d65378;
+    background-color: var(--color-accent-hover);
   }
 }
 
