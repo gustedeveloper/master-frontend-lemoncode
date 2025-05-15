@@ -7,8 +7,8 @@
   margin: auto;
   opacity: 0;
   transform: scale(0.8);
-  animation: fadeInScale 1s ease-out forwards;
-  transition: transform 0.3s ease, background 0.3s ease;
+  animation: fadeInScale 0.5s ease-out forwards;
+  transition: transform 0.7s ease, background 0.3s ease;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -26,6 +26,12 @@
     h3 {
       margin: 0 0 0.5rem;
       font-size: 1.4rem;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
     }
 
     .memory-date {
@@ -36,6 +42,13 @@
 
     .memory-description {
       margin-bottom: 0.5rem;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      white-space: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
     }
 
     .memory-emojis span {
