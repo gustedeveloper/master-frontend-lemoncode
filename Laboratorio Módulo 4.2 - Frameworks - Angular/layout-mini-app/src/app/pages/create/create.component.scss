@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   opacity: 0;
   transform: translateX(-50px);
@@ -98,4 +105,18 @@ h1 {
 
 .char-counter.error-text {
   color: var(--mat-form-field-error-text-color, #f44336);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .create-form {
+    align-items: center;
+    width: 300px;
+
+    .form-field {
+      width: 250px;
+    }
+  }
 }
