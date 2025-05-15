@@ -19,4 +19,8 @@ export class GalleryComponent implements OnInit {
       this.memories = memories;
     });
   }
+
+  onDeleteMemory(memory: Memory) {
+    this.memoryService.deleteMemory(memory.id);
+  }
 }
