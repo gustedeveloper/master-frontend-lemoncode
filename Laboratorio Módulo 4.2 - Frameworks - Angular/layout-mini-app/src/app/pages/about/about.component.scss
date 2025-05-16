@@ -1,0 +1,60 @@
+.about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+
+  .intro,
+  .comparison,
+  .for-you {
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  mat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    h1,
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    p,
+    li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-weight: lighter;
+    }
+  }
+
+  .table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    .row {
+      display: contents;
+
+      &.header div {
+        font-weight: bold;
+        color: var(--color-accent);
+      }
+
+      div {
+        font-weight: lighter;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  ul {
+    padding-left: 1rem;
+    list-style: circle;
+  }
+}
