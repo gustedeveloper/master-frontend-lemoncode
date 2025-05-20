@@ -18,6 +18,7 @@ This project is an application called **Momentum**, developed with Angular. Its 
   - Private header for authenticated users.
   - Persistent footer.
 - **Routing:** Manages navigation between different public and private pages.
+- **Responsive Design**: The application is designed to be responsive, providing an optimal user experience across various devices and screen sizes (desktop, tablet, mobile).
 
 ## Project Structure
 

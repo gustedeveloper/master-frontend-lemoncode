@@ -18,6 +18,7 @@ Este proyecto es una aplicación llamada **Momentum**, desarrollada con Angular.
   - Cabecera privada para usuarios autenticados.
   - Pie de página persistente.
 - **Enrutamiento:** Gestión de navegación entre diferentes páginas públicas y privadas.
+- **Diseño Adaptable (Responsive Design)**: La aplicación está diseñada para ser adaptable, proporcionando una experiencia de usuario óptima en diversos dispositivos y tamaños de pantalla (escritorio, tableta, móvil).
 
 ## Estructura del Proyecto
 
