@@ -1,3 +1,5 @@
+# Máster Front End XVII - Laboratorio Angular "Layout completo de mini-aplicación"
+
 # Proyecto Momentum
 
 Este proyecto es una aplicación llamada **Momentum**, desarrollada con Angular. Su objetivo principal es permitir a los usuarios capturar, atesorar y revivir sus recuerdos más preciados a través de una cápsula digital personal. La aplicación presenta una estructura de layout adaptable que cambia dinámicamente según el estado de autenticación del usuario, ofreciendo diferentes vistas y funcionalidades.
