@@ -119,6 +119,8 @@ Inside `layout-mini-app/package.json` (the Angular app's specific `package.json`
 - **Memory Prompts**: Suggestions or questions to inspire the user to remember and record new moments.
 - **Memory Editing**: Allow users to modify existing memories (currently, the `Create` editor only allows adding new ones).
 - **Comprehensive Testing Implementation**: Develop and run unit, integration, and end-to-end tests to ensure application quality and stability.
+- **Memory Search and Filtering**: Implement functionality to search for memories based on keywords, dates, emotions, or other criteria, and filter them accordingly.
+- **Folder Organization**: Allow users to organize their memories into custom folders for better management.
 
 ## Authors
 

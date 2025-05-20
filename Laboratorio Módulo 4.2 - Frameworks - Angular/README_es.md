@@ -119,6 +119,8 @@ Dentro de `layout-mini-app/package.json` (el `package.json` específico de la ap
 - **Memory Prompts**: Sugerencias o preguntas para inspirar al usuario a recordar y registrar nuevos momentos.
 - **Edición de Recuerdos**: Permitir a los usuarios modificar los recuerdos existentes (actualmente, el editor `Create` solo permite agregar nuevos).
 - **Implementación de Testing exhaustivo**: Desarrollar y ejecutar pruebas unitarias, de integración y end-to-end para asegurar la calidad y estabilidad de la aplicación.
+- **Búsqueda y Filtrado de Recuerdos**: Implementar funcionalidad para buscar recuerdos por palabras clave, fechas, emociones u otros criterios, y filtrarlos correspondientemente.
+- **Organización por Carpetas**: Permitir a los usuarios organizar sus recuerdos en carpetas personalizadas para una mejor gestión.
 
 ## Autores
 
