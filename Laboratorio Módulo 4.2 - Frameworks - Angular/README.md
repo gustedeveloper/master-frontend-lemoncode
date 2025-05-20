@@ -113,7 +113,7 @@ Inside `layout-mini-app/package.json` (the Angular app's specific `package.json`
 - `ng test`: Runs unit tests (currently to be implemented).
 - `ng build --watch --configuration development`: Compiles in development mode and watches for changes.
 
-## Possible Future Implementations
+## Future Implementations
 
 - **Memory Time Machine**: A feature to "travel in time" and revisit memories from specific dates or periods.
 - **Memory Prompts**: Suggestions or questions to inspire the user to remember and record new moments.
