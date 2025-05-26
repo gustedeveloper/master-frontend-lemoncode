@@ -1,51 +1,32 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { useTasksStore } from '@/stores/tasks'
+import { ref } from 'vue'
 
-interface Task {
-  title: string
-  completed: boolean
-}
-
-const state = reactive<{
-  tasks: Task[]
-  newTask: Task
-}>({
-  tasks: [
-    { title: 'Aprender Vue', completed: false },
-    { title: 'Publicar en Linkedin', completed: true },
-  ],
-  newTask: {
-    title: '',
-    completed: false,
-  },
-})
+const newTaskTitle = ref('')
 
 const addTask = () => {
-  if (state.newTask.title.trim()) {
-    state.tasks = [...state.tasks, { ...state.newTask }]
-    state.newTask.title = ''
-    state.newTask.completed = false
+  if (newTaskTitle.value.trim()) {
+    tasks.addTask(newTaskTitle.value)
+    newTaskTitle.value = ''
   }
 }
 
-const deleteTask = (index: number) => {
-  state.tasks = state.tasks.filter((_, i) => i !== index)
-}
+const tasks = useTasksStore()
 </script>
 
 <template>
   <form @submit.prevent="addTask">
-    <input v-model="state.newTask.title" placeholder="Write your task" />
+    <input v-model="newTaskTitle" placeholder="Write your task" />
     <button>Add task</button>
   </form>
 
   <ul>
-    <li v-for="(task, index) in state.tasks" :key="index">
+    <li v-for="(task, index) in tasks.tasks" :key="task.id">
       <input type="checkbox" v-model="task.completed" />
       <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">{{
         task.title
       }}</span>
-      <button @click="deleteTask(index)">Delete</button>
+      <button @click="tasks.deleteTask(task.id)">Delete</button>
     </li>
   </ul>
 </template>
