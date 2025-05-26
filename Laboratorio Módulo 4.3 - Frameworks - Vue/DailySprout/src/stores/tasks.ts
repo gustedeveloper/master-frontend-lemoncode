@@ -4,10 +4,7 @@ import { nanoid } from 'nanoid'
 
 export const useTasksStore = defineStore('tasks', {
   state: () => ({
-    tasks: [
-      { id: nanoid(), title: 'Aprender Vue', completed: false },
-      { id: nanoid(), title: 'Publicar en Linkedin', completed: true },
-    ] as Task[],
+    tasks: JSON.parse(localStorage.getItem('tasks') || '[]') as Task[],
   }),
 
   actions: {
@@ -19,10 +16,12 @@ export const useTasksStore = defineStore('tasks', {
           completed: false,
         }
         this.tasks = [...this.tasks, { ...addedTask }]
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
       }
     },
     deleteTask(id: string) {
       this.tasks = this.tasks.filter((task) => task.id !== id)
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
   },
 })
