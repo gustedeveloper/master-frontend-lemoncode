@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import ToDoForm from '@/components/ToDoForm.vue'
+import TaskForm from '@/components/TaskForm.vue'
+import TaskList from '@/components/TaskList.vue'
 </script>
 
 <template>
-  <ToDoForm />
+  <TaskForm />
+  <TaskList />
 </template>
