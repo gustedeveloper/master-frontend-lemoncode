@@ -27,6 +27,10 @@ const addTask = () => {
     state.newTask.completed = false
   }
 }
+
+const deleteTask = (index: number) => {
+  state.tasks = state.tasks.filter((_, i) => i !== index)
+}
 </script>
 
 <template>
@@ -41,6 +45,7 @@ const addTask = () => {
       <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">{{
         task.title
       }}</span>
+      <button @click="deleteTask(index)">Delete</button>
     </li>
   </ul>
 </template>
