@@ -8,12 +8,14 @@ export const useTasksStore = defineStore('tasks', {
   }),
 
   actions: {
-    addTask(title: string) {
-      if (title.trim()) {
+    addTask(newTask: Partial<Task> & { title: string }) {
+      if (newTask.title.trim()) {
         const addedTask: Task = {
           id: nanoid(),
-          title: title,
-          completed: false,
+          title: newTask.title,
+          status: newTask.status as Task['status'],
+          showInGarden: false,
+          selectedFlower: newTask.selectedFlower || '',
         }
         this.tasks = [...this.tasks, { ...addedTask }]
         localStorage.setItem('tasks', JSON.stringify(this.tasks))
@@ -22,6 +24,13 @@ export const useTasksStore = defineStore('tasks', {
     deleteTask(id: string) {
       this.tasks = this.tasks.filter((task) => task.id !== id)
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
+    updateTask(updatedTask: Partial<Task> & { id: string }) {
+      const index = this.tasks.findIndex((task) => task.id === updatedTask.id)
+      if (index !== -1) {
+        this.tasks[index] = { ...this.tasks[index], ...updatedTask }
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      }
     },
   },
 })
