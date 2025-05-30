@@ -25,18 +25,32 @@ const selectFlower = (flower: string) => {
 </script>
 
 <template>
-  <div class="custom-dropdown">
-    <div class="dropdown-toggle" @click="isOpen = !isOpen">
+  <div
+    class="custom-dropdown"
+    role="combobox"
+    aria-haspopup="listbox"
+    :aria-expanded="isOpen"
+    aria-controls="flower-options"
+  >
+    <div
+      class="dropdown-toggle"
+      tabindex="0"
+      @click="isOpen = !isOpen"
+      @keydown.enter="isOpen = !isOpen"
+    >
       <img :src="selectedFlower" alt="Selected Flower" />
       <span>▼</span>
     </div>
 
-    <div class="dropdown-options" v-if="isOpen">
+    <div id="flower-options" class="dropdown-options" v-if="isOpen" role="listbox">
       <div
         v-for="(flower, index) in flowers"
         :key="index"
         class="dropdown-option"
+        role="option"
+        tabindex="0"
         @click="selectFlower(flower)"
+        @keydown.enter="selectFlower(flower)"
       >
         <img :src="flower" alt="Flower Option" />
       </div>

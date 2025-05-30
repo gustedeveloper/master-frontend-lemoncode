@@ -27,7 +27,13 @@ const tasks = useTasksStore()
 
 <template>
   <form class="form-container" @submit.prevent="addTask">
-    <input class="title-input" v-model="newTask.title" placeholder="Write your task" />
+    <label for="task-title"></label>
+    <input
+      class="title-input"
+      id="task-title"
+      v-model="newTask.title"
+      placeholder="Write your task"
+    />
     <div class="task-selection-options">
       <div class="status-selection">
         <label for="status-select">Choose task status: </label>
