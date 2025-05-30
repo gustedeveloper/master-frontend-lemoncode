@@ -3,10 +3,11 @@ import { useTasksStore } from '@/stores/tasks'
 import FlowerSelect from '@/common/FlowerSelect.vue'
 import { reactive } from 'vue'
 import { flowers } from '@/utils/flower.util'
+import type { Task } from '@/types'
 
 const defaultFlower = flowers[0] || ''
 
-let newTask = reactive({
+let newTask = reactive<Pick<Task, 'title' | 'status' | 'selectedFlower'>>({
   title: '',
   status: 'Just started!',
   selectedFlower: defaultFlower,
