@@ -1,0 +1,62 @@
+:root {
+  --pixel-bg: #d3e6cb;
+  --pixel-bg-container: #ebd5b6;
+  --pixel-border: #495f40;
+  --pixel-shadow: #9b7653;
+  --pixel-primary-button-bg: #a6bcf8;
+  --pixel-primary-button-hover: #7597f3;
+  --pixel-primary-button-border: #22397a;
+
+  --pixel-secondary-button-bg: #f8aba6;
+  --pixel-secondary-button-hover: #f37d75;
+  --pixel-secondary-button-border: #7a2822;
+
+  --pixel-tertiary-button-bg: #f8d7a6;
+  --pixel-tertiary-button-hover: #f3b875;
+  --pixel-tertiary-button-border: #7a4c22;
+
+  --pixel-font: 'Press Start 2P', cursive;
+  --pixel-highlight: #9bcc9d;
+  --pixel-box-shadow: 4px 4px 0 #9b7653;
+}
+
+.pixel-button {
+  font-family: var(--pixel-font);
+  font-size: 12px;
+  color: #000;
+  background-color: var(--pixel-primary-button-bg);
+  border: 3px solid var(--pixel-primary-button-border);
+  box-shadow: var(--pixel-box-shadow);
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+
+  user-select: none;
+}
+
+.pixel-button:hover {
+  background-color: var(--pixel-primary-button-hover);
+}
+
+.pixel-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.delete {
+  background-color: var(--pixel-secondary-button-bg);
+  border: 3px solid var(--pixel-secondary-button-border);
+}
+
+.delete:hover {
+  background-color: var(--pixel-secondary-button-hover);
+}
+
+.modify {
+  background-color: var(--pixel-tertiary-button-bg);
+  border: 3px solid var(--pixel-tertiary-button-border);
+}
+
+.modify:hover {
+  background-color: var(--pixel-tertiary-button-hover);
+}
