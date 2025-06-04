@@ -32,6 +32,7 @@ const selectFlower = (flower: string) => {
     :aria-expanded="isOpen"
     aria-controls="flower-options"
   >
+    <label for="flower-select">Select a flower:</label>
     <div
       class="dropdown-toggle"
       tabindex="0"
@@ -59,65 +60,75 @@ const selectFlower = (flower: string) => {
 </template>
 
 <style scoped>
+.flower-selector label {
+  font-family: var(--pixel-font);
+  font-size: 12px;
+}
+
 .custom-dropdown {
   position: relative;
-  width: 80px;
+  width: 100px;
   user-select: none;
+  font-family: var(--pixel-font);
   font-size: 0;
 }
 
 .dropdown-toggle {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 2px solid #ccc;
-  padding: 4px;
-  border-radius: 8px;
-  background: #fff;
+  padding: 8px;
+  border: 3px solid var(--pixel-border);
+  background-color: var(--pixel-bg);
+  box-shadow: var(--pixel-box-shadow);
   cursor: pointer;
-  gap: 4px;
+  gap: 8px;
 }
 
 .dropdown-toggle img {
   width: 32px;
   height: 32px;
   object-fit: contain;
+  image-rendering: pixelated;
 }
 
 .dropdown-options {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-top: 4px;
+  background-color: var(--pixel-bg);
+  border: 3px solid var(--pixel-border);
+  box-shadow: var(--pixel-box-shadow);
   z-index: 1000;
+  margin-top: 4px;
   max-height: 160px;
   overflow-y: auto;
   padding: 4px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-option {
+  padding: 6px;
+  border: 2px solid transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px;
-  cursor: pointer;
-  transition: transform 0.2s;
+  background-color: var(--pixel-bg);
+  transition: all 0.1s ease;
 }
 
 .dropdown-option:hover {
-  transform: scale(1.1);
+  background-color: var(--pixel-highlight);
+  box-shadow: var(--pixel-box-shadow);
+  transform: scale(1.05);
 }
 
 .dropdown-option img {
   width: 40px;
   height: 40px;
   object-fit: contain;
+  image-rendering: pixelated;
 }
 </style>
