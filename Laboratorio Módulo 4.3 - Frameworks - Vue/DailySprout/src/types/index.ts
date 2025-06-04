@@ -1,7 +1,7 @@
 export interface Task {
   id: string
   title: string
-  status: 'Just started!' | 'In progress!' | 'Completed!'
+  status: 'Just started!' | 'In progress!' | 'Completed!' | ''
   showInGarden: boolean
   selectedFlower: string
   gardenId?: string
