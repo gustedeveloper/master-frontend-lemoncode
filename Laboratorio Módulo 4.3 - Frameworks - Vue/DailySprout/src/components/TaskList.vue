@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTasksStore } from '@/stores/tasks'
 import type { Task } from '@/types'
+import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 
 const tasks = useTasksStore()
 
@@ -14,9 +15,7 @@ const getTaskImage = (task: Task) => {
   return task.selectedFlower
 }
 
-const handleStatusChange = (id: string, e: Event) => {
-  const target = e.target as HTMLSelectElement
-  const newStatus = target.value as Task['status']
+const handleStatusChange = (id: string, newStatus: Task['status']) => {
   tasks.updateTask({ id, status: newStatus })
 }
 </script>
@@ -31,12 +30,14 @@ const handleStatusChange = (id: string, e: Event) => {
         <div class="task-image">
           <img :src="getTaskImage(task)" :alt="task.title" />
         </div>
-        <select v-model="task.status" @change="(e) => handleStatusChange(task.id, e)">
-          <option value="Just started!">Just started!</option>
-          <option value="In progress!">In progress!</option>
-          <option value="Completed!">Completed!</option>
-        </select>
-        <button @click="tasks.deleteTask(task.id)">Delete</button>
+        <CustomStatusDropdown
+          v-model="task.status"
+          :options="['Just started!', 'In progress!', 'Completed!']"
+          @update:modelValue="
+            (newStatus: string) => handleStatusChange(task.id, newStatus as Task['status'])
+          "
+        />
+        <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
       </li>
     </ul>
 
@@ -45,15 +46,10 @@ const handleStatusChange = (id: string, e: Event) => {
 </template>
 
 <style scoped>
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 .task-container {
   display: flex;
   gap: 20px;
-  width: 200px;
+  align-items: center;
 }
 
 .task-image img {
