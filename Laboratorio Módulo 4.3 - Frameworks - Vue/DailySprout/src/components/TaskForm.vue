@@ -4,12 +4,13 @@ import FlowerSelect from '@/common/FlowerSelect.vue'
 import { reactive } from 'vue'
 import { flowers } from '@/utils/flower.util'
 import type { Task } from '@/types'
+import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 
 const defaultFlower = flowers[0] || ''
 
 let newTask = reactive<Pick<Task, 'title' | 'status' | 'selectedFlower'>>({
   title: '',
-  status: 'Just started!',
+  status: '',
   selectedFlower: defaultFlower,
 })
 
@@ -27,58 +28,62 @@ const tasks = useTasksStore()
 
 <template>
   <form class="form-container" @submit.prevent="addTask">
-    <label for="task-title"></label>
-    <input
-      class="title-input"
-      id="task-title"
-      v-model="newTask.title"
-      placeholder="Write your task"
-    />
+    <div class="form-header">
+      <label for="task-title"></label>
+      <input
+        class="title-input"
+        id="task-title"
+        v-model="newTask.title"
+        placeholder="Write your task"
+      />
+    </div>
     <div class="task-selection-options">
-      <div class="status-selection">
-        <label for="status-select">Choose task status: </label>
-        <select id="status-select" v-model="newTask.status">
-          <option value="Just started!">Just started!</option>
-          <option value="In progress!">In progress!</option>
-          <option value="Completed!">Completed!</option>
-        </select>
-      </div>
+      <CustomStatusDropdown
+        v-model="newTask.status"
+        :options="['Just started!', 'In progress!', 'Completed!']"
+      />
       <div class="flower-selector">
-        <label>Select a flower:</label>
         <FlowerSelect v-model="newTask.selectedFlower" />
       </div>
     </div>
-    <button>Add task</button>
+    <button class="pixel-button add">Add task</button>
   </form>
 </template>
 
 <style scoped>
 .form-container {
-  margin: 20px;
+  background-color: var(--pixel-bg-container);
+  border: 3px solid var(--pixel-border);
+  box-shadow: var(--pixel-box-shadow);
+  width: 600px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-  .title-input {
-    width: 400px;
-  }
+.title-input {
+  width: 500px;
+  font-family: var(--pixel-font);
+  font-size: 12px;
+  padding: 8px;
+  border: 3px solid var(--pixel-border);
+  background-color: var(--pixel-bg);
+  box-shadow: var(--pixel-box-shadow);
+  cursor: pointer;
+  gap: 8px;
+}
 
-  .task-selection-options {
-    display: flex;
-    gap: 20px;
-  }
+.title-input:focus {
+  outline: 1px solid var(--pixel-highlight);
+}
 
-  #status-select {
-    width: 100px;
-  }
-
-  .flower-selector {
-    display: flex;
-    gap: 5px;
-  }
-
-  button {
-    width: 100px;
-  }
+.task-selection-options {
+  display: flex;
+  gap: 50px;
+  align-items: center;
 }
 </style>
