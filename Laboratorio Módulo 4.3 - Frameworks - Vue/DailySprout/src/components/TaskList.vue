@@ -2,7 +2,7 @@
 import { useTasksStore } from '@/stores/tasks'
 import type { Task } from '@/types'
 import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
-
+import TaskImage from '@/common/TaskImage.vue'
 const tasks = useTasksStore()
 
 tasks.$subscribe((_mutation, state) => {
@@ -30,9 +30,7 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
           >{{ task.title }}</span
         >
         <div class="task-info">
-          <div class="task-image">
-            <img :src="getTaskImage(task)" :alt="task.title" />
-          </div>
+          <TaskImage :task="task" />
           <CustomStatusDropdown
             v-model="task.status"
             :options="['Just started!', 'In progress!', 'Completed!']"
@@ -69,6 +67,7 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
 }
 
 .task-title {
+  text-align: center;
   font-family: var(--pixel-font);
   font-size: 12px;
   color: #000;
