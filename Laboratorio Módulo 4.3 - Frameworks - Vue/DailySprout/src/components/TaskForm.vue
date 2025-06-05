@@ -7,6 +7,7 @@ import type { Task } from '@/types'
 import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 
 const defaultFlower = flowers[0] || ''
+const maxLength = 100
 
 let newTask = reactive<Pick<Task, 'title' | 'status' | 'selectedFlower'>>({
   title: '',
@@ -23,6 +24,12 @@ const addTask = () => {
   }
 }
 
+const checkLength = () => {
+  if (newTask.title.length > maxLength) {
+    newTask.title = newTask.title.slice(0, maxLength)
+  }
+}
+
 const tasks = useTasksStore()
 </script>
 
@@ -35,7 +42,9 @@ const tasks = useTasksStore()
         id="task-title"
         v-model="newTask.title"
         placeholder="Write your task"
+        @input="checkLength"
       />
+      <p class="title-input-length">{{ newTask.title.length }} / {{ maxLength }} characters</p>
     </div>
     <div class="form-footer">
       <div class="task-selection-options">
@@ -84,6 +93,11 @@ const tasks = useTasksStore()
 
 .title-input:focus {
   outline: 1px solid var(--pixel-highlight);
+}
+
+.title-input-length {
+  font-size: 12px;
+  margin-bottom: 0;
 }
 
 .form-footer {
