@@ -47,14 +47,8 @@ const tasks = useTasksStore()
       <p class="title-input-length">{{ newTask.title.length }} / {{ maxLength }} characters</p>
     </div>
     <div class="form-footer">
-      <div class="task-selection-options">
-        <CustomStatusDropdown
-          v-model="newTask.status"
-          :options="['Just started!', 'In progress!', 'Completed!']"
-        />
-        <div class="flower-selector">
-          <FlowerSelect v-model="newTask.selectedFlower" />
-        </div>
+      <div class="flower-selector">
+        <FlowerSelect v-model="newTask.selectedFlower" />
       </div>
       <button class="pixel-button add">Add task</button>
     </div>
@@ -104,7 +98,7 @@ const tasks = useTasksStore()
   width: 100%;
   display: flex;
   gap: 50px;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 

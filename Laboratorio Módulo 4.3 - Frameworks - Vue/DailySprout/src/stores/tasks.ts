@@ -13,7 +13,7 @@ export const useTasksStore = defineStore('tasks', {
         const addedTask: Task = {
           id: nanoid(),
           title: newTask.title,
-          status: newTask.status as Task['status'],
+          status: 'Just started!' as Task['status'],
           showInGarden: false,
           selectedFlower: newTask.selectedFlower || '',
         }
