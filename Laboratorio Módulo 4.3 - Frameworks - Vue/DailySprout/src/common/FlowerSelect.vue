@@ -67,7 +67,7 @@ const selectFlower = (flower: string) => {
 
 .custom-dropdown {
   position: relative;
-  width: 100px;
+  width: 120px;
   user-select: none;
   font-family: var(--pixel-font);
   font-size: 0;
