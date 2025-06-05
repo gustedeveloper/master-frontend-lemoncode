@@ -3,20 +3,30 @@ import { useTasksStore } from '@/stores/tasks'
 import type { Task } from '@/types'
 import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 import TaskImage from '@/common/TaskImage.vue'
+import EditableTitle from '@/common/EditableTitle.vue'
+import { ref } from 'vue'
 const tasks = useTasksStore()
 
 tasks.$subscribe((_mutation, state) => {
   localStorage.setItem('tasks', JSON.stringify(state.tasks))
 })
 
-const getTaskImage = (task: Task) => {
-  if (task.status === 'Just started!') return '/sprouts/sprout1.png'
-  if (task.status === 'In progress!') return '/stems/stem1.png'
-  return task.selectedFlower
-}
+const editingTaskId = ref<string | null>(null)
 
 const handleStatusChange = (id: string, newStatus: Task['status']) => {
   tasks.updateTask({ id, status: newStatus })
+}
+
+const startEditing = (taskId: string) => {
+  editingTaskId.value = taskId
+}
+
+const stopEditing = () => {
+  editingTaskId.value = null
+}
+
+const updateTaskTitle = (taskId: string, newTitle: string) => {
+  tasks.updateTask({ id: taskId, title: newTitle })
 }
 </script>
 
@@ -24,11 +34,13 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
   <div>
     <ul class="task-list" v-if="tasks.tasks.length > 0">
       <li class="task-container" v-for="task in tasks.tasks" :key="task.id">
-        <span
-          class="task-title"
-          :style="{ textDecoration: task.status === 'Completed!' ? 'line-through' : 'none' }"
-          >{{ task.title }}</span
-        >
+        <EditableTitle
+          :task="task"
+          :isEditing="editingTaskId === task.id"
+          @start-editing="startEditing"
+          @stop-editing="stopEditing"
+          @update-title="updateTaskTitle"
+        />
         <div class="task-info">
           <TaskImage :task="task" />
           <CustomStatusDropdown
@@ -60,22 +72,16 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 20px;
-  padding: 20px 35px;
+  padding: 25px 35px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
-.task-title {
-  text-align: center;
-  font-family: var(--pixel-font);
-  font-size: 12px;
-  color: #000;
-}
-
 .task-container {
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   background-color: white;
   border: 3px solid var(--pixel-border);
   box-shadow: var(--pixel-box-shadow);
