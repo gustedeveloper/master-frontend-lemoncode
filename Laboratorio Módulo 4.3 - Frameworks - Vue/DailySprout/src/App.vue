@@ -59,6 +59,10 @@ nav {
 .nav-link:hover {
   background-color: var(--pixel-tertiary-button-hover);
 }
+
+.router-link-active {
+  background-color: var(--pixel-tertiary-button-hover);
+}
 </style>
 
 <style scoped></style>
