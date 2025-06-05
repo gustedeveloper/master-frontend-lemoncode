@@ -3,6 +3,11 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+  <div class="sky-scroll">
+    <img src="/backgrounds/bg.png" class="sky" />
+    <img src="/backgrounds/bg.png" class="sky" />
+  </div>
+
   <header>
     <nav>
       <div class="logo">
@@ -19,10 +24,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 body {
+  background-color: var(--pixel-sky-bg);
   margin: 0;
-  background-image: url('/backgrounds/bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
 }
 
@@ -62,6 +65,35 @@ nav {
 
 .router-link-active {
   background-color: var(--pixel-tertiary-button-hover);
+}
+
+.sky-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  display: flex;
+}
+
+.sky {
+  width: 100%;
+  animation: moveClouds 120s linear infinite;
+}
+
+.sky:nth-child(2) {
+  margin-left: -1px;
+}
+
+@keyframes moveClouds {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 </style>
 
