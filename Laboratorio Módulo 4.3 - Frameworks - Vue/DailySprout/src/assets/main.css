@@ -1,3 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--pixel-border);
+  border: 2px solid var(--pixel-bg-container);
+}
+
 :root {
   --pixel-bg: #d3e6cb;
   --pixel-bg-container: #ebd5b6;
