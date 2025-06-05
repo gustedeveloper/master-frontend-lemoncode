@@ -37,48 +37,61 @@ const tasks = useTasksStore()
         placeholder="Write your task"
       />
     </div>
-    <div class="task-selection-options">
-      <CustomStatusDropdown
-        v-model="newTask.status"
-        :options="['Just started!', 'In progress!', 'Completed!']"
-      />
-      <div class="flower-selector">
-        <FlowerSelect v-model="newTask.selectedFlower" />
+    <div class="form-footer">
+      <div class="task-selection-options">
+        <CustomStatusDropdown
+          v-model="newTask.status"
+          :options="['Just started!', 'In progress!', 'Completed!']"
+        />
+        <div class="flower-selector">
+          <FlowerSelect v-model="newTask.selectedFlower" />
+        </div>
       </div>
+      <button class="pixel-button add">Add task</button>
     </div>
-    <button class="pixel-button add">Add task</button>
   </form>
 </template>
 
 <style scoped>
 .form-container {
+  box-sizing: border-box;
   background-color: var(--pixel-bg-container);
   border: 3px solid var(--pixel-border);
   box-shadow: var(--pixel-box-shadow);
   width: 600px;
-  height: 250px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 35px;
+}
+
+.form-header {
+  width: 100%;
 }
 
 .title-input {
-  width: 500px;
+  width: 100%;
   font-family: var(--pixel-font);
   font-size: 12px;
-  padding: 8px;
+  padding: 10px;
   border: 3px solid var(--pixel-border);
   background-color: var(--pixel-bg);
   box-shadow: var(--pixel-box-shadow);
-  cursor: pointer;
-  gap: 8px;
 }
 
 .title-input:focus {
   outline: 1px solid var(--pixel-highlight);
+}
+
+.form-footer {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .task-selection-options {

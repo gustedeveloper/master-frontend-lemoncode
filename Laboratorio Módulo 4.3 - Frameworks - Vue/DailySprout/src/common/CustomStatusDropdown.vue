@@ -64,7 +64,7 @@ watch(
 
 .pixel-dropdown {
   position: relative;
-  width: 220px;
+  width: 130px;
   border: 3px solid var(--pixel-border);
   background-color: var(--pixel-bg);
   box-shadow: 4px 4px 0 var(--pixel-shadow);

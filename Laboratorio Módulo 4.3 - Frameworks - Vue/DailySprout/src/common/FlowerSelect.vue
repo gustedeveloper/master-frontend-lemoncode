@@ -40,7 +40,7 @@ const selectFlower = (flower: string) => {
       @keydown.enter="isOpen = !isOpen"
     >
       <img :src="selectedFlower" alt="Selected Flower" />
-      <span>▼</span>
+      <span class="arrow">▼</span>
     </div>
 
     <div id="flower-options" class="dropdown-options" v-if="isOpen" role="listbox">
@@ -130,5 +130,14 @@ const selectFlower = (flower: string) => {
   height: 40px;
   object-fit: contain;
   image-rendering: pixelated;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--pixel-bg);
 }
 </style>
