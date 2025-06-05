@@ -45,7 +45,9 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
       </li>
     </ul>
 
-    <p v-else>You don't have any tasks yet — add one! 🌱</p>
+    <div class="task-list" v-else>
+      <p class="no-tasks-message">You don't have any tasks yet — add one! 🌱</p>
+    </div>
   </div>
 </template>
 
@@ -94,5 +96,15 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
   width: 32px;
   height: 32px;
   object-fit: contain;
+}
+
+.task-container:nth-last-child(1) {
+  margin-bottom: 70px;
+}
+
+.no-tasks-message {
+  font-family: var(--pixel-font);
+  font-size: 14px;
+  color: #000;
 }
 </style>
