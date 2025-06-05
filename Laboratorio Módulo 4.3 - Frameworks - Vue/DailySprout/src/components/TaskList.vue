@@ -107,4 +107,22 @@ const handleStatusChange = (id: string, newStatus: Task['status']) => {
   font-size: 14px;
   color: #000;
 }
+
+@media (max-width: 768px) {
+  .task-list {
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .task-list {
+    width: 300px;
+    margin-bottom: 50px;
+  }
+
+  .task-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>

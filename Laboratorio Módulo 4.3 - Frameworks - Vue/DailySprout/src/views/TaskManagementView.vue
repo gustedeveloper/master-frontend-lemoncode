@@ -16,4 +16,11 @@ import TaskList from '@/components/TaskList.vue'
   justify-content: center;
   gap: 50px;
 }
+
+@media (max-width: 1350px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>

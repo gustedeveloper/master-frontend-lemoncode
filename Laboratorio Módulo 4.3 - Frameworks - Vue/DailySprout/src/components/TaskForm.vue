@@ -107,4 +107,16 @@ const tasks = useTasksStore()
   gap: 50px;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    width: 300px;
+  }
+}
 </style>

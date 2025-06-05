@@ -46,4 +46,10 @@
   margin-bottom: 10px;
   color: #333;
 }
+
+@media (max-width: 500px) {
+  .floating-summary {
+    width: 300px;
+  }
+}
 </style>

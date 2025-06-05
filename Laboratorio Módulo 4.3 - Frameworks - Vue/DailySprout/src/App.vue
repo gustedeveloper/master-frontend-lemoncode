@@ -13,9 +13,13 @@ import { RouterLink, RouterView } from 'vue-router'
       <div class="logo">
         <img class="logo-image" src="/logo.png" alt="Daily Sprout logo" />
       </div>
-      <RouterLink to="/" class="nav-link pixel-button">Home</RouterLink>
-      <RouterLink to="/task-management" class="nav-link pixel-button">Task Management</RouterLink>
-      <RouterLink to="/about" class="nav-link pixel-button">About</RouterLink>
+      <div class="nav-links">
+        <RouterLink to="/" class="nav-link pixel-button">Home</RouterLink>
+        <RouterLink to="/task-management" class="nav-link pixel-button management"
+          >Task Management</RouterLink
+        >
+        <RouterLink to="/about" class="nav-link pixel-button">About</RouterLink>
+      </div>
     </nav>
   </header>
 
@@ -48,9 +52,15 @@ nav {
   margin-bottom: 50px;
 }
 
+.nav-links {
+  display: flex;
+  gap: 50px;
+}
+
 .nav-link {
   height: 50px;
-  min-width: 100px;
+  min-width: 70px;
+  max-width: 100%;
   font-size: 20px;
   text-align: center;
   background-color: var(--pixel-tertiary-button-bg);
@@ -93,6 +103,40 @@ nav {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 817px) {
+  nav {
+    margin-bottom: 0;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .management {
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    width: 100%;
+    padding: 30px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 14px;
   }
 }
 </style>
