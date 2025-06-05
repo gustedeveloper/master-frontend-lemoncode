@@ -5,8 +5,11 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <nav>
+      <div class="logo">
+        <img class="logo-image" src="/logo.png" alt="Daily Sprout logo" />
+      </div>
       <RouterLink to="/" class="nav-link pixel-button">Home</RouterLink>
-
+      <RouterLink to="/task-management" class="nav-link pixel-button">Task Management</RouterLink>
       <RouterLink to="/about" class="nav-link pixel-button">About</RouterLink>
     </nav>
   </header>
@@ -29,9 +32,13 @@ body {
   height: 100vh;
 }
 
+.logo img {
+  width: 150px;
+}
+
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 50px;
   gap: 50px;
@@ -40,7 +47,7 @@ nav {
 
 .nav-link {
   height: 50px;
-  width: 100px;
+  min-width: 100px;
   font-size: 20px;
   text-align: center;
   background-color: var(--pixel-tertiary-button-bg);
