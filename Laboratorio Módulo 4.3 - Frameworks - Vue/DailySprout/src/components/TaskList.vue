@@ -5,8 +5,17 @@ import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 import TaskImage from '@/common/TaskImage.vue'
 import EditableTitle from '@/common/EditableTitle.vue'
 import Checkbox from '@/common/Checkbox.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import TaskFilterControl from '@/common/TaskFilterControl.vue'
 const tasks = useTasksStore()
+
+const activeFilter = ref('All')
+
+const filteredTasks = computed(() => {
+  if (activeFilter.value === 'All') return tasks.tasks
+  if (activeFilter.value === 'In garden') return tasks.tasks.filter((task) => task.showInGarden)
+  return tasks.tasks.filter((task) => task.status === activeFilter.value)
+})
 
 tasks.$subscribe((_mutation, state) => {
   localStorage.setItem('tasks', JSON.stringify(state.tasks))
@@ -34,8 +43,9 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
 <template>
   <div>
     <ul class="task-list" v-if="tasks.tasks.length > 0">
+      <TaskFilterControl v-model="activeFilter" />
       <div>Tasks in garden: {{ tasks.tasks.filter((task) => task.showInGarden).length }} / 10</div>
-      <li class="task-container" v-for="task in tasks.tasks" :key="task.id">
+      <li class="task-container" v-for="task in filteredTasks" :key="task.id">
         <EditableTitle
           :task="task"
           :isEditing="editingTaskId === task.id"
@@ -119,9 +129,19 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
   color: #000;
 }
 
+@media (max-width: 1350px) {
+  .task-list {
+    margin-bottom: 55px;
+  }
+}
+
 @media (max-width: 768px) {
   .task-list {
     width: 500px;
+  }
+  .task-info {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -129,11 +149,6 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
   .task-list {
     width: 350px;
     margin-bottom: 50px;
-  }
-
-  .task-info {
-    flex-direction: column;
-    align-items: center;
   }
 }
 </style>
