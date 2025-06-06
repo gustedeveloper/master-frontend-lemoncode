@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Task } from '@/types'
 
-const props = defineProps<{ task: Task }>()
+const props = defineProps<{ task: Task; isInGarden?: boolean }>()
 
 const getImage = () => {
   if (props.task.status === 'Just started!') return '/sprouts/sprout1.png'
@@ -12,7 +12,13 @@ const getImage = () => {
 
 <template>
   <transition name="fade-grow" mode="out-in">
-    <img :src="getImage()" :key="task.status" class="task-image" alt="task stage" />
+    <img
+      :src="getImage()"
+      :key="task.status"
+      class="task-image"
+      alt="task stage"
+      :class="['task-image', isInGarden && task.status === 'Completed!' ? 'large-flower' : '']"
+    />
   </transition>
 </template>
 
@@ -24,6 +30,11 @@ const getImage = () => {
   transition:
     transform 0.6s ease,
     opacity 0.6s ease;
+}
+
+.large-flower {
+  width: 60px;
+  height: 60px;
 }
 
 .fade-grow-enter-active,
