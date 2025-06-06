@@ -4,6 +4,7 @@ import type { Task } from '@/types'
 import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 import TaskImage from '@/common/TaskImage.vue'
 import EditableTitle from '@/common/EditableTitle.vue'
+import Checkbox from '@/common/Checkbox.vue'
 import { ref } from 'vue'
 const tasks = useTasksStore()
 
@@ -50,6 +51,7 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
               (newStatus: string) => handleStatusChange(task.id, newStatus as Task['status'])
             "
           />
+          <Checkbox v-model="task.showInGarden" />
           <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
         </div>
       </li>
