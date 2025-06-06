@@ -17,7 +17,13 @@ const getImage = () => {
       :key="task.status"
       class="task-image"
       alt="task stage"
-      :class="['task-image', isInGarden && task.status === 'Completed!' ? 'large-flower' : '']"
+      :class="[
+        'task-image',
+        (isInGarden && task.status === 'Completed!') ||
+        (isInGarden && task.status === 'In progress!')
+          ? 'large-flower'
+          : '',
+      ]"
     />
   </transition>
 </template>
@@ -33,8 +39,8 @@ const getImage = () => {
 }
 
 .large-flower {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .fade-grow-enter-active,
