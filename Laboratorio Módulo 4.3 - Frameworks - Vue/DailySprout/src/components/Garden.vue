@@ -23,20 +23,19 @@ const tasksInGarden = computed(() => {
 </script>
 <template>
   <div class="garden-wrapper">
-    <div class="background-selector">
-      <CustomImageSelector
-        v-model="selectedBackground"
-        :options="backgroundOptions"
-        label="Choose background:"
-      />
-    </div>
-
     <div class="garden-container" :style="{ 'background-image': `url(${selectedBackground})` }">
       <div class="garden-row">
         <div class="garden-row-item" v-for="task in tasksInGarden" :key="task.id">
           <TaskImage :task="task" :isInGarden="true" />
         </div>
       </div>
+    </div>
+    <div class="background-selector">
+      <CustomImageSelector
+        v-model="selectedBackground"
+        :options="backgroundOptions"
+        label="Choose background:"
+      />
     </div>
   </div>
 </template>
@@ -49,8 +48,10 @@ const tasksInGarden = computed(() => {
 
 .background-selector {
   position: absolute;
+  top: 0;
   right: -50px;
-  z-index: 200;
+  margin-top: 0;
+  justify-content: flex-end;
 }
 .garden-container {
   margin: 0 auto;
@@ -90,5 +91,52 @@ const tasksInGarden = computed(() => {
 
 .garden-row-item:nth-child(even) {
   margin-top: -20px;
+}
+
+@media (max-width: 1176px) {
+  .garden-wrapper {
+    width: 650px;
+  }
+  .garden-container {
+    width: 650px;
+    height: 400px;
+  }
+  .background-selector {
+    position: static;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1035px) {
+  .garden-wrapper {
+    width: 520px;
+    height: 1000px;
+  }
+
+  .garden-container {
+    width: 520px;
+    height: 320px;
+  }
+
+  .garden-row {
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .garden-wrapper {
+    width: 335px;
+  }
+  .garden-container {
+    width: 335px;
+    height: 210px;
+    padding: 13px;
+  }
+  .garden-row {
+    padding-bottom: 0;
+    gap: 8px;
+  }
 }
 </style>

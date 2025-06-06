@@ -59,11 +59,14 @@ nav {
 }
 
 .nav-link {
-  height: 50px;
-  min-width: 70px;
+  min-height: 40px;
+  min-width: 50px;
   max-width: 100%;
   font-size: 20px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   background-color: var(--pixel-tertiary-button-bg);
   border: 3px solid var(--pixel-tertiary-button-border);
   text-decoration: none;
@@ -107,7 +110,7 @@ nav {
   }
 }
 
-@media (max-width: 817px) {
+@media (max-width: 932px) {
   nav {
     margin-bottom: 0;
     flex-direction: column;
@@ -115,7 +118,6 @@ nav {
 
   .nav-links {
     display: flex;
-    justify-content: center;
   }
 
   .nav-link {
@@ -127,17 +129,17 @@ nav {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   nav {
     width: 100%;
     padding: 30px;
   }
   .nav-links {
-    gap: 20px;
+    gap: 15px;
   }
 
   .nav-link {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 </style>

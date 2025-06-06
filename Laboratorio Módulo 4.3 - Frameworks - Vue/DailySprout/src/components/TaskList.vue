@@ -44,7 +44,7 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
           @update-title="updateTaskTitle"
         />
         <div class="task-info">
-          <TaskImage :task="task" />
+          <TaskImage :task="task" :isInGarden="false" />
           <CustomStatusDropdown
             v-model="task.status"
             :options="['Just started!', 'In progress!', 'Completed!']"
@@ -125,9 +125,9 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .task-list {
-    width: 300px;
+    width: 350px;
     margin-bottom: 50px;
   }
 

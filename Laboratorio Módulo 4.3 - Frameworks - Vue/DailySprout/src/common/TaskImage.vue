@@ -19,6 +19,7 @@ const getImage = () => {
       alt="task stage"
       :class="[
         'task-image',
+        isInGarden ? 'in-garden' : '',
         (isInGarden && task.status === 'Completed!') ||
         (isInGarden && task.status === 'In progress!')
           ? 'large-flower'
@@ -58,5 +59,41 @@ const getImage = () => {
 .fade-grow-leave-from {
   opacity: 1;
   transform: scale(1);
+}
+
+@media (max-width: 1176px) {
+  .task-image {
+    width: 24px;
+    height: 24px;
+  }
+
+  .large-flower {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 932px) {
+  .in-garden.task-image {
+    width: 20px;
+    height: 20px;
+  }
+
+  .in-garden.large-flower {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .in-garden.task-image {
+    width: 12px;
+    height: 12px;
+  }
+
+  .in-garden.large-flower {
+    width: 20px;
+    height: 20px;
+  }
 }
 </style>

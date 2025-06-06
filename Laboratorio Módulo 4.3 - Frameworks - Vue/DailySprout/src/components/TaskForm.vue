@@ -117,9 +117,9 @@ const tasks = useTasksStore()
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .form-container {
-    width: 300px;
+    width: 350px;
   }
 }
 </style>
