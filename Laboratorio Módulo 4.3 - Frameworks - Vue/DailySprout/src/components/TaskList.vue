@@ -34,6 +34,7 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
 <template>
   <div>
     <ul class="task-list" v-if="tasks.tasks.length > 0">
+      <div>Tasks in garden: {{ tasks.tasks.filter((task) => task.showInGarden).length }} / 10</div>
       <li class="task-container" v-for="task in tasks.tasks" :key="task.id">
         <EditableTitle
           :task="task"
@@ -51,7 +52,10 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
               (newStatus: string) => handleStatusChange(task.id, newStatus as Task['status'])
             "
           />
-          <Checkbox v-model="task.showInGarden" />
+          <Checkbox
+            v-model="task.showInGarden"
+            :gardenCount="tasks.tasks.filter((task) => task.showInGarden).length"
+          />
           <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
         </div>
       </li>

@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+const maxTasksInGarden = 10
+
 const props = defineProps<{
   modelValue: boolean
+  gardenCount: number
 }>()
 
 const emit = defineEmits<{
@@ -13,11 +16,15 @@ const checked = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value),
 })
+
+const isDisabled = computed(() => {
+  return !props.modelValue && props.gardenCount >= maxTasksInGarden
+})
 </script>
 
 <template>
   <label class="pixel-checkbox-wrapper">
-    <input type="checkbox" v-model="checked" />
+    <input type="checkbox" v-model="checked" :disabled="isDisabled" />
     <span class="custom-checkbox">
       <svg
         v-if="checked"
@@ -68,6 +75,11 @@ const checked = computed({
   stroke-dasharray: 60;
   stroke-dashoffset: 60;
   animation: stroke-draw 0.3s steps(6) forwards;
+}
+
+.pixel-checkbox-wrapper input[type='checkbox']:disabled + .custom-checkbox {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @keyframes stroke-draw {
