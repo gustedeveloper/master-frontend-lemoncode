@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TaskManagementView from '../views/TaskManagementView.vue'
+import GardenView from '../views/GardenView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -13,6 +15,11 @@ const router = createRouter({
       path: '/task-management',
       name: 'task-management',
       component: TaskManagementView,
+    },
+    {
+      path: '/garden',
+      name: 'garden',
+      component: GardenView,
     },
     {
       path: '/about',

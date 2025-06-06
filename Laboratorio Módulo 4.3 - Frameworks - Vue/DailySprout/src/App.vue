@@ -18,6 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/task-management" class="nav-link pixel-button management"
           >Task Management</RouterLink
         >
+        <RouterLink to="/garden" class="nav-link pixel-button">Garden</RouterLink>
         <RouterLink to="/about" class="nav-link pixel-button">About</RouterLink>
       </div>
     </nav>
