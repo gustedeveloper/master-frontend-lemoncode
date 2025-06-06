@@ -38,7 +38,7 @@ const tasksInGarden = computed(() => {
   justify-content: center;
   gap: 16px;
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .garden-row-item {
@@ -47,5 +47,13 @@ const tasksInGarden = computed(() => {
   align-items: flex-end;
   height: 100px;
   z-index: 100;
+}
+
+.garden-row-item:nth-child(odd) {
+  margin-top: 0px;
+}
+
+.garden-row-item:nth-child(even) {
+  margin-top: -20px;
 }
 </style>
