@@ -1,7 +1,20 @@
 <script setup lang="ts">
 import { useTasksStore } from '@/stores/tasks'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import TaskImage from '@/common/TaskImage.vue'
+import CustomImageSelector from '@/common/CustomImageSelector.vue'
+
+const backgroundOptions = [
+  '/backgrounds/sunrise.png',
+  '/backgrounds/day.png',
+  '/backgrounds/sunset.png',
+  '/backgrounds/forest.png',
+  '/backgrounds/night.png',
+  '/backgrounds/mountains-night.png',
+]
+
+const selectedBackground = ref(backgroundOptions[0])
+
 const tasks = useTasksStore()
 
 const tasksInGarden = computed(() => {
@@ -9,18 +22,38 @@ const tasksInGarden = computed(() => {
 })
 </script>
 <template>
-  <div class="garden-container">
-    <div class="garden-row">
-      <div class="garden-row-item" v-for="task in tasksInGarden" :key="task.id">
-        <TaskImage :task="task" :isInGarden="true" />
+  <div class="garden-wrapper">
+    <div class="background-selector">
+      <CustomImageSelector
+        v-model="selectedBackground"
+        :options="backgroundOptions"
+        label="Choose background:"
+      />
+    </div>
+
+    <div class="garden-container" :style="{ 'background-image': `url(${selectedBackground})` }">
+      <div class="garden-row">
+        <div class="garden-row-item" v-for="task in tasksInGarden" :key="task.id">
+          <TaskImage :task="task" :isInGarden="true" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
+.garden-wrapper {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.background-selector {
+  position: absolute;
+  right: -50px;
+  z-index: 200;
+}
 .garden-container {
   margin: 0 auto;
-  background-image: url('/backgrounds/day.png');
   background-size: cover;
   background-position: center bottom;
   border: 3px solid var(--pixel-border);
@@ -30,6 +63,8 @@ const tasksInGarden = computed(() => {
   display: flex;
   align-items: flex-end;
   padding: 20px;
+  position: relative;
+  transition: background-image 0.4s ease-in-out;
 }
 
 .garden-row {

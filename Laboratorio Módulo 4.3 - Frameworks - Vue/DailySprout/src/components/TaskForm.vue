@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useTasksStore } from '@/stores/tasks'
-import FlowerSelect from '@/common/FlowerSelect.vue'
+import CustomImageSelector from '@/common/CustomImageSelector.vue'
 import { reactive } from 'vue'
 import { flowers } from '@/utils/flower.util'
 import type { Task } from '@/types'
-import CustomStatusDropdown from '@/common/CustomStatusDropdown.vue'
 
 const defaultFlower = flowers[0] || ''
 const maxLength = 100
@@ -48,7 +47,11 @@ const tasks = useTasksStore()
     </div>
     <div class="form-footer">
       <div class="flower-selector">
-        <FlowerSelect v-model="newTask.selectedFlower" />
+        <CustomImageSelector
+          v-model="newTask.selectedFlower"
+          :options="flowers"
+          label="Choose a flower:"
+        />
       </div>
       <button class="pixel-button add">Add task</button>
     </div>

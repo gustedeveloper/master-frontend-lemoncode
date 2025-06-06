@@ -1,25 +1,24 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { flowers } from '@/utils/flower.util'
 
-const props = defineProps<{ modelValue: string }>()
+const props = defineProps<{ modelValue: string; options: string[]; label?: string }>()
 const emit = defineEmits(['update:modelValue'])
 
 const isOpen = ref(false)
-const selectedFlower = ref('')
+const selected = ref('')
 
 watchEffect(() => {
-  const isValid = flowers.includes(props.modelValue)
-  selectedFlower.value = isValid ? props.modelValue : flowers.length > 0 ? flowers[0] : ''
+  const isValid = props.options.includes(props.modelValue)
+  selected.value = isValid ? props.modelValue : props.options.length > 0 ? props.options[0] : ''
 
-  if (props.modelValue !== selectedFlower.value) {
-    emit('update:modelValue', selectedFlower.value)
+  if (props.modelValue !== selected.value) {
+    emit('update:modelValue', selected.value)
   }
 })
 
-const selectFlower = (flower: string) => {
-  selectedFlower.value = flower
-  emit('update:modelValue', flower)
+const selectOption = (option: string) => {
+  selected.value = option
+  emit('update:modelValue', option)
   isOpen.value = false
 }
 </script>
@@ -30,37 +29,37 @@ const selectFlower = (flower: string) => {
     role="combobox"
     aria-haspopup="listbox"
     :aria-expanded="isOpen"
-    aria-controls="flower-options"
+    aria-controls="image-options"
   >
-    <label for="flower-select">Select a flower:</label>
+    <label v-if="label" for="image-select">{{ label }}</label>
     <div
       class="dropdown-toggle"
       tabindex="0"
       @click="isOpen = !isOpen"
       @keydown.enter="isOpen = !isOpen"
     >
-      <img :src="selectedFlower" alt="Selected Flower" />
+      <img :src="selected" alt="Selected option preview" />
       <span class="arrow">▼</span>
     </div>
 
-    <div id="flower-options" class="dropdown-options" v-if="isOpen" role="listbox">
+    <div id="image-options" class="dropdown-options" v-if="isOpen" role="listbox">
       <div
-        v-for="(flower, index) in flowers"
+        v-for="(img, index) in options"
         :key="index"
         class="dropdown-option"
         role="option"
         tabindex="0"
-        @click="selectFlower(flower)"
-        @keydown.enter="selectFlower(flower)"
+        @click="selectOption(img)"
+        @keydown.enter="selectOption(img)"
       >
-        <img :src="flower" alt="Flower Option" />
+        <img :src="img" alt="Option preview" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.flower-selector label {
+label {
   font-family: var(--pixel-font);
   font-size: 12px;
 }
@@ -78,6 +77,7 @@ const selectFlower = (flower: string) => {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
+  margin-top: 8px;
   border: 3px solid var(--pixel-border);
   background-color: var(--pixel-bg);
   box-shadow: var(--pixel-box-shadow);
