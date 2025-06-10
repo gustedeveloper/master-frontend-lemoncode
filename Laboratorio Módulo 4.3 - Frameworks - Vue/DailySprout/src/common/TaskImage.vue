@@ -62,12 +62,12 @@ const getImage = () => {
 }
 
 @media (max-width: 1176px) {
-  .task-image {
+  .in-garden.task-image {
     width: 24px;
     height: 24px;
   }
 
-  .large-flower {
+  .in-garden.large-flower {
     width: 35px;
     height: 35px;
   }
