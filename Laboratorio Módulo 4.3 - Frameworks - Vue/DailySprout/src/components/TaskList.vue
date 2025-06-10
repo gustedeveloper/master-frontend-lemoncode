@@ -7,14 +7,19 @@ import EditableTitle from '@/common/EditableTitle.vue'
 import Checkbox from '@/common/Checkbox.vue'
 import { computed, ref } from 'vue'
 import TaskFilterControl from '@/common/TaskFilterControl.vue'
+import ArchivedTasksContainer from '@/common/ArchivedTasksContainer.vue'
 const tasks = useTasksStore()
 
 const activeFilter = ref('All')
+const showArchived = ref(false)
+
+const nonArchivedTasks = computed(() => tasks.tasks.filter((task) => !task.archived))
 
 const filteredTasks = computed(() => {
-  if (activeFilter.value === 'All') return tasks.tasks
-  if (activeFilter.value === 'In garden') return tasks.tasks.filter((task) => task.showInGarden)
-  return tasks.tasks.filter((task) => task.status === activeFilter.value)
+  if (activeFilter.value === 'All') return nonArchivedTasks.value
+  if (activeFilter.value === 'In garden')
+    return nonArchivedTasks.value.filter((task) => task.showInGarden)
+  return nonArchivedTasks.value.filter((task) => task.status === activeFilter.value)
 })
 
 tasks.$subscribe((_mutation, state) => {
@@ -38,13 +43,25 @@ const stopEditing = () => {
 const updateTaskTitle = (taskId: string, newTitle: string) => {
   tasks.updateTask({ id: taskId, title: newTitle })
 }
+
+const archiveTask = (taskId: string) => {
+  tasks.updateTask({ id: taskId, showInGarden: false, archived: true })
+}
 </script>
 
 <template>
-  <div>
-    <ul class="task-list" v-if="tasks.tasks.length > 0">
+  <div class="main-container">
+    <div class="archive-button-container">
+      <button class="archive-button" @click="showArchived = !showArchived">
+        <img :src="showArchived ? '/icons/list.png' : '/icons/archive.png'" />
+      </button>
+    </div>
+    <ArchivedTasksContainer v-if="showArchived" />
+    <ul class="task-list" v-else-if="nonArchivedTasks.length > 0">
       <TaskFilterControl v-model="activeFilter" />
-      <div>Tasks in garden: {{ tasks.tasks.filter((task) => task.showInGarden).length }} / 10</div>
+      <div>
+        Tasks in garden: {{ nonArchivedTasks.filter((task) => task.showInGarden).length }} / 10
+      </div>
       <li class="task-container" v-for="task in filteredTasks" :key="task.id">
         <EditableTitle
           :task="task"
@@ -64,9 +81,14 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
           />
           <Checkbox
             v-model="task.showInGarden"
-            :gardenCount="tasks.tasks.filter((task) => task.showInGarden).length"
+            :gardenCount="nonArchivedTasks.filter((task) => task.showInGarden).length"
           />
-          <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
+          <div class="task-actions">
+            <button class="pixel-button archive" @click="archiveTask(task.id)">
+              <img :src="'/icons/archive.png'" />
+            </button>
+            <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
+          </div>
         </div>
       </li>
     </ul>
@@ -78,6 +100,34 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
 </template>
 
 <style scoped>
+.main-container {
+  position: relative;
+}
+
+.archive-button-container {
+  border-top: 3px solid var(--pixel-border);
+  border-right: 3px solid var(--pixel-border);
+  border-left: 3px solid var(--pixel-border);
+  background-color: var(--pixel-bg-container);
+  padding-top: 5px;
+  height: 43px;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.archive-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.archive-button:hover {
+  transform: scale(1.1);
+}
+
 .task-list {
   margin: 0 auto;
   background-color: var(--pixel-bg-container);
@@ -113,6 +163,11 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
   align-items: center;
 }
 
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
 .task-image img {
   width: 32px;
   height: 32px;
@@ -127,6 +182,14 @@ const updateTaskTitle = (taskId: string, newTitle: string) => {
   font-family: var(--pixel-font);
   font-size: 14px;
   color: #000;
+}
+
+.archive {
+  padding: 4px;
+}
+
+.pixel-button.archive img {
+  width: 24px;
 }
 
 @media (max-width: 1350px) {

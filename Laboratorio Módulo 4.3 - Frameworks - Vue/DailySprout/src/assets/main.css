@@ -69,11 +69,18 @@
   background-color: var(--pixel-secondary-button-hover);
 }
 
-.modify {
+.modify,
+.archive {
   background-color: var(--pixel-tertiary-button-bg);
   border: 3px solid var(--pixel-tertiary-button-border);
 }
 
-.modify:hover {
+.modify:hover,
+.archive:hover {
   background-color: var(--pixel-tertiary-button-hover);
+}
+
+.restore {
+  background-color: var(--pixel-highlight);
+  border: 3px solid var(--pixel-border);
 }

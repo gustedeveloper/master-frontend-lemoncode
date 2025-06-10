@@ -15,6 +15,7 @@ export const useTasksStore = defineStore('tasks', {
           title: newTask.title,
           status: 'Just started!' as Task['status'],
           showInGarden: false,
+          archived: false,
           selectedFlower: newTask.selectedFlower || '',
         }
         this.tasks = [...this.tasks, { ...addedTask }]
