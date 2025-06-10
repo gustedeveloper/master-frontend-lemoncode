@@ -23,7 +23,7 @@ const isDisabled = computed(() => {
 </script>
 
 <template>
-  <label class="pixel-checkbox-wrapper">
+  <div class="pixel-checkbox-wrapper">
     <input type="checkbox" v-model="checked" :disabled="isDisabled" />
     <span class="custom-checkbox">
       <svg
@@ -35,8 +35,8 @@ const isDisabled = computed(() => {
         <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
       </svg>
     </span>
-    Show in garden
-  </label>
+    <label>Show in garden</label>
+  </div>
 </template>
 
 <style scoped>
@@ -48,6 +48,10 @@ const isDisabled = computed(() => {
   font-size: 12px;
   cursor: pointer;
   user-select: none;
+}
+
+.pixel-checkbox-wrapper label {
+  width: 95px;
 }
 
 .pixel-checkbox-wrapper input[type='checkbox'] {
@@ -67,8 +71,8 @@ const isDisabled = computed(() => {
 }
 
 .checkmark-only {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   stroke: var(--pixel-border);
   stroke-width: 5;
   stroke-linecap: square;
