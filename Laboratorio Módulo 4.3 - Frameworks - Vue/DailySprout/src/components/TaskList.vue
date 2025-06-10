@@ -115,13 +115,13 @@ const archiveTask = (taskId: string) => {
   top: -40px;
   right: 20px;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 .archive-button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  transition: transform 0.3s ease;
 }
 
 .archive-button:hover {

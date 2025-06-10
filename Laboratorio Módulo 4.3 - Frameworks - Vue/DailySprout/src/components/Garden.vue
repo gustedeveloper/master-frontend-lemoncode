@@ -112,7 +112,7 @@ const tasksInGarden = computed(() => {
 @media (max-width: 1035px) {
   .garden-wrapper {
     width: 520px;
-    height: 1000px;
+    height: 100%;
   }
 
   .garden-container {
@@ -132,7 +132,7 @@ const tasksInGarden = computed(() => {
   .garden-container {
     width: 335px;
     height: 210px;
-    padding: 13px;
+    padding-bottom: 8px;
   }
   .garden-row {
     padding-bottom: 0;

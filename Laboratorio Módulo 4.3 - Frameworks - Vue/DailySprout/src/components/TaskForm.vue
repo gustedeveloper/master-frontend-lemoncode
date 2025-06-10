@@ -120,6 +120,7 @@ const tasks = useTasksStore()
 @media (max-width: 600px) {
   .form-container {
     width: 350px;
+    margin-bottom: 40px;
   }
 }
 </style>
