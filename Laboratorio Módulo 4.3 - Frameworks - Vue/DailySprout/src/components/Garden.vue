@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useTasksStore } from '@/stores/tasks'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import TaskImage from '@/common/TaskImage.vue'
 import CustomImageSelector from '@/common/CustomImageSelector.vue'
+import { useGardenStore } from '@/stores/garden'
 
 const backgroundOptions = [
   '/backgrounds/sunrise.png',
@@ -13,7 +14,7 @@ const backgroundOptions = [
   '/backgrounds/mountains-night.png',
 ]
 
-const selectedBackground = ref(backgroundOptions[0])
+const gardenStore = useGardenStore()
 
 const tasks = useTasksStore()
 
@@ -23,7 +24,10 @@ const tasksInGarden = computed(() => {
 </script>
 <template>
   <div class="garden-wrapper">
-    <div class="garden-container" :style="{ 'background-image': `url(${selectedBackground})` }">
+    <div
+      class="garden-container"
+      :style="{ 'background-image': `url(${gardenStore.selectedBackground})` }"
+    >
       <div class="garden-row">
         <div class="garden-row-item" v-for="task in tasksInGarden" :key="task.id">
           <TaskImage :task="task" :isInGarden="true" />
@@ -32,7 +36,8 @@ const tasksInGarden = computed(() => {
     </div>
     <div class="background-selector">
       <CustomImageSelector
-        v-model="selectedBackground"
+        :modelValue="gardenStore.selectedBackground"
+        @update:modelValue="gardenStore.setBackground"
         :options="backgroundOptions"
         label="Choose background:"
       />
@@ -90,7 +95,7 @@ const tasksInGarden = computed(() => {
 }
 
 .garden-row-item:nth-child(even) {
-  margin-top: -20px;
+  margin-top: -25px;
 }
 
 @media (max-width: 1176px) {
@@ -119,10 +124,6 @@ const tasksInGarden = computed(() => {
     width: 520px;
     height: 320px;
   }
-
-  .garden-row {
-    padding-bottom: 5px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -137,6 +138,10 @@ const tasksInGarden = computed(() => {
   .garden-row {
     padding-bottom: 0;
     gap: 8px;
+  }
+
+  .garden-row-item:nth-child(even) {
+    margin-top: -15px;
   }
 }
 </style>
