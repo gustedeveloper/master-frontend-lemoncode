@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import type { Task } from '@/types'
 
 const props = defineProps<{ task: Task; isInGarden?: boolean }>()
+
+const route = useRoute()
 
 const getImage = () => {
   if (props.task.status === 'Just started!') return '/sprouts/sprout1.png'
@@ -11,22 +14,25 @@ const getImage = () => {
 </script>
 
 <template>
-  <transition name="fade-grow" mode="out-in">
-    <img
-      :src="getImage()"
-      :key="task.status"
-      class="task-image"
-      alt="task stage"
-      :class="[
-        'task-image',
-        isInGarden ? 'in-garden' : '',
-        (isInGarden && task.status === 'Completed!') ||
-        (isInGarden && task.status === 'In progress!')
-          ? 'large-flower'
-          : '',
-      ]"
-    />
-  </transition>
+  <div class="tooltip-wrapper">
+    <transition name="fade-grow" mode="out-in">
+      <img
+        :src="getImage()"
+        :key="task.status"
+        class="task-image"
+        alt="task stage"
+        :class="[
+          'task-image',
+          isInGarden ? 'in-garden' : '',
+          (isInGarden && task.status === 'Completed!') ||
+          (isInGarden && task.status === 'In progress!')
+            ? 'large-flower'
+            : '',
+        ]"
+      />
+    </transition>
+    <span v-if="route.name === 'garden'" class="tooltip-text">{{ task.title }}</span>
+  </div>
 </template>
 
 <style scoped>
@@ -59,6 +65,33 @@ const getImage = () => {
 .fade-grow-leave-from {
   opacity: 1;
   transform: scale(1);
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: var(--pixel-bg);
+  font-family: var(--pixel-font);
+  border: 2px solid var(--pixel-border);
+  padding: 6px;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: var(--pixel-box-shadow);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width: 1176px) {
