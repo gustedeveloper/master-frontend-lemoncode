@@ -53,7 +53,7 @@ const tasks = useTasksStore()
           label="Choose a flower:"
         />
       </div>
-      <button class="pixel-button add">Add task</button>
+      <button class="pixel-button add"><img class="button-img" :src="'/icons/add.png'"</button>
     </div>
   </form>
 </template>
@@ -102,8 +102,9 @@ const tasks = useTasksStore()
   display: flex;
   gap: 50px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
+
 
 .task-selection-options {
   display: flex;
@@ -120,7 +121,7 @@ const tasks = useTasksStore()
 @media (max-width: 600px) {
   .form-container {
     width: 350px;
-    margin-bottom: 40px;
+   
   }
 }
 </style>

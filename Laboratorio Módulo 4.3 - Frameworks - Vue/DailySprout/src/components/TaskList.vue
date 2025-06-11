@@ -53,7 +53,7 @@ const archiveTask = (taskId: string) => {
   <div class="main-container">
     <div class="archive-button-container">
       <button class="archive-button" @click="showArchived = !showArchived">
-        <img :src="showArchived ? '/icons/list.png' : '/icons/archive.png'" />
+        <img class="button-img" :src="showArchived ? '/icons/list.png' : '/icons/archive.png'" />
       </button>
     </div>
     <ArchivedTasksContainer v-if="showArchived" />
@@ -85,9 +85,9 @@ const archiveTask = (taskId: string) => {
           />
           <div class="task-actions">
             <button class="pixel-button archive" @click="archiveTask(task.id)">
-              <img :src="'/icons/archive.png'" />
+              <img class="button-img" :src="'/icons/archive.png'" />
             </button>
-            <button class="pixel-button delete" @click="tasks.deleteTask(task.id)">Delete</button>
+            <button class="pixel-button delete" @click="tasks.deleteTask(task.id)"><img class="button-img" :src="'/icons/delete.png'" </button>
           </div>
         </div>
       </li>
@@ -184,21 +184,17 @@ const archiveTask = (taskId: string) => {
   color: #000;
 }
 
-.archive {
-  padding: 4px;
-}
-
-.pixel-button.archive img {
-  width: 24px;
-}
-
 @media (max-width: 1350px) {
+  .main-container {
+    margin-top: 30px;
+  }
   .task-list {
     margin-bottom: 55px;
   }
 }
 
 @media (max-width: 768px) {
+  
   .task-list {
     width: 500px;
   }

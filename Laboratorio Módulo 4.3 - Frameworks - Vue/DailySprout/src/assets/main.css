@@ -20,6 +20,7 @@
   --pixel-bg-container: #ebd5b6;
   --pixel-border: #495f40;
   --pixel-shadow: #9b7653;
+
   --pixel-primary-button-bg: #a6bcf8;
   --pixel-primary-button-hover: #7597f3;
   --pixel-primary-button-border: #22397a;
@@ -34,6 +35,7 @@
 
   --pixel-font: 'VT323', monospace;
   --pixel-highlight: #9bcc9d;
+  --pixel-hover: #57a059;
   --pixel-box-shadow: 4px 4px 0 #9b7653;
 }
 
@@ -47,7 +49,6 @@
   padding: 10px 16px;
   cursor: pointer;
   transition: transform 0.1s ease;
-
   user-select: none;
 }
 
@@ -83,4 +84,26 @@
 .restore {
   background-color: var(--pixel-highlight);
   border: 3px solid var(--pixel-border);
+}
+
+.restore:hover {
+  background-color: var(--pixel-hover);
+}
+
+.archive,
+.delete,
+.add,
+.restore {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.button-img {
+  width: 24px;
+  height: 24px;
 }
