@@ -12,16 +12,16 @@ Developed with Vue.js, Daily Sprouts helps you organize your day-to-day in a vis
     <td align="center"><strong>Task Management</strong></td>
   </tr>
   <tr>
-    <td><img src="/DailySprout/public/screenshots/home.png" alt="Home Page"></td>
-    <td><img src="/DailySprout/public/screenshots/task-list.png" alt="Task Management"></td>
+    <td><img src="./public/screenshots/home.png" alt="Home Page"></td>
+    <td><img src="./public/screenshots/task-list.png" alt="Task Management"></td>
   </tr>
   <tr>
     <td align="center"><strong>Garden</strong></td>
     <td align="center"><strong>Archive</strong></td>
   </tr>
   <tr>
-    <td><img src="/DailySprout/public/screenshots/garden.png" alt="Garden"></td>
-    <td><img src="/DailySprout/public/screenshots/archive.png" alt="Archive"></td>
+    <td><img src="./public/screenshots/garden.png" alt="Garden"></td>
+    <td><img src="./public/screenshots/archive.png" alt="Archive"></td>
   </tr>
 </table>
 
