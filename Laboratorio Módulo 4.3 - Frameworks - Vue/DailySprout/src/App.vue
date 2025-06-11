@@ -93,7 +93,7 @@ nav {
 }
 
 .sky {
-  width: 100%;
+  width: 200%;
   animation: moveClouds 120s linear infinite;
 }
 
